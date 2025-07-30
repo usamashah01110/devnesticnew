@@ -1,6 +1,4 @@
-@extends('layouts.main');
-@section('title','FAQs')
-@section('content')
+
 <section id="faq" class="faq section">
 
     <div class="container">
@@ -67,5 +65,3 @@
     </div>
 
 </section>
-
-@endsection

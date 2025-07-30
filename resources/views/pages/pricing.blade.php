@@ -1,6 +1,4 @@
-@extends('layouts.main');
-@section('title', 'Princing')
-@section('content')
+
 <section id="pricing" class="pricing section light-background">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
@@ -141,5 +139,3 @@
     </div>
 </section>
 
-
-@endsection

@@ -1,6 +1,4 @@
-@extends('layouts.main')
-@section('title', 'Clients')
-@section('content')
+
     <!-- Clients Section -->
     <section id="clients" class="clients section">
         <div data-aos="fade-up" data-aos-delay="100">
@@ -176,5 +174,3 @@
     </section>
     <!-- /Clients Section -->
 
-
-@endsection

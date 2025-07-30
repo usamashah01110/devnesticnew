@@ -41,7 +41,20 @@
     @include('partials.header')
     <!-- Main -->
     <main class="main">
-        @yield('content')
+        @include('pages.hero')
+        @include('pages.client')
+        @include('pages.about')
+        @include('pages.stats')
+        @include('pages.services')
+        @include('pages.altSection')
+        @include('pages.feature')
+        @include('pages.whyUs')
+        @include('pages.call-to-action')
+        @include('pages.portfolio')
+        @include('pages.pricing')
+        @include('pages.faq')
+        @include('pages.team')
+        @include('pages.contact')
     </main>
     <!-- Footer -->
     @include('partials.footer')

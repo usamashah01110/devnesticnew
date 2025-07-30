@@ -1,6 +1,4 @@
-@extends('layouts.main');
-@section('title', 'Call to Action')
-@section('content')
+
 <section id="call-to-action" class="call-to-action section">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="cta-wrapper">
@@ -131,4 +129,3 @@
     </div>
 </section>
 <!-- /Call To Action Section -->
-@endsection

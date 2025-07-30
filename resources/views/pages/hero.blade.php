@@ -1,6 +1,3 @@
-@extends('layouts.main')
-@section('title', 'Hero')
-@section('content')
 <!-- Clients Section -->
 <section id="hero" class="hero section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -37,6 +34,3 @@
         </div>
       </div>
     </section><!-- /Hero Section -->
-
-
-@endsection

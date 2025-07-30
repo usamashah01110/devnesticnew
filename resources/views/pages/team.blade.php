@@ -1,6 +1,3 @@
-@extends('layouts.main')
-@section('title', 'Team')
-@section('content')
 <section id="team" class="team section">
 
     <!-- Section Title -->
@@ -90,4 +87,3 @@
     </div>
 
 </section><!-- /Team Section -->
-@endsection
