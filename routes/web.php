@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,23 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('welcome');
 });
-// Route::get('/about', function () {
-//     return view('pages.about');
-// })->name('about');
-// Route::get('/contact', function () {
-//     return view('pages.contact');
-// })->name('contact');
-// Route::get('/service', function () {
-//     return view('pages.services');
-// })->name('service');
-// Route::get('/portfolio', function () {
-//     return view('pages.portfolio');
-// })->name('portfolio');
-// Route::get('/team', function () {
-//     return view('pages.team');
-// })->name('team');
-// Route::get('/contact', function () {
-//     return view('pages.contact');
-// })->name('contact');
+
+Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
