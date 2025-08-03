@@ -15,4 +15,8 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function charts(){
+        return view('pages.dashboardPages.charts.chartjs');
+    }
+
 }

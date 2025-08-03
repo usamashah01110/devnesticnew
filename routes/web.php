@@ -19,8 +19,11 @@ Route::get('/', function () {
     return view('layouts.main');
 });
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
-// Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');;
-Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');;
+// Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard/charts',[AdminController::class,'charts'])->name('dashboard.charts');
+
+
 
 
 Route::middleware('auth')->group(function () {

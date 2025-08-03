@@ -74,7 +74,7 @@
       <div class="collapse" id="charts">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/charts/chartjs.html">ChartJs</a>
+            <a class="nav-link" href="{{ route('dashboard.charts') }}">ChartJs</a>
           </li>
         </ul>
       </div>
