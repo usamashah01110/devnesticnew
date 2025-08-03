@@ -61,7 +61,7 @@
       <div class="collapse" id="forms">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/forms/basic_elements.html">Form Elements</a>
+            <a class="nav-link" href="{{ route('dashboard.forms') }}">Form Elements</a>
           </li>
         </ul>
       </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title> @yield('title') </title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('admin/dashboardAssets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/dashboardAssets/vendors/ti-icons/css/themify-icons.css')}}">
@@ -25,14 +24,17 @@
     <link rel="shortcut icon" href="{{asset('admin/dashboardAssets/images/favicon.png')}}" />
 </head>
 
-<body>
-    @include('partials.dashboardPartials._navbar')
-    @include('partials.dashboardPartials._sidebar')
-    <main>
-        @yield('content')
-    </main>
+<body class="container-scroller">
 
-    @include('partials.dashboardPartials._footer')
+    @include('partials.dashboardPartials._navbar')
+    <main class="container-fluid page-body-wrapper">
+        @include('partials.dashboardPartials._sidebar')
+        <div class="main-panel">
+            @yield('content')
+
+            @include('partials.dashboardPartials._footer')
+        </div>
+    </main>
 
 
     <script src="{{asset('admin/dashboardAssets/vendors/js/vendor.bundle.base.js')}}"></script>
