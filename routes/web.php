@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.main');
 });
-
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');;
 
