@@ -14,8 +14,8 @@
         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../index.html">
+    <li class="nav-item" >
+      <a class="nav-link" href="{{ route('dashboard.index') }}" >
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
@@ -29,13 +29,13 @@
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/ui-features/buttons.html">Buttons</a>
+            <a class="nav-link" href="{{ route('dashboard.button') }}">Buttons</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/ui-features/dropdowns.html">Dropdowns</a>
+            <a class="nav-link" href="{{ route('dashboard.dropdown') }}">Dropdowns</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/ui-features/typography.html">Typography</a>
+            <a class="nav-link" href="{{ route('dashboard.typography') }}">Typography</a>
           </li>
         </ul>
       </div>
@@ -48,7 +48,7 @@
       <div class="collapse" id="icons">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/icons/font-awesome.html">Font Awesome</a>
+            <a class="nav-link" href="{{ route('dashboard.font') }}">Font Awesome</a>
           </li>
         </ul>
       </div>
@@ -87,7 +87,7 @@
       <div class="collapse" id="tables">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables/basic-table.html">Basic table</a>
+            <a class="nav-link" href="{{ route('dashboard.table') }}">Basic table</a>
           </li>
         </ul>
       </div>
@@ -101,25 +101,25 @@
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/samples/blank-page.html"> Blank Page </a>
+            <a class="nav-link" href="{{ route('dashboard.blank') }}"> Blank Page </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/samples/login.html"> Login </a>
+            <a class="nav-link" href="{{ route('dashboard.login') }}"> Login </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/samples/register.html"> Register </a>
+            <a class="nav-link" href="{{ route('dashboard.register') }}"> Register </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/samples/error-404.html"> 404 </a>
+            <a class="nav-link" href="{{ route('dashboard.error-404') }}"> 404 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/samples/error-500.html"> 500 </a>
+            <a class="nav-link" href="{{ route('dashboard.error-500') }}"> 500 </a>
           </li>
         </ul>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../docs/documentation.html" target="_blank">
+      <a class="nav-link" href="{{ route('dashboard.documentation') }}" target="_blank">
         <span class="menu-title">Documentation</span>
         <i class="mdi mdi-file-document-box menu-icon"></i>
       </a>

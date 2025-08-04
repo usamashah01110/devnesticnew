@@ -61,7 +61,7 @@
                   <div class="mt-3 d-grid gap-2">
                     <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.blade.php" class="text-primary">Login</a>
+                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
                   </div>
                 </form>
               </div>

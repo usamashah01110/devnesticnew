@@ -23,6 +23,18 @@ Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login')
 Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
 Route::get('/dashboard/charts',[AdminController::class,'charts'])->name('dashboard.charts');
 Route::get('/dashboard/forms',[AdminController::class,'forms'])->name('dashboard.forms');
+Route::get('/dashboard/fonts',[AdminController::class,'font'])->name('dashboard.font');
+Route::get('/dashboard/buttons',[AdminController::class,'button'])->name('dashboard.button');
+Route::get('/dashboard/dropdowns',[AdminController::class,'dropdown'])->name('dashboard.dropdown');
+Route::get('/dashboard/typography',[AdminController::class,'typography'])->name('dashboard.typography');
+Route::get('/dashboard/table',[AdminController::class,'table'])->name('dashboard.table');
+Route::get('/dashboard/blank',[AdminController::class,'blank'])->name('dashboard.blank');
+Route::get('/dashboard/error-404',[AdminController::class,'error_404'])->name('dashboard.error-404');
+Route::get('/dashboard/error-500',[AdminController::class,'error_500'])->name('dashboard.error-500');
+Route::get('/dashboard/login',[AdminController::class,'loginPage'])->name('dashboard.login');
+Route::get('/dashboard/register',[AdminController::class,'registerPage'])->name('dashboard.register');
+Route::get('/dashboard',[AdminController::class,'indexPage'])->name('dashboard.index');
+Route::get('/dashboard/documentation',[AdminController::class,'documentation'])->name('dashboard.documentation');
 
 
 
