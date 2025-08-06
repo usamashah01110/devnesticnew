@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectionsController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.main');
-});
+Route::get('/', [MainController::class, 'index']);
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 // Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
@@ -47,6 +46,11 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/section/1',[SectionsController::class,'index'])->name('section.index');
+    Route::post('/section/1/store',[SectionsController::class,'store'])->name('section.store');
+
+    // Section 2
+    Route::get('/section/2',[SectionsController::class,'sectiontwo'])->name('section.two');
+    Route::post('/section/2/store',[SectionsController::class,'sectiontwostore'])->name('section.two.store');
 });
 
 require __DIR__.'/auth.php';
