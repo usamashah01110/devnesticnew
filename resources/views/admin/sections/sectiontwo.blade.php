@@ -1,56 +1,75 @@
 @extends('admin.dashboard')
 @section('title', 'Section Two')
+
+
 @section('content')
+<div class="container">
     <div class="container">
-        <h2>Create Section Two</h2>
-        <form action="{{ route('section.two.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-                <label class="form-label">Heading One</label>
-                <input type="text" class="form-control" name="heading_one" value="{{ old('heading_one') }}">
+        <!-- page title contain heading nad button  -->
+        <div class="d-flex align-items-center justify-content-between">
+            <h2 class="mb-0">Create Section One</h2>
+            <a href="">
+                <button type="button" class="btn btn-primary">
+                    Create Section Two
+                </button>
+            </a>
+        </div>
+        <!-- page title contain heading nad button  end -->
+        <hr>
+
+        <!-- Table Start -->
+        <div class="card mt-4 shadow-sm">
+            <!-- Table Header -->
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Section One List</h5>
             </div>
-            <div class="mb-3">
-                <label class="form-label">short about us</label>
-                <input type="text" class="form-control" name="short_about_us" value="{{ old('heading_one') }}">
+            <!-- Table Body -->
+            <div class=" container card-body p-0">
+                <table class="table table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Short About Us</th>
+                            <th>Heading One</th>
+                            <th>Paragraph</th>
+                            <th>year</th>
+                            <th>CEO  Name</th>
+                            <th>CEO  image</th>
+                            <th>Large Image</th>
+                            <th>Small Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for ($i = 1; $i <= 1; $i++)
+                            <tr>
+                            <td class="text-truncate" style="max-width:50px;">Heading {{ $i }}</td>
+                            <td class="text-truncate" style="max-width:50px;">Short about us {{ $i }}</td>
+                            <td class="text-truncate" style="max-width:90px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                            <td class="text-truncate" style="max-width:70px;">2005</td>
+                            <td class="text-truncate" style="max-width:90px;">Syed Usama</td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                <img src="{{ asset('/storage/section_two/Gj2YMK89BZX1Lzluz4FSBm52Xk9vicA8BZAPJIpq.jpg') }}" alt="CEO image" class="rounded shadow-sm border">
+                            </td>
+                            <td class="text-truncate" style="max-width:90px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                            <td class="text-truncate" style="max-width:90px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                <a href="">
+                                    <button class="badge badge-danger">Delete</button>
+                                </a>
+                                <br>
+                                <br>
+        
+                                <a href="">
+                                    <button class="badge badge-success">Edit</button>
+                                </a>
+                            </td>
+                            </tr>
+                            @endfor
+                    </tbody>
+                </table>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Paragraph</label>
-                <textarea class="form-control" name="paragraph" rows="3">{{ old('paragraph') }}</textarea>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Experiance</label>
-                <input type="text" class="form-control" name="experiance" value="{{ old('btn_one_text') }}">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">CEO & Founder</label>
-                <input type="text" class="form-control" name="ceo_founder_name" value="{{ old('years') }}">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">SEO & Founder Profile Picture</label>
-                <input type="file" class="form-control" name="ceo_founder_img" value="{{ old('clients') }}">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Large image</label>
-                <input type="file" class="form-control" name="large_img" value="{{ old('success_rate') }}">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Small Image</label>
-                <input type="file" class="form-control" name="small_img">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Contact</label>
-                <input type="text" class="form-control" name="contact">
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block">Save</button>
-
-        </form>
+        </div>
     </div>
     <br>
-@endsection
+    @endsection

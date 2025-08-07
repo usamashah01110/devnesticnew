@@ -13,12 +13,13 @@ class SectionsController extends Controller
     {
         $this->sectionRepo = $sectionRepo;
     }
-
+    // Section one (Hero Section)
     public function index(){
         return view('admin.sections.sectionone');
     }
-    public function sectiontwo() {
-        return view('admin.sections.sectiontwo');
+    public function sectionOneCreate() {
+        $title = 'Create Section One';
+        return view('admin.inputs.sectionOneInput', compact('title'));
     }
 
     public function store(Request $request)
@@ -41,7 +42,13 @@ class SectionsController extends Controller
 
         return redirect('/')->with(['section_data' => $section]);
     }
-    public function sectiontwostore(Request $request)
+
+
+    // Section two (About Section)
+        public function sectiontwo() {
+        return view('admin.sections.sectiontwo');
+    }
+        public function sectiontwostore(Request $request)
     {
         $data = $request->validate([
             'heading_one' => 'nullable|string',
@@ -71,6 +78,36 @@ class SectionsController extends Controller
         $section = $this->sectionRepo->create($data);
 
         return redirect('/')->with(['section_data' => $section]);
+    }
+
+    // Section Three
+
+    public function sectionThree() {
+        return view('admin.sections.sectionthree');
+    }
+
+
+
+    // Section Four
+    public function sectionFour() {
+        return view('admin.sections.sectionfour');
+    }
+
+
+    // Section Five
+    public function sectionFive() {
+        return view('admin.sections.sectionfive');
+    }
+
+
+    // Section Six
+    public function sectionSix() {
+        return view('admin.sections.sectionsix');
+    }
+
+    // Section Seven
+    public function sectionSeven() {
+        return view('admin.sections.sectionseven');
     }
 }
 

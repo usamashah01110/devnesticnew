@@ -44,15 +44,15 @@
         {{-- {{ dd($sectionOne->heading_one) }}--}}
         @include('pages.hero', $sectionOne)
         @include('pages.client')
-        <!-- @include('pages.about') -->
-        @include('pages.stats')
+        @include('pages.about')
+        <!-- @include('pages.stats') -->
         @include('pages.services')
-        @include('pages.altSection')
-        @include('pages.feature')
+        <!-- @include('pages.altSection') -->
+        <!-- @include('pages.feature') -->
         @include('pages.whyUs')
         @include('pages.call-to-action')
         @include('pages.portfolio')
-        @include('pages.pricing')
+        <!-- @include('pages.pricing') -->
         @include('pages.faq')
         @include('pages.team')
         @include('pages.contact')

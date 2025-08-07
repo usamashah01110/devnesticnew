@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index']);
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 // Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard.index');
 Route::get('/dashboard/charts',[AdminController::class,'charts'])->name('dashboard.charts');
 Route::get('/dashboard/forms',[AdminController::class,'forms'])->name('dashboard.forms');
 Route::get('/dashboard/fonts',[AdminController::class,'font'])->name('dashboard.font');
@@ -33,8 +33,8 @@ Route::get('/dashboard/error-404',[AdminController::class,'error_404'])->name('d
 Route::get('/dashboard/error-500',[AdminController::class,'error_500'])->name('dashboard.error-500');
 Route::get('/dashboard/login',[AdminController::class,'loginPage'])->name('dashboard.login');
 Route::get('/dashboard/register',[AdminController::class,'registerPage'])->name('dashboard.register');
-Route::get('/dashboard',[AdminController::class,'indexPage'])->name('dashboard.index');
 Route::get('/dashboard/documentation',[AdminController::class,'documentation'])->name('dashboard.documentation');
+
 
 
 
@@ -51,6 +51,21 @@ Route::middleware('auth')->group(function () {
     // Section 2
     Route::get('/section/2',[SectionsController::class,'sectiontwo'])->name('section.two');
     Route::post('/section/2/store',[SectionsController::class,'sectiontwostore'])->name('section.two.store');
+
+    // Section 3
+    Route::get('/section/3',[SectionsController::class,'sectionThree'])->name('section.three');
+
+    // Section 4 
+    Route::get('/section/4',[SectionsController::class,'sectionFour'])->name('section.four');
+
+    // Section 5
+    Route::get('/section/5',[SectionsController::class,'sectionFive'])->name('section.five');
+
+    // Section 6
+    Route::get('/section/6',[SectionsController::class,'sectionSix'])->name('section.six');
+
+    // Section 7
+    Route::get('/section/7',[SectionsController::class,'sectionSeven'])->name('section.seven'); 
 });
 
 require __DIR__.'/auth.php';
