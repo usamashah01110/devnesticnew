@@ -1,6 +1,4 @@
-@extends('layouts.main')
-@section('title', 'About Us')
-@section('content')
+
 <section id="about" class="about section light-background">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
@@ -124,6 +122,4 @@
         </div>
     </div>
 </section>
-@endsection
 
-<!-- /About Section -->

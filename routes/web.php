@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
     // Section 3
     Route::get('/section/3',[SectionsController::class,'sectionThree'])->name('section.three');
 
-    // Section 4 
+    // Section 4
     Route::get('/section/4',[SectionsController::class,'sectionFour'])->name('section.four');
 
     // Section 5
@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/section/6',[SectionsController::class,'sectionSix'])->name('section.six');
 
     // Section 7
-    Route::get('/section/7',[SectionsController::class,'sectionSeven'])->name('section.seven'); 
+    Route::get('/section/7',[SectionsController::class,'sectionSeven'])->name('section.seven');
 });
 
 require __DIR__.'/auth.php';

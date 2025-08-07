@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function index(){
-        $sectionOne = SectionOne::where('id',23)->first();
+
+        $sectionOne = SectionOne::first();
 
         return view('layouts.main', compact('sectionOne'));
     }

@@ -40,18 +40,22 @@
     <!-- Header -->
     @include('partials.header')
     <!-- Main -->
+
     <main class="main">
-        <!-- @include('pages.hero') -->
-        <!-- @include('pages.client')
+
+        @include('pages.hero', $sectionOne)
+
+         @include('pages.client')
+
         @include('pages.about')
         @include('pages.services')
-        @include('pages.whyUs') -->
+        @include('pages.whyUs')
         @include('pages.call-to-action')
-       <!-- @include('pages.portfolio')
+       @include('pages.portfolio')
         @include('pages.faq')
         @include('pages.team')
 
-        
+
         @include('pages.contact') -->
 
     </main>
