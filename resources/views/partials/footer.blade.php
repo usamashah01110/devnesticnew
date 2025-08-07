@@ -1,6 +1,6 @@
 <footer id="footer" class="footer dark-background">
 
-    <div class="footer-newsletter">
+    <!-- <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container footer-top">
       <div class="row gy-4">

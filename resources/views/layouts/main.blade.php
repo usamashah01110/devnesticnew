@@ -41,10 +41,10 @@
     @include('partials.header')
     <!-- Main -->
     <main class="main">
-{{--        {{ dd($sectionOne->heading_one) }}--}}
+        {{-- {{ dd($sectionOne->heading_one) }}--}}
         @include('pages.hero', $sectionOne)
         @include('pages.client')
-{{--        @include('pages.about')--}}
+        <!-- @include('pages.about') -->
         @include('pages.stats')
         @include('pages.services')
         @include('pages.altSection')
@@ -56,6 +56,7 @@
         @include('pages.faq')
         @include('pages.team')
         @include('pages.contact')
+    
     </main>
     <!-- Footer -->
     @include('partials.footer')

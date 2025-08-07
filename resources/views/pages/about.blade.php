@@ -1,4 +1,4 @@
-<!-- About Section -->
+About Section
 @if($section)
 <section id="about" class="about section light-background">
     <!-- Section Title -->
