@@ -41,7 +41,6 @@ class SectionsController extends Controller
         }
 
         $section = $this->sectionRepo->create($data);
-
         return redirect('/')->with(['section_data' => $section]);
     }
 
@@ -51,7 +50,7 @@ class SectionsController extends Controller
     {
         return view('admin.sections.sectiontwo');
     }
-    
+
     public function sectiontwostore(Request $request)
     {
         $data = $request->validate([

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard',[AdminController::class,'indexPage'])->name('dashboard.index');
@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/section/1',[SectionsController::class,'index'])->name('section.index');
+    Route::get('/section/1/Store',[SectionsController::class,'sectionOneCreate'])->name('section.1.view');
     Route::post('/section/1/store',[SectionsController::class,'store'])->name('section.store');
 
     // Section 2
