@@ -6,7 +6,7 @@
         <!-- Page header Start -->
         <div class="d-flex align-items-center justify-content-between">
             <h2 class="mb-0">Create Section Four</h2>
-            <a href="">
+            <a href="{{ route('section.four.view') }}">
                 <button type="button" class="btn btn-primary">
                     Create Section Four
                 </button>
@@ -35,36 +35,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
                             <td>1</td>
                             <td class="text-truncate" style="max-width:120px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto quia doloremque velit, cum dolorem corrupti eius saepe debitis laborum, culpa excepturi temporibus nulla nam obcaecati nihil ducimus sed rem. Sed officia accusamus veritatis eveniet enim. Iusto temporibus distinctio ex debitis cumque pariatur magni veniam sequi sapiente, iure soluta, culpa autem similique ipsum ipsa esse hic quaerat odio. Dolores laborum quidem consequuntur ipsa repudiandae quaerat libero beatae et velit? Totam nemo commodi non! Necessitatibus veritatis nobis quia vero suscipit magnam enim placeat eligendi dicta dignissimos id saepe voluptate nihil ipsum, eum impedit aut nam repellendus libero similique earum ea. Ab, quos?</td>
                             <td class="text-truncate" style="max-width:180px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
                             <td>Explore now</td>
 
-
                             <td>
                                 <img src="{{ asset('storage\section_ones\QQegRnELJlb9GC7q8qnLWi2kttoJ4NdJgUWt8AHf.jpg') }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
-                            <td>
                                 <button class="badge badge-success">Active</button>
-                            </td>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>
-                                <br>
-
-                                <a href="">
                                     <button class="badge badge-success">Edit</button>
-                                </a>
-                            </td>
-
-                        </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
     </div>
     <br>
     @endsection

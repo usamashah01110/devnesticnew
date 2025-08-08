@@ -6,20 +6,24 @@ use Illuminate\Http\Request;
 use App\Repositories\Interfaces\SectionOneRepositoryInterface;
 use App\Repositories\Interfaces\SectionThreeRepositoryInterface;
 use App\Repositories\Interfaces\SectionTwoRepositoryInterface;
+use App\Repositories\Interfaces\SectionFourRepositoryInterface;
 
 class SectionsController extends Controller
 {
     protected $sectionOneRepo;
     protected $sectionTwoRepo;
     protected $sectionThreeRepo;
+    protected $sectionFourRepo;
     public function __construct(
         SectionOneRepositoryInterface $sectionOneRepo,
         SectionTwoRepositoryInterface $sectionTwoRepo,
-        SectionThreeRepositoryInterface $sectionThreeRepo
+        SectionThreeRepositoryInterface $sectionThreeRepo,
+        SectionFourRepositoryInterface $sectionFourRepo
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
         $this->sectionTwoRepo = $sectionTwoRepo;
         $this->sectionThreeRepo = $sectionThreeRepo;
+        $this->sectionFourRepo = $sectionFourRepo;
     }
     // Section one (Hero Section)
     public function index()
@@ -132,6 +136,10 @@ class SectionsController extends Controller
     public function sectionFour()
     {
         return view('admin.sections.sectionfour');
+    }
+    public function sectionFourCreate() {
+        $title = 'Create Section Four (Portfolio)';
+        return view('admin.inputs.sectionFourInput', compact('title'));
     }
 
 

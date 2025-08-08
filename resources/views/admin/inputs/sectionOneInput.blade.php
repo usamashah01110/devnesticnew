@@ -44,5 +44,5 @@
 
         </form>
     </div>
-    <br>
-    @endsection
+</div>
+@endsection
