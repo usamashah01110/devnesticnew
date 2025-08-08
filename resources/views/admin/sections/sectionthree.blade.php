@@ -1,22 +1,69 @@
 @extends('admin.dashboard')
 @section('title', 'Section Three')
+
+
 @section('content')
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for ($i = 1; $i <= 5; $i++)
-            <tr>
-                <td>{{ $i }}</td>
-                <td>Name {{ $i }}</td>
-                <td>{{ rand(10, 100) }}</td>
-            </tr>
-        @endfor
-    </tbody>
-</table>
-@endsection
+<div class="container">
+    <div class="container">
+        <!-- page title contain heading nad button  -->
+        <div class="d-flex align-items-center justify-content-between">
+            <h2 class="mb-0">Create Section Three</h2>
+            <a href="">
+                <button type="button" class="btn btn-primary">
+                    Create Section Three
+                </button>
+            </a>
+        </div>
+        <!-- page title contain heading nad button  end -->
+        <hr>
+
+        <!-- Table Start -->
+        <div class="card mt-4 shadow-sm">
+            <!-- Table Header -->
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Section Three Card List</h5>
+            </div>
+            <!-- Table Body -->
+            <div class=" container card-body p-0">
+                <table class="table table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>link</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for ($i = 1; $i <= 1; $i++)
+                            <tr>
+                            <td class="text-truncate" style="max-width:50px;">Logo {{ $i }}</td>
+                            <td class="text-truncate" style="max-width:50px;">Card {{ $i }} Title</td>
+                            <td class="text-truncate" style="max-width:90px;">Description {{ $i }}</td>
+                            <td class="text-truncate" style="max-width:90px;">Link {{ $i }}</td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                hello
+                            </td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                <a href="">
+                                    <button class="badge badge-danger">Delete</button>
+                                </a>
+                                <br>
+                                <br>
+
+                                <a href="">
+                                    <button class="badge badge-success">Edit</button>
+                                </a>
+                            </td>
+                            </tr>
+                            @endfor
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    @endsection

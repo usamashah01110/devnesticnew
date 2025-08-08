@@ -14,10 +14,12 @@ class SectionsController extends Controller
         $this->sectionRepo = $sectionRepo;
     }
     // Section one (Hero Section)
-    public function index(){
+    public function index()
+    {
         return view('admin.sections.sectionone');
     }
-    public function sectionOneCreate() {
+    public function sectionOneCreate()
+    {
         $title = 'Create Section One';
         return view('admin.inputs.sectionOneInput', compact('title'));
     }
@@ -45,10 +47,12 @@ class SectionsController extends Controller
 
 
     // Section two (About Section)
-        public function sectiontwo() {
+    public function sectiontwo()
+    {
         return view('admin.sections.sectiontwo');
     }
-        public function sectiontwostore(Request $request)
+    
+    public function sectiontwostore(Request $request)
     {
         $data = $request->validate([
             'heading_one' => 'nullable|string',
@@ -82,32 +86,36 @@ class SectionsController extends Controller
 
     // Section Three
 
-    public function sectionThree() {
+    public function sectionThree()
+    {
         return view('admin.sections.sectionthree');
     }
 
 
 
     // Section Four
-    public function sectionFour() {
+    public function sectionFour()
+    {
         return view('admin.sections.sectionfour');
     }
 
 
     // Section Five
-    public function sectionFive() {
+    public function sectionFive()
+    {
         return view('admin.sections.sectionfive');
     }
 
 
     // Section Six
-    public function sectionSix() {
+    public function sectionSix()
+    {
         return view('admin.sections.sectionsix');
     }
 
     // Section Seven
-    public function sectionSeven() {
+    public function sectionSeven()
+    {
         return view('admin.sections.sectionseven');
     }
 }
-

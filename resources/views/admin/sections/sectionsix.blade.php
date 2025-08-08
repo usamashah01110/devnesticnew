@@ -1,19 +1,59 @@
 @extends('admin.dashboard')
-@section('title', 'Section Five')
+@section('title', 'Section Six')
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h1 class="card-title mb-4">Section Six</h1>
-                    <p class="card-text">
-                        Welcome to Section Six. Use this area to add or manage content and features specific to this section. Please update this section as needed to suit your requirements.
-                    </p>
-                </div>
+<div class="container">
+    <div class="container">
+        <!-- Page header Start -->
+        <div class="d-flex align-items-center justify-content-between">
+            <h2 class="mb-0">Create Section Six</h2>
+            <a href="">
+                <button type="button" class="btn btn-primary">
+                    Create Section Six
+                </button>
+            </a>
+        </div>
+        <!-- Page header end -->
+        <hr>
+        <!-- Table Start -->
+        <div class="card mt-4 shadow-sm">
+            <!-- Table Header -->
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Section Six List</h5>
+            </div>
+            <!-- Table Body -->
+            <div class="card-body p-0">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Question</th>
+                            <th>Answer</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="text-truncate" style="max-width:120px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto quia doloremque velit, cum dolorem corrupti eius saepe debitis laborum, culpa excepturi temporibus nulla nam obcaecati nihil ducimus sed rem. Sed officia accusamus veritatis eveniet enim. Iusto temporibus distinctio ex debitis cumque pariatur magni veniam sequi sapiente, iure soluta, culpa autem similique ipsum ipsa esse hic quaerat odio. Dolores laborum quidem consequuntur ipsa repudiandae quaerat libero beatae et velit? Totam nemo commodi non! Necessitatibus veritatis nobis quia vero suscipit magnam enim placeat eligendi dicta dignissimos id saepe voluptate nihil ipsum, eum impedit aut nam repellendus libero similique earum ea. Ab, quos?</td>
+                            <td class="text-truncate" style="max-width:180px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                        
+                            <td class="text-truncate " style="max-width:90px;">
+                                <a href="">
+                                    <button class="badge badge-danger">Delete</button>
+                                </a>
+                                <br>
+                                <br>
+
+                                <a href="">
+                                    <button class="badge badge-success">Edit</button>
+                                </a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
-
-@endsection
+    <br>
+    @endsection
