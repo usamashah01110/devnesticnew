@@ -44,17 +44,20 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
+    // Section 1
     Route::get('/section/1',[SectionsController::class,'index'])->name('section.index');
     Route::get('/section/1/Store',[SectionsController::class,'sectionOneCreate'])->name('section.1.view');
     Route::post('/section/1/store',[SectionsController::class,'store'])->name('section.store');
 
     // Section 2
     Route::get('/section/2',[SectionsController::class,'sectiontwo'])->name('section.two');
+    Route::get('/section/2/store',[SectionsController::class,'sectiontwoCreate'])->name('section.two.view');
     Route::post('/section/2/store',[SectionsController::class,'sectiontwostore'])->name('section.two.store');
 
     // Section 3
     Route::get('/section/3',[SectionsController::class,'sectionThree'])->name('section.three');
+    Route::get('/section/3/store',[SectionsController::class,'sectionThreeCreate'])->name('section.three.view');
+    Route::post('/section/3/store',[SectionsController::class,'sectionThreeStore'])->name('section.three.store');
 
     // Section 4
     Route::get('/section/4',[SectionsController::class,'sectionFour'])->name('section.four');

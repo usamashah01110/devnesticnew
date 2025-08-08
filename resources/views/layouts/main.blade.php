@@ -44,7 +44,6 @@
 <!-- Main -->
 
 <main class="main">
-
     @include('pages.hero', $sectionOne)
 {{--    @include('pages.client')--}}
     @include('pages.about')
@@ -56,7 +55,7 @@
     @include('pages.team')
 
 
-    @include('pages.contact') -->
+    @include('pages.contact') 
 
 </main>
 <!-- Footer -->

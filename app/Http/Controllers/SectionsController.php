@@ -4,19 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Interfaces\SectionOneRepositoryInterface;
+use App\Repositories\Interfaces\SectionTwoRepositoryInterface;
 
 class SectionsController extends Controller
 {
-    protected $sectionRepo;
+    protected $sectionOneRepo;
+    protected $sectionTwoRepo;
 
-    public function __construct(SectionOneRepositoryInterface $sectionRepo)
+    public function __construct(
+        SectionOneRepositoryInterface $sectionOneRepo, 
+        SectionTwoRepositoryInterface $sectionTwoRepo)
     {
-        $this->sectionRepo = $sectionRepo;
+        $this->sectionOneRepo = $sectionOneRepo;
+        $this->sectionTwoRepo = $sectionTwoRepo;
     }
     // Section one (Hero Section)
     public function index()
     {
-        return view('admin.sections.sectionone');
+        $sectionOne = $this->sectionOneRepo->all();
+        return view('admin.sections.sectionone', $sectionOne);
     }
     public function sectionOneCreate()
     {
@@ -40,8 +46,8 @@ class SectionsController extends Controller
             $data['image_path'] = $request->file('image_path')->store('section_ones', 'public');
         }
 
-        $section = $this->sectionRepo->create($data);
-        return redirect('/')->with(['section_data' => $section]);
+        $sectionOne = $this->sectionOneRepo->create($data);
+        return redirect('/')->with(['section_data' => $sectionOne]);
     }
 
 
@@ -51,6 +57,13 @@ class SectionsController extends Controller
         return view('admin.sections.sectiontwo');
     }
 
+    public function sectiontwoCreate()
+    {
+        $title = "Create Section Two";
+        return view('admin.inputs.sectionTwoInput', compact('title'));
+    }
+
+
     public function sectiontwostore(Request $request)
     {
         $data = $request->validate([
@@ -59,7 +72,7 @@ class SectionsController extends Controller
             'paragraph' => 'nullable|string',
             'experiance' => 'nullable|string',
             'ceo_founder_name' => 'nullable|string',
-            'ceo_founder_img' => 'nullable|string',
+            'ceo_founder_img' => 'nullable|image',
             'large_img' => 'nullable|image|max:2048',
             'small_img' => 'nullable|image|max:2048',
             'contact' => 'nullable|String'
@@ -78,9 +91,9 @@ class SectionsController extends Controller
             $data['ceo_founder_img'] = $request->file('ceo_founder_img')->store('section_two', 'public');
         }
 
-        $section = $this->sectionRepo->create($data);
+        $sectionTwo = $this->sectionTwoRepo->create($data);
 
-        return redirect('/')->with(['section_data' => $section]);
+        return redirect('/')->with(['section_data' => $sectionTwo]);
     }
 
     // Section Three
@@ -89,7 +102,27 @@ class SectionsController extends Controller
     {
         return view('admin.sections.sectionthree');
     }
+    public function sectionThreeCreate()
+    {
+        $title = "Create Section Three";
+        return view('admin.inputs.sectionThreeInput', compact('title'));
+    }
+    public function sectionThreeStore(Request $request)
+    {
+        $data = $request->validate([
+            'logo' => 'nullable|image|max:2048',
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
+            'link' => 'nullable|url'
+        ]);
 
+        if ($request->hasFile('logo')) {
+            $data['logo'] = $request->file('logo')->store('section_three', 'public');
+        }
+
+        $sectionThree = $this->sectionTwoRepo->create($data);
+        return redirect('/')->with(['section_three_data' => $sectionThree]);
+    }
 
 
     // Section Four

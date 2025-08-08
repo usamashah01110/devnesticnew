@@ -8,7 +8,7 @@
         <!-- page title contain heading nad button  -->
         <div class="d-flex align-items-center justify-content-between">
             <h2 class="mb-0">Create Section One</h2>
-            <a href="">
+            <a href="{{ route('section.two.view') }}">
                 <button type="button" class="btn btn-primary">
                     Create Section Two
                 </button>
@@ -58,7 +58,7 @@
                                 </a>
                                 <br>
                                 <br>
-        
+
                                 <a href="">
                                     <button class="badge badge-success">Edit</button>
                                 </a>
