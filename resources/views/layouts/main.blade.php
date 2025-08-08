@@ -48,8 +48,8 @@
 {{--    @include('pages.client')--}}
     @include('pages.about')
     @include('pages.services')
-    @include('pages.whyUs')
-    @include('pages.call-to-action')
+   {{-- @include('pages.whyUs')--}}
+    {{-- @include('pages.call-to-action')--}}
     @include('pages.portfolio')
     @include('pages.faq')
     @include('pages.team')

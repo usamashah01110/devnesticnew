@@ -4,8 +4,7 @@
     <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
         <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            Explore our portfolio to see a showcase of innovative projects and creative solutions we’ve delivered. Each piece reflects our commitment to quality, design, and functionality. Let our work speak for itself.
         </p>
     </div>
     <!-- End Section Title -->

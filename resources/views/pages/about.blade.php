@@ -1,10 +1,10 @@
-
+@if($sectionTwo)
 <section id="about" class="about section light-background">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>About</h2>
         <p>
-            Short about us text here.
+            {{ $sectionTwo->short_about_us }}
         </p>
     </div>
     <!-- End Section Title -->
@@ -14,10 +14,10 @@
             <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
                 <span class="about-meta">MORE ABOUT US</span>
                 <h2 class="about-title">
-                    Heading one here
+                    {{ $sectionTwo->heading_one }}
                 </h2>
                 <p class="about-description">
-                    Paragraph text here.
+                    {{ $sectionTwo->paragraph }}
                 </p>
 
                 <div class="row feature-list-wrapper">
@@ -62,13 +62,13 @@
                                 class="profile d-flex align-items-center gap-3"
                             >
                                 <img
-                                    src="path/to/ceo_founder_img.jpg"
+                                    src="{{ asset('storage/', $sectionTwo->ceo_founder_img) }}"
                                     alt="CEO Profile"
                                     class="profile-image"
                                 />
                                 <div>
                                     <h4 class="profile-name">
-                                        CEO Founder Name
+                                        {{ $sectionTwo->ceo_founder_name }}
                                     </h4>
                                     <p class="profile-position">
                                         CEO &amp; Founder
@@ -86,7 +86,7 @@
                                         Call us anytime
                                     </p>
                                     <p class="contact-number">
-                                        +1234567890
+                                        {{ $sectionTwo->contact }}
                                     </p>
                                 </div>
                             </div>
@@ -103,18 +103,18 @@
                         data-aos-delay="400"
                     >
                         <img
-                            src="path/to/small_img.jpg"
+                            src="{{ asset('storage/'. $sectionTwo->large_img) }}"
                             alt="Business Meeting"
                             class="img-fluid main-image rounded-4"
                         />
                         <img
-                            src="path/to/large_img.jpg"
+                            src="{{ asset('storage/'. $sectionTwo->small_img) }}"
                             alt="Team Discussion"
                             class="img-fluid small-image rounded-4"
                         />
                     </div>
                     <div class="experience-badge floating">
-                        <h3>10+ <span>Years</span></h3>
+                        <h3>{{ $sectionTwo->experiance }}+ <span>Years</span></h3>
                         <p>Of experience in business service</p>
                     </div>
                 </div>
@@ -122,4 +122,4 @@
         </div>
     </div>
 </section>
-
+@endif

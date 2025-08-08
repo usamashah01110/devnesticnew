@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Interfaces\SectionOneRepositoryInterface;
+use App\Repositories\Interfaces\SectionThreeRepositoryInterface;
 use App\Repositories\Interfaces\SectionTwoRepositoryInterface;
 
 class SectionsController extends Controller
 {
     protected $sectionOneRepo;
     protected $sectionTwoRepo;
-
+    protected $sectionThreeRepo;
     public function __construct(
-        SectionOneRepositoryInterface $sectionOneRepo, 
-        SectionTwoRepositoryInterface $sectionTwoRepo)
-    {
+        SectionOneRepositoryInterface $sectionOneRepo,
+        SectionTwoRepositoryInterface $sectionTwoRepo,
+        SectionThreeRepositoryInterface $sectionThreeRepo
+    ) {
         $this->sectionOneRepo = $sectionOneRepo;
         $this->sectionTwoRepo = $sectionTwoRepo;
+        $this->sectionThreeRepo = $sectionThreeRepo;
     }
     // Section one (Hero Section)
     public function index()
@@ -120,7 +123,7 @@ class SectionsController extends Controller
             $data['logo'] = $request->file('logo')->store('section_three', 'public');
         }
 
-        $sectionThree = $this->sectionTwoRepo->create($data);
+        $sectionThree = $this->sectionThreeRepo->create($data);
         return redirect('/')->with(['section_three_data' => $sectionThree]);
     }
 

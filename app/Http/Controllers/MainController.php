@@ -13,14 +13,15 @@ class MainController extends Controller
     {
 
         $sectionOne = SectionOne::latest()->first();
-        $sectionTwo = Sectiontwo::first();
-        $sectionThree = SectionThree::first();
+        $sectionTwo = Sectiontwo::latest()->first();
+        $sectionThree = SectionThree::all();
 
         return view(
             'layouts.main',
             compact(
                 'sectionOne',
-                'sectionTwo'
+                'sectionTwo',
+                'sectionThree'
             )
         );
     }

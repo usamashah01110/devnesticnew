@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('heading_one')->nullable();
             $table->string('short_about_us')->nullable();
-            $table->string('paragraph')->nullable();
+            $table->text('paragraph')->nullable();
             $table->string('experiance')->nullable();
             $table->string('ceo_founder_name')->nullable();
             $table->string('ceo_founder_img')->nullable();
