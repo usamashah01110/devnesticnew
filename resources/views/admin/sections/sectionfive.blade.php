@@ -6,7 +6,7 @@
         <!-- Page header Start -->
         <div class="d-flex align-items-center justify-content-between">
             <h2 class="mb-0">Create Section Five</h2>
-            <a href="">
+            <a href="{{ route('section.five.view') }}">
                 <button type="button" class="btn btn-primary">
                     Create Section Five
                 </button>

@@ -7,6 +7,8 @@ use App\Repositories\Interfaces\SectionOneRepositoryInterface;
 use App\Repositories\Interfaces\SectionThreeRepositoryInterface;
 use App\Repositories\Interfaces\SectionTwoRepositoryInterface;
 use App\Repositories\Interfaces\SectionFourRepositoryInterface;
+use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
+use App\Repositories\Interfaces\SectionSixRepositoryInterface;
 
 class SectionsController extends Controller
 {
@@ -14,16 +16,23 @@ class SectionsController extends Controller
     protected $sectionTwoRepo;
     protected $sectionThreeRepo;
     protected $sectionFourRepo;
+    protected $sectionFiveRepo;
+    protected $sectionSixRepo;
     public function __construct(
         SectionOneRepositoryInterface $sectionOneRepo,
         SectionTwoRepositoryInterface $sectionTwoRepo,
         SectionThreeRepositoryInterface $sectionThreeRepo,
-        SectionFourRepositoryInterface $sectionFourRepo
+        SectionFourRepositoryInterface $sectionFourRepo,
+        SectionFiveRepositoryInterface $sectionFiveRepo,
+        SectionSixRepositoryInterface $sectionSixRepo
+
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
         $this->sectionTwoRepo = $sectionTwoRepo;
         $this->sectionThreeRepo = $sectionThreeRepo;
         $this->sectionFourRepo = $sectionFourRepo;
+        $this->sectionFiveRepo = $sectionFiveRepo;
+        $this->sectionSixRepo = $sectionSixRepo;
     }
     // Section one (Hero Section)
     public function index()
@@ -152,7 +161,7 @@ class SectionsController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('storage', 'public');
+            $data['image'] = $request->file('image')->store('section_four', 'public');
         }
         $sectionFour = $this->sectionFourRepo->create($data);
         return redirect('/')->with(['section_four' => $sectionFour]);
@@ -164,12 +173,54 @@ class SectionsController extends Controller
     {
         return view('admin.sections.sectionfive');
     }
+    public function sectionFiveCreate()
+    {
+        $title = 'Create Section Five (Team)';
+        return view('admin.inputs.sectionfiveInput', compact('title'));
+    }
+    public function sectionFiveStore(Request $request)
+    {
+        $data = $request->validate(
+            [
+                'name' => 'string|nullable',
+                'description' => 'string|nullable',
+                'type' => 'string|nullable',
+                'linkedin' => 'url|nullable',
+                'twitter' => 'url|nullable',
+                'instagram' => 'url|nullable',
+                'image' => 'image|nullable'
+            ]
+        );
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('section_five', 'public');
+        }
+
+        $sectionFive = $this->sectionFiveRepo->create($data);
+        return redirect('/')->with(['section_five' => $sectionFive]);
+    }
 
 
     // Section Six
     public function sectionSix()
     {
         return view('admin.sections.sectionsix');
+    }
+    public function sectionSixCreate()
+    {
+        $title = 'Create Section Six (FAQs)';
+        return view('admin.inputs.sectionSixInput', compact('title'));
+    }
+    public function sectionSixStore(Request $request)
+    {
+        $data = $request->validate(
+            [
+                'question' => 'string|nullable',
+                'answer' => 'string|nullable'
+            ]
+        );
+        $sectionSix = $this->sectionSixRepo->create($data);
+        return redirect('/')->with(['section_six' => $sectionSix]);
     }
 
     // Section Seven

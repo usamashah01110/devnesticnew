@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sectionFive extends Model
+class SectionSix extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'description',
-        'role',
-        'linkedin',
-        'twitter',
-        'instagram',
-        'image'
+        "question",
+        "answer"
     ];
 }

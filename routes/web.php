@@ -66,9 +66,13 @@ Route::middleware('auth')->group(function () {
 
     // Section 5
     Route::get('/section/5',[SectionsController::class,'sectionFive'])->name('section.five');
+    Route::get('/section/5/store',[SectionsController::class,'sectionFiveCreate'])->name('section.five.view');
+    Route::post('/section/5/store',[SectionsController::class,'sectionFiveStore'])->name('section.five.store');
 
     // Section 6
     Route::get('/section/6',[SectionsController::class,'sectionSix'])->name('section.six');
+    Route::get('/section/6/store',[SectionsController::class,'sectionSixCreate'])->name('section.six.view');
+    Route::post('/section/6/store',[SectionsController::class,'sectionSixStore'])->name('section.six.store');
 
     // Section 7
     Route::get('/section/7',[SectionsController::class,'sectionSeven'])->name('section.seven');
