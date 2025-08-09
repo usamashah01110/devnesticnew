@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\sectionFive;
+use App\Models\SectionFive;
 use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
 
 class SectionFiveRepository implements SectionFiveRepositoryInterface
