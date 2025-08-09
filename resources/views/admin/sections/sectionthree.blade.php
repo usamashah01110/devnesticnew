@@ -32,20 +32,18 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>link</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 1; $i <= 1; $i++)
-                            <tr>
-                            <td class="text-truncate" style="max-width:50px;">Logo {{ $i }}</td>
-                            <td class="text-truncate" style="max-width:50px;">Card {{ $i }} Title</td>
-                            <td class="text-truncate" style="max-width:90px;">Description {{ $i }}</td>
-                            <td class="text-truncate" style="max-width:90px;">Link {{ $i }}</td>
-                            <td class="text-truncate" style="max-width:90px;">
-                                hello
-                            </td>
+                        @foreach (  $sectionThree as $sec)
+
+
+                        <tr>
+                            <td class="text-truncate" style="max-width:50px;"> {{ asset('storage/' . $sec->logo ) }}</td>
+                            <td class="text-truncate" style="max-width:50px;">{{ $sec->title }}</td>
+                            <td class="text-truncate" style="max-width:90px;">{{ $sec->description }}</td>
+                            <td class="text-truncate" style="max-width:90px;">{{ $sec->Link }}</td>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="">
                                     <button class="badge badge-danger">Delete</button>
@@ -57,8 +55,8 @@
                                     <button class="badge badge-success">Edit</button>
                                 </a>
                             </td>
-                            </tr>
-                            @endfor
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -15,7 +15,7 @@ class SectionOneRepository implements SectionOneRepositoryInterface
 
     public function all()
     {
-        return $this->model->latest()->get();
+        return $this->model->all();
     }
 
     public function create(array $data)

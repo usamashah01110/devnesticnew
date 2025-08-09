@@ -32,26 +32,27 @@
                             <th>Heading One</th>
                             <th>Paragraph</th>
                             <th>year</th>
-                            <th>CEO  Name</th>
-                            <th>CEO  image</th>
+                            <th>CEO Name</th>
+                            <th>CEO image</th>
                             <th>Large Image</th>
                             <th>Small Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 1; $i <= 1; $i++)
-                            <tr>
-                            <td class="text-truncate" style="max-width:50px;">Heading {{ $i }}</td>
-                            <td class="text-truncate" style="max-width:50px;">Short about us {{ $i }}</td>
-                            <td class="text-truncate" style="max-width:90px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                            <td class="text-truncate" style="max-width:70px;">2005</td>
-                            <td class="text-truncate" style="max-width:90px;">Syed Usama</td>
+                        @foreach ($sectionTwo as $sec)
+
+                        <tr>
+                            <td class="text-truncate" style="max-width:50px;">{{ $sec->short_about_us }}</td>
+                            <td class="text-truncate" style="max-width:50px;">{{ $sec->heading_one }}</td>
+                            <td class="text-truncate" style="max-width:90px;">{{ $sec->paragraph }}</td>
+                            <td class="text-truncate" style="max-width:70px;">{{ $sec->experiance }}</td>
+                            <td class="text-truncate" style="max-width:90px;">{{ $sec->ceo_founder_name }}</td>
                             <td class="text-truncate" style="max-width:90px;">
-                                <img src="{{ asset('/storage/section_two/Gj2YMK89BZX1Lzluz4FSBm52Xk9vicA8BZAPJIpq.jpg') }}" alt="CEO image" class="rounded shadow-sm border">
+                                <img src="{{ asset('storage/'.  $sec->ceo_founder_img  ) }}" alt="CEO image" class="rounded shadow-sm border">
                             </td>
-                            <td class="text-truncate" style="max-width:90px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                            <td class="text-truncate" style="max-width:90px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                            <td class="text-truncate" style="max-width:90px;">{{ $sec->large_img }}</td>
+                            <td class="text-truncate" style="max-width:90px;">{{ $sec->small_img }}</td>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="">
                                     <button class="badge badge-danger">Delete</button>
@@ -63,8 +64,8 @@
                                     <button class="badge badge-success">Edit</button>
                                 </a>
                             </td>
-                            </tr>
-                            @endfor
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

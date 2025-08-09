@@ -38,7 +38,7 @@ class SectionsController extends Controller
     public function index()
     {
         $sectionOne = $this->sectionOneRepo->all();
-        return view('admin.sections.sectionone', $sectionOne);
+        return view('admin.sections.sectionone', compact('sectionOne'));
     }
     public function sectionOneCreate()
     {
@@ -70,7 +70,8 @@ class SectionsController extends Controller
     // Section two (About Section)
     public function sectiontwo()
     {
-        return view('admin.sections.sectiontwo');
+        $sectionTwo = $this->sectionTwoRepo->all();
+        return view('admin.sections.sectiontwo', compact('sectionTwo'));
     }
 
     public function sectiontwoCreate()
@@ -116,7 +117,8 @@ class SectionsController extends Controller
 
     public function sectionThree()
     {
-        return view('admin.sections.sectionthree');
+        $sectionThree = $this->sectionThreeRepo->all();
+        return view('admin.sections.sectionthree', compact('sectionThree'));
     }
     public function sectionThreeCreate()
     {

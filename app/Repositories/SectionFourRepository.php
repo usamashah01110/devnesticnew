@@ -37,6 +37,6 @@ class SectionFourRepository implements SectionFourRepositoryInterface
 
     public function all()
     {
-        return $this->model->latest()->get();
+        return $this->model->all();
     }
 }
