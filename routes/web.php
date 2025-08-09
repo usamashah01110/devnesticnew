@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
     // Section 4
     Route::get('/section/4',[SectionsController::class,'sectionFour'])->name('section.four');
     Route::get('/section/4/store',[SectionsController::class,'sectionFourCreate'])->name('section.four.view');
+    Route::post('/section/4/store',[SectionsController::class,'sectionFourStore'])->name('section.four.store');
 
     // Section 5
     Route::get('/section/5',[SectionsController::class,'sectionFive'])->name('section.five');

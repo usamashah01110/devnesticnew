@@ -137,9 +137,25 @@ class SectionsController extends Controller
     {
         return view('admin.sections.sectionfour');
     }
-    public function sectionFourCreate() {
+    public function sectionFourCreate()
+    {
         $title = 'Create Section Four (Portfolio)';
         return view('admin.inputs.sectionFourInput', compact('title'));
+    }
+    public function sectionFourStore(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'string|nullable',
+            'description' => 'string|nullable',
+            'type' => 'string|nullable',
+            'image' => 'image|nullable'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('storage', 'public');
+        }
+        $sectionFour = $this->sectionFourRepo->create($data);
+        return redirect('/')->with(['section_four' => $sectionFour]);
     }
 
 
