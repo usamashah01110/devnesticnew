@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     // Section 1
     Route::get('/section/1',[SectionsController::class,'index'])->name('section.index');
     Route::get('/section/1/Store',[SectionsController::class,'sectionOneCreate'])->name('section.1.view');
+    Route::get('/section/1/edit/{id}',[SectionsController::class,'sectionOneEdit'])->name('section.one.edit');
+    Route::post('/section/1/update/{id}',[SectionsController::class,'update'])->name('section.one.update');
     Route::post('/section/1/store',[SectionsController::class,'store'])->name('section.store');
 
     // Section 2

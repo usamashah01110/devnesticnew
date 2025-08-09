@@ -50,6 +50,14 @@ class SectionsController extends Controller
         return view('admin.inputs.sectionOneInput', compact('title'));
     }
 
+    public function sectionOneEdit($id){
+
+        $sectionOne = $this->sectionOneRepo->find($id);
+        $title = 'Edit Section One';
+
+        return view('admin.editInputs.editsectionone', compact('sectionOne', 'title'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -71,6 +79,25 @@ class SectionsController extends Controller
     }
 
 
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'heading_one' => 'nullable|string',
+            'paragraph' => 'nullable|string',
+            'btn_one_text' => 'nullable|string',
+            'years' => 'nullable|string',
+            'clients' => 'nullable|string',
+            'success_rate' => 'nullable|string',
+            'image_path' => 'nullable|image|max:2048',
+        ]);
+
+        if ($request->hasFile('image_path')) {
+            $data['image_path'] = $request->file('image_path')->store('section_ones', 'public');
+        }
+
+        $sectionOne = $this->sectionOneRepo->update($id, $data);
+        return redirect('/')->with(['section_data' => $sectionOne]);
+    }
     // Section two (About Section)
     public function sectiontwo()
     {
