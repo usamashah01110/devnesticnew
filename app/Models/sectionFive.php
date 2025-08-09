@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class sectionFive extends Model
 {
     use HasFactory;
+
+    protected $table = 'section_fives';
+
     protected $fillable = [
         'name',
         'description',
