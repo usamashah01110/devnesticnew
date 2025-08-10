@@ -40,7 +40,7 @@
                         @foreach($sectionOne as $sec)
                         <tr>
                             <td>{{ $sec->id }}</td>
-                            <td class="text-truncate" style="max-width:120px;">{{ $sec->heading }}</td>
+                            <td class="text-truncate" style="max-width:120px;">{{ $sec->heading_one }}</td>
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->paragraph }}</td>
                             <td>{{ $sec->btn_one_text }}</td>
                             <td>{{ $sec->year }}</td>

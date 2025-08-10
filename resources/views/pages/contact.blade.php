@@ -1,3 +1,6 @@
+@if($sectionSeven)
+
+
 <section id="contact" class="contact section light-background">
 
   <!-- Section Title -->
@@ -20,8 +23,8 @@
             </div>
             <div class="content">
               <h4>Our Location</h4>
-              <p>A108 Adam Street</p>
-              <p>New York, NY 535022</p>
+              <p>{{ $sectionSeven->building_number }} {{ $sectionSeven->street }}</p>
+              <p>{{ $sectionSeven->city }}, {{ $sectionSeven->zip_code }}</p>
             </div>
           </div>
 
@@ -31,8 +34,8 @@
             </div>
             <div class="content">
               <h4>Phone Number</h4>
-              <p>+1 5589 55488 55</p>
-              <p>+1 6678 254445 41</p>
+              <p>{{ $sectionSeven->contact_one }}</p>
+              <p>{{ $sectionSeven->contact_two }}</p>
             </div>
           </div>
 
@@ -42,8 +45,8 @@
             </div>
             <div class="content">
               <h4>Email Address</h4>
-              <p>info@example.com</p>
-              <p>contact@example.com</p>
+              <p>{{ $sectionSeven->email }}</p>
+
             </div>
           </div>
         </div>
@@ -92,3 +95,4 @@
   </div>
 
 </section>
+@endif

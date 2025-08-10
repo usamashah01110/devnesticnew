@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/admin/login',[AdminController::class,'login'])->name('admin.login');
 Route::get('/dashboard',[AdminController::class,'login'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard.index');
+Route::get('/dashboard',[AdminController::class,'indexPage'])->name('dashboard.index');
 Route::get('/dashboard/charts',[AdminController::class,'charts'])->name('dashboard.charts');
 Route::get('/dashboard/forms',[AdminController::class,'forms'])->name('dashboard.forms');
 Route::get('/dashboard/fonts',[AdminController::class,'font'])->name('dashboard.font');
@@ -76,6 +76,10 @@ Route::middleware('auth')->group(function () {
 
     // Section 7
     Route::get('/section/7',[SectionsController::class,'sectionSeven'])->name('section.seven');
+    Route::get('/section/7/store',[SectionsController::class,'sectionSevenCreate'])->name('section.seven.view');
+    Route::post('/section/7/store',[SectionsController::class,'sectionSevenStore'])->name('section.seven.store');
+    Route::get('/section/7/update/{id}',[SectionsController::class,'sectionSevenEditForm'])->name('section.seven.edit.form');
+    Route::post('/section/7/update/{id}',[SectionsController::class,'sectionSevenEdit'])->name('section.seven.edit');
 });
 
 require __DIR__.'/auth.php';

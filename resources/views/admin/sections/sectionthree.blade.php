@@ -40,10 +40,14 @@
 
 
                         <tr>
-                            <td class="text-truncate" style="max-width:50px;"> {{ asset('storage/' . $sec->logo ) }}</td>
+                            <td class="text-truncate" style="max-width:50px;">
+                                <img src=" {{ asset('storage/' . $sec->logo ) }}" class="rounded shadow-sm border" alt="logo">
+                            </td>
                             <td class="text-truncate" style="max-width:50px;">{{ $sec->title }}</td>
                             <td class="text-truncate" style="max-width:90px;">{{ $sec->description }}</td>
-                            <td class="text-truncate" style="max-width:90px;">{{ $sec->Link }}</td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                <a href="{{ $sec->Link }}">{{ $sec->Link }}</a>
+                            </td>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="">
                                     <button class="badge badge-danger">Delete</button>

@@ -9,6 +9,7 @@ use App\Repositories\Interfaces\SectionTwoRepositoryInterface;
 use App\Repositories\Interfaces\SectionFourRepositoryInterface;
 use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
 use App\Repositories\Interfaces\SectionSixRepositoryInterface;
+use App\Repositories\Interfaces\SectionSevenRepositoryInterface;
 
 class SectionsController extends Controller
 {
@@ -18,13 +19,15 @@ class SectionsController extends Controller
     protected $sectionFourRepo;
     protected $sectionFiveRepo;
     protected $sectionSixRepo;
+    protected $sectionSevenRepo;
     public function __construct(
         SectionOneRepositoryInterface $sectionOneRepo,
         SectionTwoRepositoryInterface $sectionTwoRepo,
         SectionThreeRepositoryInterface $sectionThreeRepo,
         SectionFourRepositoryInterface $sectionFourRepo,
         SectionFiveRepositoryInterface $sectionFiveRepo,
-        SectionSixRepositoryInterface $sectionSixRepo
+        SectionSixRepositoryInterface $sectionSixRepo,
+        SectionSevenRepositoryInterface $sectionSevenRepo
 
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
@@ -33,6 +36,7 @@ class SectionsController extends Controller
         $this->sectionFourRepo = $sectionFourRepo;
         $this->sectionFiveRepo = $sectionFiveRepo;
         $this->sectionSixRepo = $sectionSixRepo;
+        $this->sectionSevenRepo = $sectionSevenRepo;
     }
     // Section one (Hero Section)
     public function index()
@@ -173,7 +177,8 @@ class SectionsController extends Controller
     // Section Five
     public function sectionFive()
     {
-        return view('admin.sections.sectionfive');
+        $sectionFive = $this->sectionFiveRepo->all();
+        return view('admin.sections.sectionfive', compact('sectionFive'));
     }
     public function sectionFiveCreate()
     {
@@ -186,7 +191,7 @@ class SectionsController extends Controller
             [
                 'name' => 'string|nullable',
                 'description' => 'string|nullable',
-                'type' => 'string|nullable',
+                'role' => 'string|nullable',
                 'linkedin' => 'url|nullable',
                 'twitter' => 'url|nullable',
                 'instagram' => 'url|nullable',
@@ -206,7 +211,8 @@ class SectionsController extends Controller
     // Section Six
     public function sectionSix()
     {
-        return view('admin.sections.sectionsix');
+        $sectionSix = $this->sectionSixRepo->all();
+        return view('admin.sections.sectionsix', compact('sectionSix'));
     }
     public function sectionSixCreate()
     {
@@ -228,6 +234,65 @@ class SectionsController extends Controller
     // Section Seven
     public function sectionSeven()
     {
-        return view('admin.sections.sectionseven');
+        $sectionSeven = $this->sectionSevenRepo->all();
+        return view('admin.sections.sectionseven', compact('sectionSeven'));
     }
+    public function sectionSevenCreate()
+    {
+        $title = 'Create Section Seven (Contact)';
+        $btn = 'Save';
+        $url = route('section.seven.store');
+        $sectionSeven = NULL;
+        return view('admin.inputs.sectionSevenInput', compact('title', 'btn', 'sectionSeven', 'url'));
+    }
+    public function sectionSevenStore(Request $request)
+    {
+        $data = $request->validate(
+            [
+                'building_number' => 'string|nullable',
+                'street' => 'string|nullable',
+                'city' => 'string|nullable',
+                'zip_code' => 'string|nullable',
+                'contact_one' => 'string|nullable',
+                'contact_two' => 'string|nullable',
+                'email' => 'email|nullable'
+            ]
+        );
+        $sectionSeven = $this->sectionSevenRepo->create($data);
+        return redirect('/')->with(['section_seven' => $sectionSeven]);
+    }
+    // public function sectionSevenEditForm($id)
+    // {
+    //     $sectionSeven = $this->sectionSevenRepo->find($id);
+    //     $title = "Edit Section Seven (Contact)";
+    //     $btn = "Edit";
+    //     $url = route('section.seven.edit', $id);
+    //     return view('admin.inputs.sectionSevenInput', compact('title', 'sectionSeven', 'btn', 'url'));
+    // }
+
+    // public function sectionSevenEdit(Request $request, $id)
+    // {
+    //     // 1. Validation
+    //     $data = $request->validate([
+    //         'building_number' => 'string|nullable',
+    //         'street'          => 'string|nullable',
+    //         'city'            => 'string|nullable',
+    //         'zip_code'        => 'string|nullable',
+    //         'contact_one'     => 'string|nullable',
+    //         'contact_two'     => 'string|nullable',
+    //         'email'           => 'email|nullable'
+    //     ]);
+
+    //     $sectionSeven = $this->sectionSevenRepo->find($id);
+
+    //     if (!$sectionSeven) {
+    //         return redirect()->route('section.seven')
+    //             ->with('error', 'Record not found.');
+    //     }
+
+    //     $this->sectionSevenRepo->update($id, $data);
+
+    //     return redirect()->route('section.seven')
+    //         ->with('success', 'Section Seven updated successfully.');
+    // }
 }

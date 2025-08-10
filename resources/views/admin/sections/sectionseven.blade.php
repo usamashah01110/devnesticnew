@@ -6,7 +6,7 @@
         <!-- Page header Start -->
         <div class="d-flex align-items-center justify-content-between">
             <h2 class="mb-0">Create Section Seven</h2>
-            <a href="">
+            <a href="{{ route('section.seven.view') }}">
                 <button type="button" class="btn btn-primary">
                     Create Section Seven
                 </button>
@@ -37,15 +37,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($sectionSeven as $sec)
+                        
                         <tr>
                             <td>1</td>
-                            <td class="text-truncate" style="max-width:120px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto quia doloremque velit, cum dolorem corrupti eius saepe debitis laborum, culpa excepturi temporibus nulla nam obcaecati nihil ducimus sed rem. Sed officia accusamus veritatis eveniet enim. Iusto temporibus distinctio ex debitis cumque pariatur magni veniam sequi sapiente, iure soluta, culpa autem similique ipsum ipsa esse hic quaerat odio. Dolores laborum quidem consequuntur ipsa repudiandae quaerat libero beatae et velit? Totam nemo commodi non! Necessitatibus veritatis nobis quia vero suscipit magnam enim placeat eligendi dicta dignissimos id saepe voluptate nihil ipsum, eum impedit aut nam repellendus libero similique earum ea. Ab, quos?</td>
-                            <td class="text-truncate" style="max-width:180px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                            <td>Explore now</td>
-                            <td>5</td>
-                            <td>120</td>
-                            <td>98%</td>
-                            <td>helo </td>
+                            <td class="text-truncate" style="max-width:120px;">{{ $sec->building_number}}</td>
+                            <td class="text-truncate" style="max-width:180px;">{{ $sec->street }}</td>
+                            <td>{{ $sec->city }}</td>
+                            <td>{{ $sec->zip_code }}</td>
+                            <td>{{ $sec->contact_one }}</td>
+                            <td>{{ $sec->contact_two }}</td>
+                            <td>{{ $sec->email }}</td>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="">
                                     <button class="badge badge-danger">Delete</button>
@@ -59,6 +61,7 @@
                             </td>
 
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

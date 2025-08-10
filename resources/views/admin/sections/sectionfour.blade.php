@@ -30,7 +30,6 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>

@@ -51,8 +51,13 @@
                             <td class="text-truncate" style="max-width:90px;">
                                 <img src="{{ asset('storage/'.  $sec->ceo_founder_img  ) }}" alt="CEO image" class="rounded shadow-sm border">
                             </td>
-                            <td class="text-truncate" style="max-width:90px;">{{ $sec->large_img }}</td>
-                            <td class="text-truncate" style="max-width:90px;">{{ $sec->small_img }}</td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                <img src="{{ asset('storage/'.  $sec->large_img  ) }}" alt="Large Image" class="rounded shadow-sm border">
+                            </td>
+                            <td class="text-truncate" style="max-width:90px;">
+                                <img src="{{ asset('storage/'.  $sec->small_img  ) }}" alt="Large Image" class="rounded shadow-sm border">
+
+                            </td>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="">
                                     <button class="badge badge-danger">Delete</button>
