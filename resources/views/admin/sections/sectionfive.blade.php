@@ -58,7 +58,7 @@
                             </td>
 
                             <td class="text-truncate" style="max-width:90px;">
-                                <a href="">
+                                <a href="{{ route('section.five.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>

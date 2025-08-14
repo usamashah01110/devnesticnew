@@ -50,13 +50,13 @@
                                 <img src="{{ asset('storage/'.$sec->image_path) }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
                             <td class="text-truncate" style="max-width:90px;">
-                                <a href="">
+                                <a href="{{ route('section.one.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>
                                 <br>
 
-                                <a href="{{ route('section.one.edit', $sec->id) }}">
+                                <a href="{{ route('section.one.edit.view', $sec->id) }}">
                                     <button class="badge badge-success">Edit</button>
                                 </a>
                             </td>

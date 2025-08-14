@@ -50,14 +50,6 @@ class SectionsController extends Controller
         return view('admin.inputs.sectionOneInput', compact('title'));
     }
 
-    public function sectionOneEdit($id){
-
-        $sectionOne = $this->sectionOneRepo->find($id);
-        $title = 'Edit Section One';
-
-        return view('admin.editInputs.editsectionone', compact('sectionOne', 'title'));
-    }
-
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -78,26 +70,50 @@ class SectionsController extends Controller
         return redirect('/')->with(['section_data' => $sectionOne]);
     }
 
+    public function editView($id)
+    {
+        $sectionOne = $this->sectionOneRepo->find($id);
+        $title = "Update Section One";
+        return view('admin.editInputs.editsectionone', compact('sectionOne', 'title'));
+    }
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'heading_one' => 'nullable|string',
-            'paragraph' => 'nullable|string',
-            'btn_one_text' => 'nullable|string',
-            'years' => 'nullable|string',
-            'clients' => 'nullable|string',
-            'success_rate' => 'nullable|string',
-            'image_path' => 'nullable|image|max:2048',
-        ]);
+        $sectionone = $this->sectionOneRepo->find($id);
+        if (!$sectionone) {
+            return redirect()->back();
+        }
+
+        $data = $request->validate(
+            [
+                'heading_one' => 'nullable|string',
+                'paragraph' => 'nullable|string',
+                'btn_one_text' => 'nullable|string',
+                'years' => 'nullable|string',
+                'clients' => 'nullable|string',
+                'success_rate' => 'nullable|string',
+                'image_path' => 'nullable|image|max:2048',
+            ]
+        );
 
         if ($request->hasFile('image_path')) {
             $data['image_path'] = $request->file('image_path')->store('section_ones', 'public');
         }
-
         $sectionOne = $this->sectionOneRepo->update($id, $data);
-        return redirect('/')->with(['section_data' => $sectionOne]);
+        return redirect('/')->with('section_one', $sectionOne);
     }
+
+    public function deleteOne($id)
+    {
+        $sectionOne = $this->sectionOneRepo->find($id);
+        if (!$sectionOne) {
+            return redirect()->back();
+        }
+        $sectionOne->delete();
+        return redirect()->back();
+    }
+
+
     // Section two (About Section)
     public function sectiontwo()
     {
@@ -144,6 +160,18 @@ class SectionsController extends Controller
         return redirect('/')->with(['section_data' => $sectionTwo]);
     }
 
+    public function sectionTwoEditView($id)
+    {
+        $sectionTwo = $this->sectionTwoRepo->find($id);
+        return view('admin.editInputs.editsectiontwo', compact('sectionTwo'));
+    }
+    public function deleteTwo($id)
+    {
+        $sectionTwo = $this->sectionTwoRepo->find($id);
+        $sectionTwo->delete();
+        return redirect()->back();
+    }
+
     // Section Three
 
     public function sectionThree()
@@ -172,12 +200,23 @@ class SectionsController extends Controller
         $sectionThree = $this->sectionThreeRepo->create($data);
         return redirect('/')->with(['section_three_data' => $sectionThree]);
     }
-
+    public function sectionThreeEditView($id)
+    {
+        $sectionThree = $this->sectionThreeRepo->find($id);
+        return view('admin.editInputs.editsectionthree', compact('sectionThree'));
+    }
+    public function deleteThree($id)
+    {
+        $sectionThree = $this->sectionThreeRepo->find($id);
+        $sectionThree->delete();
+        return redirect()->back();
+    }
 
     // Section Four
     public function sectionFour()
     {
-        return view('admin.sections.sectionfour');
+        $sectionFour = $this->sectionFourRepo->all();
+        return view('admin.sections.sectionfour', compact('sectionFour'));
     }
     public function sectionFourCreate()
     {
@@ -198,6 +237,12 @@ class SectionsController extends Controller
         }
         $sectionFour = $this->sectionFourRepo->create($data);
         return redirect('/')->with(['section_four' => $sectionFour]);
+    }
+    public function deleteFour($id)
+    {
+        $sectionFour = $this->sectionFourRepo->find($id);
+        $sectionFour->delete();
+        return redirect()->back();
     }
 
 
@@ -233,7 +278,12 @@ class SectionsController extends Controller
         $sectionFive = $this->sectionFiveRepo->create($data);
         return redirect('/')->with(['section_five' => $sectionFive]);
     }
-
+    public function deleteFive($id)
+    {
+        $sectionFive = $this->sectionFiveRepo->find($id);
+        $sectionFive->delete();
+        return redirect()->back();
+    }
 
     // Section Six
     public function sectionSix()
@@ -256,6 +306,12 @@ class SectionsController extends Controller
         );
         $sectionSix = $this->sectionSixRepo->create($data);
         return redirect('/')->with(['section_six' => $sectionSix]);
+    }
+    public function deleteSix($id)
+    {
+        $sectionSix = $this->sectionSixRepo->find($id);
+        $sectionSix->delete();
+        return redirect()->back();
     }
 
     // Section Seven
@@ -288,38 +344,37 @@ class SectionsController extends Controller
         $sectionSeven = $this->sectionSevenRepo->create($data);
         return redirect('/')->with(['section_seven' => $sectionSeven]);
     }
-    // public function sectionSevenEditForm($id)
-    // {
-    //     $sectionSeven = $this->sectionSevenRepo->find($id);
-    //     $title = "Edit Section Seven (Contact)";
-    //     $btn = "Edit";
-    //     $url = route('section.seven.edit', $id);
-    //     return view('admin.inputs.sectionSevenInput', compact('title', 'sectionSeven', 'btn', 'url'));
-    // }
+    public function sectionSevenEditView($id)
+    {
+        $sectionSeven = $this->sectionSevenRepo->find($id);
+        $title = 'Update Section Seven (Contact)';
+        return view('admin.editInputs.editsectionseven', compact('sectionSeven', 'title'));
+    }
+    public function deleteSeven($id)
+    {
+        $sectionSeven = $this->sectionSevenRepo->find($id);
+        $sectionSeven->delete();
+        return redirect()->back();
+    }
 
-    // public function sectionSevenEdit(Request $request, $id)
-    // {
-    //     // 1. Validation
-    //     $data = $request->validate([
-    //         'building_number' => 'string|nullable',
-    //         'street'          => 'string|nullable',
-    //         'city'            => 'string|nullable',
-    //         'zip_code'        => 'string|nullable',
-    //         'contact_one'     => 'string|nullable',
-    //         'contact_two'     => 'string|nullable',
-    //         'email'           => 'email|nullable'
-    //     ]);
-
-    //     $sectionSeven = $this->sectionSevenRepo->find($id);
-
-    //     if (!$sectionSeven) {
-    //         return redirect()->route('section.seven')
-    //             ->with('error', 'Record not found.');
-    //     }
-
-    //     $this->sectionSevenRepo->update($id, $data);
-
-    //     return redirect()->route('section.seven')
-    //         ->with('success', 'Section Seven updated successfully.');
-    // }
+    public function updateSeven($id, Request $request)
+    {
+        $sectionseven = $this->sectionSevenRepo->find($id);
+        if (! $sectionseven) {
+            return redirect()->back();
+        }
+        $data = $request->validate(
+            [
+                'building_number' => 'string|nullable',
+                'street' => 'string|nullable',
+                'city' => 'string|nullable',
+                'zip_code' => 'string|nullable',
+                'contact_one' => 'string|nullable',
+                'contact_two' => 'string|nullable',
+                'email' => 'email|nullable'
+            ]
+        );
+        $sectionSeven = $this->sectionSevenRepo->update($id, $data);
+        return redirect('/')->with('secion_data', $sectionSeven);
+    }
 }

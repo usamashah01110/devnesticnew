@@ -34,23 +34,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <td>1</td>
-                            <td class="text-truncate" style="max-width:120px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto quia doloremque velit, cum dolorem corrupti eius saepe debitis laborum, culpa excepturi temporibus nulla nam obcaecati nihil ducimus sed rem. Sed officia accusamus veritatis eveniet enim. Iusto temporibus distinctio ex debitis cumque pariatur magni veniam sequi sapiente, iure soluta, culpa autem similique ipsum ipsa esse hic quaerat odio. Dolores laborum quidem consequuntur ipsa repudiandae quaerat libero beatae et velit? Totam nemo commodi non! Necessitatibus veritatis nobis quia vero suscipit magnam enim placeat eligendi dicta dignissimos id saepe voluptate nihil ipsum, eum impedit aut nam repellendus libero similique earum ea. Ab, quos?</td>
-                            <td class="text-truncate" style="max-width:180px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                        @foreach ($sectionFour as $sec)
+                        <tr>
+                            <td>{{ $sec->id }}</td>
+                            <td class="text-truncate" style="max-width:120px;">{{ $sec->name }}</td>
+                            <td class="text-truncate" style="max-width:180px;">{{ $sec->description }}</td>
                             <td>Explore now</td>
 
                             <td>
-                                <img src="{{ asset('storage\section_ones\QQegRnELJlb9GC7q8qnLWi2kttoJ4NdJgUWt8AHf.jpg') }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
+                                <img src="{{ asset('storage/'. $sec->image) }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
-                                <button class="badge badge-success">Active</button>
+                            <button class="badge badge-success">Active</button>
                             <td class="text-truncate" style="max-width:90px;">
-                                <a href="">
+                                <a href="{{ route('section.four.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>
-                                    <button class="badge badge-success">Edit</button>
+                                <button class="badge badge-success">Edit</button>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
-    </div>
-    <br>
-    @endsection
+            </div>
+            <br>
+            @endsection

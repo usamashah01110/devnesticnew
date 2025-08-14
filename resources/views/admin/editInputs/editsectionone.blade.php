@@ -11,6 +11,8 @@
             text-align: center;
             margin-top: 15px;
             background-color: #f8f9fa;
+            cursor: pointer;
+            position: relative;
         }
 
         .preview-image {
@@ -28,9 +30,19 @@
             color: #6c757d;
             font-style: italic;
         }
+        
+        .hidden-input {
+            display: none;
+        }
+        
+        .image-container {
+            position: relative;
+        }
     </style>
     <div class="container">
         <div class="container">
+            <h1 class="text-center">{{ $title }}</h1>
+            <hr/>
             <form action="{{ route('section.one.update', $sectionOne->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
@@ -40,7 +52,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Paragraph</label>
-                    <textarea class="form-control" name="paragraph" rows="3">{{ $sectionOne->paragraph }} </textarea>
+                    <textarea class="form-control" name="paragraph" rows="3">{{ $sectionOne->paragraph }}</textarea>
                 </div>
 
                 <div class="mb-3">
@@ -50,7 +62,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Years</label>
-                    <input type="text" class="form-control" name="years" value="{{ $sectionOne->years }} ">
+                    <input type="text" class="form-control" name="years" value="{{ $sectionOne->years }}">
                 </div>
 
                 <div class="mb-3">
@@ -65,30 +77,33 @@
 
                 <div class="mb-3">
                     <label class="form-label">Image</label>
-                    <input type="file" class="form-control" name="image_path" id="imageInput" accept="image/*">
-                </div>
-
-                <!-- Image Preview Container -->
-                <div id="imagePreviewContainer" class="image-preview" style="display: none;">
-                    <img id="previewImage" class="preview-image" src="{{ asset('storage/'.$sectionOne->image_path) }}" alt="Preview">
-                    <div>
-                        <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
-                            Remove Image
-                        </button>
+                    <!-- Hidden file input -->
+                    <input type="file" class="hidden-input" name="image_path" id="imageInput" accept="image/*">
+                    
+                    <!-- Image Preview Container (also acts as upload area) -->
+                    <div id="imagePreviewContainer" class="image-preview">
+                        @if($sectionOne->image_path)
+                            <div class="image-container">
+                                <img id="previewImage" class="preview-image" src="{{ asset('storage/'.$sectionOne->image_path) }}" alt="Current Image">
+                                <div>
+                                    <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
+                                        Remove Image
+                                    </button>
+                                </div>
+                            </div>
+                        @else
+                            <div id="placeholderContainer">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-image fa-3x mb-3"></i>
+                                    <p>Click to upload image</p>
+                                    <small>Choose an image file</small>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
 
-                <!-- Placeholder when no image -->
-                <div id="placeholderContainer" class="image-preview">
-                    <div class="upload-placeholder">
-                        <i class="fas fa-image fa-3x mb-3"></i>
-                        <p>No image selected</p>
-                        <small>Choose an image file to preview</small>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">Save</button>
-
+                <button type="submit" class="btn btn-primary btn-block">Update</button>
             </form>
         </div>
     </div>
@@ -97,9 +112,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             const imageInput = document.getElementById('imageInput');
             const imagePreviewContainer = document.getElementById('imagePreviewContainer');
-            const previewImage = document.getElementById('previewImage');
-            const removeImageBtn = document.getElementById('removeImage');
-            const placeholderContainer = document.getElementById('placeholderContainer');
+            let removeImageBtn = document.getElementById('removeImage');
+
+            // Make the preview container clickable
+            imagePreviewContainer.addEventListener('click', function(e) {
+                // Only trigger file input if clicking on the container itself, not buttons inside it
+                if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') || 
+                    e.target.classList.contains('fa-image') || e.target.tagName === 'P' || e.target.tagName === 'SMALL') {
+                    imageInput.click();
+                }
+            });
 
             // Handle file selection
             imageInput.addEventListener('change', function(e) {
@@ -125,37 +147,67 @@
                     const reader = new FileReader();
 
                     reader.onload = function(e) {
-                        // Set the image source to the file data
-                        previewImage.src = e.target.result;
-
-                        // Show preview container and hide placeholder
-                        imagePreviewContainer.style.display = 'block';
-                        placeholderContainer.style.display = 'none';
+                        // Update the preview container with new image
+                        imagePreviewContainer.innerHTML = `
+                            <div class="image-container">
+                                <img id="previewImage" class="preview-image" src="${e.target.result}" alt="Preview Image">
+                                <div>
+                                    <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
+                                        Remove Image
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Re-attach event listener to the new remove button
+                        document.getElementById('removeImage').addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            resetPreview();
+                        });
                     };
 
                     // Read the file as data URL
                     reader.readAsDataURL(file);
-                } else {
-                    resetPreview();
                 }
             });
 
-            // Handle remove image button
-            removeImageBtn.addEventListener('click', function() {
-                // Clear the file input
-                imageInput.value = '';
-                resetPreview();
-            });
+            // Attach event listener to initial remove button if it exists
+            if (removeImageBtn) {
+                removeImageBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    resetPreview();
+                });
+            }
 
             // Function to reset preview to initial state
             function resetPreview() {
-                imagePreviewContainer.style.display = 'none';
-                placeholderContainer.style.display = 'block';
-                previewImage.src = '';
+                // Clear the file input
+                imageInput.value = '';
+                
+                // Reset the preview container
+                imagePreviewContainer.innerHTML = `
+                    <div id="placeholderContainer">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-image fa-3x mb-3"></i>
+                            <p>Click to upload image</p>
+                            <small>Choose an image file</small>
+                        </div>
+                    </div>
+                `;
             }
         });
     </script>
 
+
+
+
+
+
+
+
+
+
+
     <!-- Font Awesome for icons (optional) -->
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 @endsection

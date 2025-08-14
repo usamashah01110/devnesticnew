@@ -40,7 +40,7 @@
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->answer }}</td>
 
                             <td class="text-truncate " style="max-width:90px;">
-                                <a href="">
+                                <a href="{{ route('delete.six', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>

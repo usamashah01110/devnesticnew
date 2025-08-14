@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (  $sectionThree as $sec)
+                        @foreach ( $sectionThree as $sec)
 
 
                         <tr>
@@ -49,7 +49,7 @@
                                 <a href="{{ $sec->Link }}">{{ $sec->Link }}</a>
                             </td>
                             <td class="text-truncate" style="max-width:90px;">
-                                <a href="">
+                                <a href="{{ route('section.three.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>
