@@ -313,6 +313,22 @@ class SectionsController extends Controller
         $sectionSix->delete();
         return redirect()->back();
     }
+    public function sectionSixEditView($id)
+    {
+        $sectionSix = $this->sectionSixRepo->find($id);
+        $title = "Update Section Six (FAQs)";
+        return view('admin.editInputs.editsectionsix', compact('sectionSix', 'title'));
+    }
+    public function updateSix($id, Request $request)
+    {
+        $sectionsix = $this->sectionSixRepo->find($id);
+        $data = $request->validate([
+            'question' => 'string|nullable',
+            'answer' => 'string|nullable'
+        ]);
+        $sectionSix = $this->sectionSixRepo->update($id, $data);
+        return redirect('/')->with(['section_data'=> $sectionSix]);
+    }
 
     // Section Seven
     public function sectionSeven()
