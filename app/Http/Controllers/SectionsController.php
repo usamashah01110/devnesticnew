@@ -284,6 +284,10 @@ class SectionsController extends Controller
         $sectionFive->delete();
         return redirect()->back();
     }
+    public function sectionFiveEditView($id) {
+        $sectionFive = $this->sectionFiveRepo->find($id);
+        return view('admin.editInputs.editsectionfive', );
+    }
 
     // Section Six
     public function sectionSix()
@@ -313,14 +317,12 @@ class SectionsController extends Controller
         $sectionSix->delete();
         return redirect()->back();
     }
-    public function sectionSixEditView($id)
-    {
+    public function sectionSixEditView($id){
         $sectionSix = $this->sectionSixRepo->find($id);
         $title = "Update Section Six (FAQs)";
         return view('admin.editInputs.editsectionsix', compact('sectionSix', 'title'));
     }
-    public function updateSix($id, Request $request)
-    {
+    public function updateSix($id, Request $request){
         $sectionsix = $this->sectionSixRepo->find($id);
         $data = $request->validate([
             'question' => 'string|nullable',

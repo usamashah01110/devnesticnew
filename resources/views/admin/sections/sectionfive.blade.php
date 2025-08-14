@@ -64,7 +64,7 @@
                                 <br>
                                 <br>
 
-                                <a href="">
+                                <a href="{{ route('section.six.update', $sec->id) }}">
                                     <button class="badge badge-success">Edit</button>
                                 </a>
                             </td>
