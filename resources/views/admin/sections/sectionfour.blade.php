@@ -44,13 +44,17 @@
                             <td>
                                 <img src="{{ asset('storage/'. $sec->image) }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
-                            <button class="badge badge-success">Active</button>
                             <td class="text-truncate" style="max-width:90px;">
                                 <a href="{{ route('section.four.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
                                 <br>
-                                <button class="badge badge-success">Edit</button>
+                                <br>
+                                @if($sectionFour)
+                                <a href="{{ route('section.four.edit.view', $sec->id) }}">
+                                    <button class="badge badge-success">Edit</button>
+                                </a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

@@ -22,7 +22,7 @@ class SectionFourRepository implements SectionFourRepositoryInterface
 
     public function update(array $data, $id)
     {
-        return $this->model->finf($id)->update($data);
+        return $this->model->find($id)->update($data);
     }
 
     public function delete($id)
