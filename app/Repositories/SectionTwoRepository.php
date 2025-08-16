@@ -33,12 +33,12 @@ class SectionTwoRepository implements SectionTwoRepositoryInterface
 
     public function find($id)
     {
-        return $this->find($id);
+        return $this->model->find($id);
     }
 
     public function delete($id)
     {
-        return $this->find($id)->delete();
+        return $this->model->find($id)->delete();
     }
 
 }
