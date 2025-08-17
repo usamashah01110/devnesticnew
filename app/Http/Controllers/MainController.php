@@ -10,6 +10,7 @@ use App\Models\SectionFour;
 use App\Models\SectionFive;
 use App\Models\SectionSix;
 use App\Models\SectionSeven;
+use App\Models\SectionEight;
 
 class MainController extends Controller
 {
@@ -23,6 +24,7 @@ class MainController extends Controller
         $sectionFive = SectionFive::all();
         $sectionSix = SectionSix::all();
         $sectionSeven = SectionSeven::latest()->first();
+        $sectionEight = SectionEight::all();
 
         return view(
             'layouts.main',
@@ -33,7 +35,8 @@ class MainController extends Controller
                 'sectionFour',
                 'sectionFive',
                 'sectionSix',
-                'sectionSeven'
+                'sectionSeven',
+                'sectionEight'
             )
         );
     }

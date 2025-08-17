@@ -99,6 +99,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/section/7/edit/{id}', [SectionsController::class, 'sectionSevenEditView'])->name('section.seven.edit.view');
     Route::get('/section/7/delete/{id}', [SectionsController::class, 'deleteSeven'])->name('section.seven.delete');
     Route::post('/section/7/update/{id}', [SectionsController::class, 'updateSeven'])->name('section.seven.update');
+
+    // Section 8
+    Route::get('/section/8', [SectionsController::class,'sectionEight'])->name('section.eight');
+    Route::get('/section/8/store', [SectionsController::class,'sectionEightCreate'])->name('section.eight.view');
+    Route::post('/section/8/store', [SectionsController::class,'sectionEightStore'])->name('section.eight.store');
+    Route::get('/section/8/delete/{id}', [SectionsController::class,'deleteEight'])->name('section.eight.delete');
+    Route::get('/section/8/edit/{id}', [SectionsController::class,'sectionEightEditView'])->name('section.eight.edit.view');
+    Route::post('/section/8/update/{id}', [SectionsController::class,'updateEight'])->name('section.eight.update');
+
 });
 
 require __DIR__ . '/auth.php';

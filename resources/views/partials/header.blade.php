@@ -4,7 +4,7 @@
         <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.webp" alt=""> -->
-            <h1 class="sitename"><span>e</span>Business</h1>
+            <h1 class="sitename"><span>D</span>evnestic</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">

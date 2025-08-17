@@ -9,6 +9,7 @@ use App\Repositories\Interfaces\SectionFourRepositoryInterface;
 use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
 use App\Repositories\Interfaces\SectionSixRepositoryInterface;
 use App\Repositories\Interfaces\SectionSevenRepositoryInterface;
+use App\Repositories\Interfaces\SectionEightRepositoryInterface;
 use App\Repositories\SectionOneRepository;
 use App\Repositories\SectionTwoRepository;
 use App\Repositories\SectionThreeRepository;
@@ -16,6 +17,7 @@ use App\Repositories\SectionFourRepository;
 use App\Repositories\SectionFiveRepository;
 use App\Repositories\SectionSixRepository;
 use App\Repositories\SectionSevenRepository;
+use App\Repositories\SectionEightRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SectionFiveRepositoryInterface::class, SectionFiveRepository::class);
         $this->app->bind(SectionSixRepositoryInterface::class, SectionSixRepository::class);
         $this->app->bind(SectionSevenRepositoryInterface::class, SectionSevenRepository::class);
+        $this->app->bind(SectionEightRepositoryInterface::class, SectionEightRepository::class);
     }
 
     /**

@@ -49,7 +49,7 @@
     @include('pages.about')
     @include('pages.services')
 
-    @include('pages.portfolio')
+    @include('pages.developers')
     @include('pages.faq')
     @include('pages.team')
 

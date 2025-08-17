@@ -10,6 +10,7 @@ use App\Repositories\Interfaces\SectionFourRepositoryInterface;
 use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
 use App\Repositories\Interfaces\SectionSixRepositoryInterface;
 use App\Repositories\Interfaces\SectionSevenRepositoryInterface;
+use App\Repositories\Interfaces\SectionEightRepositoryInterface;
 
 class SectionsController extends Controller
 {
@@ -20,6 +21,7 @@ class SectionsController extends Controller
     protected $sectionFiveRepo;
     protected $sectionSixRepo;
     protected $sectionSevenRepo;
+    protected $sectionEightRepo;
     public function __construct(
         SectionOneRepositoryInterface $sectionOneRepo,
         SectionTwoRepositoryInterface $sectionTwoRepo,
@@ -27,7 +29,8 @@ class SectionsController extends Controller
         SectionFourRepositoryInterface $sectionFourRepo,
         SectionFiveRepositoryInterface $sectionFiveRepo,
         SectionSixRepositoryInterface $sectionSixRepo,
-        SectionSevenRepositoryInterface $sectionSevenRepo
+        SectionSevenRepositoryInterface $sectionSevenRepo,
+        SectionEightRepositoryInterface $sectionEightRepo
 
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
@@ -37,6 +40,7 @@ class SectionsController extends Controller
         $this->sectionFiveRepo = $sectionFiveRepo;
         $this->sectionSixRepo = $sectionSixRepo;
         $this->sectionSevenRepo = $sectionSevenRepo;
+        $this->sectionEightRepo = $sectionEightRepo;
     }
     // Section one (Hero Section)
     public function index()
@@ -474,7 +478,6 @@ class SectionsController extends Controller
         $sectionSeven->delete();
         return redirect()->back();
     }
-
     public function updateSeven($id, Request $request)
     {
         $sectionseven = $this->sectionSevenRepo->find($id);
@@ -494,5 +497,75 @@ class SectionsController extends Controller
         );
         $sectionSeven = $this->sectionSevenRepo->update($id, $data);
         return redirect('/')->with('secion_data', $sectionSeven);
+    }
+
+    // Section Eight (Developers)
+    public function sectionEight()
+    {
+        $sectionEight = $this->sectionEightRepo->all();
+        return view('admin.sections.sectioneight', compact('sectionEight'));
+    }
+    public function sectionEightCreate()
+    {
+        $title = 'Create Section Eight (Developer)';
+        return view('admin.inputs.sectionEightInput', compact('title'));
+    }
+    public function sectionEightStore(Request $request)
+    {
+        $data = $request->validate([
+            'developer_id' => 'string',
+            'name' => 'string|nullable',
+            'role' => 'string|nullable',
+            'description' => 'string|nullable',
+            'tech1' => 'string|nullable',
+            'tech2' => 'string|nullable',
+            'tech3' => 'string|nullable',
+            'tech4' => 'string|nullable',
+            'image' => 'image|nullable'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('section_eight', 'public');
+        }
+
+        $sectionEight = $this->sectionEightRepo->create($data);
+        return redirect('/')->with('section_data', $sectionEight);
+    }
+    public function deleteEight($id)
+    {
+        $this->sectionEightRepo->find($id)->delete($id);
+        return redirect()->back();
+    }
+    public function sectionEightEditView($id)
+    {
+        $sectionEight = $this->sectionEightRepo->find($id);
+        $title = "Update Section Eight (Developer)";
+        return view('admin.editInputs.editsectioneight', compact('sectionEight', 'title'));
+    }
+    public function updateEight($id, Request $request)
+    {
+        $sectionEight = $this->sectionEightRepo->find($id);
+        if (! $sectionEight) {
+            return redirect()->back();
+        }
+        $data = $request->validate(
+            [
+                'developer_id' => 'string',
+                'name' => 'string|nullable',
+                'role' => 'string|nullable',
+                'description' => 'string|nullable',
+                'tech1' => 'string|nullable',
+                'tech2' => 'string|nullable',
+                'tech3' => 'string|nullable',
+                'tech4' => 'string|nullable',
+                'image' => 'image|nullable'
+            ]
+        );
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('section_eight', 'public');
+        }
+        $this->sectionEightRepo->update($id, $data);
+        return redirect('/');
     }
 }
