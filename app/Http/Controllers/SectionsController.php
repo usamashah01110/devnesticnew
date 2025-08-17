@@ -166,6 +166,7 @@ class SectionsController extends Controller
 
     public function sectionTwoEditView($id)
     {
+
         $sectionTwo = $this->sectionTwoRepo->find($id);
         $title = "Update Section Two (About)";
         return view('admin.editInputs.editsectiontwo', compact('sectionTwo', 'title'));
