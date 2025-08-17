@@ -25,15 +25,15 @@
                         <ul class="feature-list">
                             <li>
                                 <i class="bi bi-check-circle-fill"></i>
-                                Lorem ipsum dolor sit amet
+                                E-business solutions for digital growth
                             </li>
                             <li>
                                 <i class="bi bi-check-circle-fill"></i>
-                                Consectetur adipiscing elit
+                                Custom development services
                             </li>
                             <li>
                                 <i class="bi bi-check-circle-fill"></i> Sed
-                                do eiusmod tempor
+                                Scalable web & app development
                             </li>
                         </ul>
                     </div>
@@ -41,15 +41,15 @@
                         <ul class="feature-list">
                             <li>
                                 <i class="bi bi-check-circle-fill"></i>
-                                Incididunt ut labore et
+                                Secure, high-performance systems
                             </li>
                             <li>
                                 <i class="bi bi-check-circle-fill"></i>
-                                Dolore magna aliqua
+                                API & Integration Services
                             </li>
                             <li>
                                 <i class="bi bi-check-circle-fill"></i> Ut
-                                enim ad minim veniam
+                                E-Commerce & Digital Platforms
                             </li>
                         </ul>
                     </div>
