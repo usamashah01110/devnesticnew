@@ -62,7 +62,7 @@
                                 class="profile d-flex align-items-center gap-3"
                             >
                                 <img
-                                    src="{{ asset('storage/', $sectionTwo->ceo_founder_img) }}"
+                                    src="{{ asset('storage/'. $sectionTwo->ceo_founder_img) }}"
                                     alt="CEO Profile"
                                     class="profile-image"
                                 />
