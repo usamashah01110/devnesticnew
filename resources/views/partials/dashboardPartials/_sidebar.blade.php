@@ -14,7 +14,7 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
         </li>
-        
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard.index') }}">
                 <span class="menu-title">Dashboard</span>
@@ -25,28 +25,24 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.index') }}">
                 <span class="menu-title">Section One (Hero)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <!-- Section Two (About) -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.two') }}">
                 <span class="menu-title">Section Two (About)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <!-- Section Three (Sevice section) -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.three') }}">
                 <span class="menu-title">Section Three (Services)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <!-- Section four (portfolio section) -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.four') }}">
                 <span class="menu-title">Section Four (Portfolio)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <!-- section five (team section) -->
