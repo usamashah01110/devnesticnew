@@ -18,7 +18,7 @@
                 <div class="faq-container">
                     @foreach ($sectionSix as $sec)
                     <div class="faq-item">
-                        <h3><span class="num">1.</span> <span>{{ $sec->question }}</span></h3>
+                        <h3><span class="num">{{$sec->id}}.</span> <span>{{ $sec->question }}</span></h3>
                         <div class="faq-content">
                             <p>{{ $sec->answer }}</p>
                         </div>

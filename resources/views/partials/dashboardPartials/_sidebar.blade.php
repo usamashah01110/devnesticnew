@@ -3,7 +3,10 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="{{asset('admin/dashboardAssets/images/faces/face1.jpg')}}" alt="profile" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#7a8cf5" viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4"/>
+                        <path d="M12 14c-5 0-9 2.5-9 5.5V22h18v-2.5c0-3-4-5.5-9-5.5z"/>
+                    </svg>
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
                 </div>
@@ -49,27 +52,23 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.five') }}">
                 <span class="menu-title">Section Five (Team)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <!-- section six (faqs) -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.six') }}">
                 <span class="menu-title">Section Six (FAQs)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <!-- Section Seven (Contact Section) -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.seven') }}">
                 <span class="menu-title">Section Seven (Contact)</span>
-                <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.eight') }}">
                 <span class="menu-title">Section Seven (Developers)</span>
-                <i class="bi bi-people"></i>
             </a>
         </li>
 

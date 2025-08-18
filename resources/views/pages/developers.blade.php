@@ -295,7 +295,7 @@
       }
     }
   </style>
-  <section class="developers-section">
+  <section class="developers-section" id="developer">
     <div class="container">
       <div class="section-header">
         <h2>Our Expert Developers</h2>
