@@ -51,7 +51,7 @@
 
     @include('pages.developers')
     @include('pages.faq')
-    @include('pages.team')
+    <!-- @include('pages.team') -->
 
 
     @include('pages.contact')
