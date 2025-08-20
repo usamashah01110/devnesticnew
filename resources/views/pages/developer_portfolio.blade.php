@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
+            --primary-color: #E89922;
+            --secondary-color: #e8a746;
             --accent-color: #e74c3c;
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
@@ -44,7 +44,19 @@
             flex-direction: column;
             align-items: center;
             padding: 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: radial-gradient(circle,
+                    #E89922 0%,
+                    #E89922 40%,
+
+                    #f0b95c 40%,
+                    #f0b95c 70%,
+                    /* lighter shade */
+                    #f9dca2 70%,
+                    #f9dca2 100%,
+                    /* even lighter */
+                    #fff5e5 100%
+                    /* near white */
+                );
             color: white;
             text-align: center;
             position: relative;
@@ -277,6 +289,7 @@
             background-color: var(--primary-color);
             color: white;
             border: 2px solid var(--primary-color);
+            width:80%;
         }
 
         .btn-primary:hover {
@@ -288,6 +301,9 @@
             background-color: transparent;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
+            position: absolute;
+            left: 90px;
+            top:50px;
         }
 
         .btn-secondary:hover {
