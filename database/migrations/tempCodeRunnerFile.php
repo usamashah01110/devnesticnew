@@ -1,2 +1,0 @@
-<?php
-developer_id

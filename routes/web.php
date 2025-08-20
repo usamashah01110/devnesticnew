@@ -85,15 +85,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/section/5/store', [SectionsController::class, 'sectionFiveCreate'])->name('section.five.view');
     Route::post('/section/5/store', [SectionsController::class, 'sectionFiveStore'])->name('section.five.store');
     Route::get('/section/5/delete/{id}', [SectionsController::class, 'deleteFive'])->name('section.five.delete');
-    Route::get('/section/5/edit/{id}', [SectionsController::class,'sectionFiveEditView'])->name('section.five.edit.view');
-    Route::post('/section/5/update/{id}', [SectionsController::class,'updateFive'])->name('section.five.update');
+    Route::get('/section/5/edit/{id}', [SectionsController::class, 'sectionFiveEditView'])->name('section.five.edit.view');
+    Route::post('/section/5/update/{id}', [SectionsController::class, 'updateFive'])->name('section.five.update');
 
     // Section 6
     Route::get('/section/6', [SectionsController::class, 'sectionSix'])->name('section.six');
     Route::get('/section/6/store', [SectionsController::class, 'sectionSixCreate'])->name('section.six.view');
     Route::post('/section/6/store', [SectionsController::class, 'sectionSixStore'])->name('section.six.store');
     Route::get('/section/6/delete/{id}', [SectionsController::class, 'deleteSix'])->name('delete.six');
-    Route::get('/section/6/edit/{id}', [SectionsController::class,'sectionSixEditView'])->name('section.six.edit.view');
+    Route::get('/section/6/edit/{id}', [SectionsController::class, 'sectionSixEditView'])->name('section.six.edit.view');
     Route::post('/section/6/update/{id}', [SectionsController::class, 'updateSix'])->name('section.six.update');
 
     // Section 7
@@ -105,13 +105,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/section/7/update/{id}', [SectionsController::class, 'updateSeven'])->name('section.seven.update');
 
     // Section 8
-    Route::get('/section/8', [SectionsController::class,'sectionEight'])->name('section.eight');
-    Route::get('/section/8/store', [SectionsController::class,'sectionEightCreate'])->name('section.eight.view');
-    Route::post('/section/8/store', [SectionsController::class,'sectionEightStore'])->name('section.eight.store');
-    Route::get('/section/8/delete/{id}', [SectionsController::class,'deleteEight'])->name('section.eight.delete');
-    Route::get('/section/8/edit/{id}', [SectionsController::class,'sectionEightEditView'])->name('section.eight.edit.view');
-    Route::post('/section/8/update/{id}', [SectionsController::class,'updateEight'])->name('section.eight.update');
+    Route::get('/section/8', [SectionsController::class, 'sectionEight'])->name('section.eight');
+    Route::get('/section/8/store', [SectionsController::class, 'sectionEightCreate'])->name('section.eight.view');
+    Route::post('/section/8/store', [SectionsController::class, 'sectionEightStore'])->name('section.eight.store');
+    Route::get('/section/8/delete/{id}', [SectionsController::class, 'deleteEight'])->name('section.eight.delete');
+    Route::get('/section/8/edit/{id}', [SectionsController::class, 'sectionEightEditView'])->name('section.eight.edit.view');
+    Route::post('/section/8/update/{id}', [SectionsController::class, 'updateEight'])->name('section.eight.update');
 
+    // Section 9
+    Route::get('/section/9', [SectionsController::class, 'sectionNine'])->name('section.nine');
 });
 
 require __DIR__ . '/auth.php';

@@ -606,4 +606,10 @@ class SectionsController extends Controller
         $this->sectionEightRepo->update($id, $data);
         return redirect()->route('section.eight');
     }
+
+
+    // Section Controller (Developer Portfolio)
+    public function sectionNine() {
+        return view('admin.sections.sectionNine');
+    }
 }
