@@ -27,7 +27,7 @@
             <p>A108 Adam Street</p>
             <p>New York, NY 535022</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+923394003237</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p><strong>Email:</strong> <span>devnestic@gmail.com</span></p>
           </div>
         </div>
 

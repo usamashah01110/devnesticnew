@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectionsController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,9 @@ Route::get('/dashboard/error-500', [AdminController::class, 'error_500'])->name(
 Route::get('/dashboard/login', [AdminController::class, 'loginPage'])->name('dashboard.login');
 Route::get('/dashboard/register', [AdminController::class, 'registerPage'])->name('dashboard.register');
 Route::get('/dashboard/documentation', [AdminController::class, 'documentation'])->name('dashboard.documentation');
+
+// Develoer Portfolio 
+Route::get('/Portfolio', [PortfolioController::class, 'viewDeveloperPorfolio'])->name('developer.portfolio.view');
 
 
 

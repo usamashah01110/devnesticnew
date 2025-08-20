@@ -334,7 +334,9 @@
                     </div>
                     <div class="btn-container">
                       <button class="btn-hire">Hire Now</button>
-                      <button class="btn-portfolio">Portfolio</button>
+                      <a href="{{ route('developer.portfolio.view') }}">
+                        <button class="btn-portfolio">Portfolio</button>
+                      </a>
                     </div>
                   </div>
                 </div>
