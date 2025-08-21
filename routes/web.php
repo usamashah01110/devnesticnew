@@ -123,6 +123,9 @@ Route::middleware('auth')->group(function () {
 
     // Developer Experiance
     Route::get('/developer/experiance', [SectionsController::class, 'viewDeveloperExperianceForm'])->name('developer.experiance.form.view');
+
+    // Developer Projects
+    Route::get('/developer/project', [SectionsController::class, 'viewDeveloperProjectsForm'])->name('developer.projects.form.view');
 });
 
 require __DIR__ . '/auth.php';

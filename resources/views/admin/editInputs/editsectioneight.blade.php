@@ -113,42 +113,51 @@
 </div>
 
 <script>
-    function setupImagePreview(fileInputId, previewContainerId) {
-        const imageInput = document.getElementById(fileInputId);
-        const previewContainer = document.getElementById(previewContainerId);
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageInput = document.getElementById('imageInput');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
 
-        previewContainer.addEventListener('click', function(e) {
-            if (e.target === previewContainer || e.target.classList.contains('upload-placeholder') ||
+        // Make preview container clickable
+        imagePreviewContainer.addEventListener('click', function(e) {
+            if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') ||
                 e.target.classList.contains('fa-image') || e.target.tagName === 'P' || e.target.tagName === 'SMALL') {
                 imageInput.click();
             }
         });
 
+        // Handle file selection
         imageInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
+
             if (file) {
+                // Validate file type
                 if (!file.type.startsWith('image/')) {
                     alert('Please select a valid image file.');
                     resetPreview();
                     return;
                 }
+
+                // Validate file size (5MB max)
                 const maxSize = 5 * 1024 * 1024;
                 if (file.size > maxSize) {
                     alert('File size must be less than 5MB.');
                     resetPreview();
                     return;
                 }
+
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    previewContainer.innerHTML = `
+                    imagePreviewContainer.innerHTML = `
                         <div class="image-container">
-                            <img class="preview-image" src="${e.target.result}" alt="Preview Image">
+                            <img id="previewImage" class="preview-image" src="${e.target.result}" alt="Preview Image">
                             <div>
-                                <button type="button" class="btn btn-sm btn-danger remove-btn">Remove Image</button>
+                                <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
+                                    Remove Image
+                                </button>
                             </div>
                         </div>
                     `;
-                    previewContainer.querySelector('.remove-btn').addEventListener('click', function(e) {
+                    document.getElementById('removeImage').addEventListener('click', function(e) {
                         e.stopPropagation();
                         resetPreview();
                     });
@@ -159,17 +168,17 @@
 
         function resetPreview() {
             imageInput.value = '';
-            previewContainer.innerHTML = `
-                <div class="upload-placeholder">
-                    <i class="fas fa-image fa-3x mb-3"></i>
-                    <p>Click to upload image</p>
-                    <small>Choose an image file (Max 5MB)</small>
+            imagePreviewContainer.innerHTML = `
+                <div id="placeholderContainer">
+                    <div class="upload-placeholder">
+                        <i class="fas fa-image fa-3x mb-3"></i>
+                        <p>Click to upload image</p>
+                        <small>Choose an image file</small>
+                    </div>
                 </div>
             `;
         }
-    }
-
-    setupImagePreview('image', 'preview_image');
+    });
 </script>
 
 <!-- Font Awesome for icons -->

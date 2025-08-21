@@ -63,7 +63,7 @@
             <!-- Table Header -->
             <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Developer Projects </h5>
-                <a href=""><button class="btn text-white bg-black  rounded-xl">Add</button></a>
+                <a href="{{ route('developer.projects.form.view') }}"><button class="btn text-white bg-black  rounded-xl">Add</button></a>
             </div>
             <!-- Table Body -->
             <div class="card-body p-0">

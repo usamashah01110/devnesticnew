@@ -631,4 +631,10 @@ class SectionsController extends Controller
         $title = "Add Developer Experiance";
         return view('admin.inputs.developer_experiance', compact('title'));
     }
+
+    public function viewDeveloperProjectsForm()
+    {
+        $title = "Add Developer Project";
+        return view('admin.inputs.developer_project', compact('title'));
+    }
 }
