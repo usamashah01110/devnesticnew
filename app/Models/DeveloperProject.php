@@ -9,6 +9,9 @@ class DeveloperProject extends Model
 {
     use HasFactory;
     protected $fillable = [
-        
+        'image',
+        'title',
+        'description',
+        'tech'
     ];
 }
