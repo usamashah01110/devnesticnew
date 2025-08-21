@@ -114,6 +114,15 @@ Route::middleware('auth')->group(function () {
 
     // Section 9
     Route::get('/section/9', [SectionsController::class, 'sectionNine'])->name('section.nine');
+
+    // Developer Education 
+    Route::get('/developer/education', [SectionsController::class, 'viewDeveloperEducationForm'])->name('developer.education.form.view');
+
+    // Developer Contact
+    Route::get('/developer/contact', [SectionsController::class, 'viewDeveloperContactForm'])->name('developer.contact.form.view');
+
+    // Developer Experiance
+    Route::get('/developer/experiance', [SectionsController::class, 'viewDeveloperExperianceForm'])->name('developer.experiance.form.view');
 });
 
 require __DIR__ . '/auth.php';

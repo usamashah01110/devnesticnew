@@ -317,7 +317,7 @@
                   </div>
                   <div class="card-body">
                     <h3 class="developer-name">{{ $sec->name }}</h3>
-                    <p class="developer-bio">{{ $sec->description }}</p>
+                    <p class="developer-bio">{{ \Illuminate\Support\Str::limit($sec->description, 130)   }}</p>
                     <div class="developer-skills">
                       @if ($sec->tech1)
                       <span class="skill-tag">{{ $sec->tech1 }}</span>

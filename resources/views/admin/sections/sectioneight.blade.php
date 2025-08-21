@@ -30,10 +30,7 @@
                             <th>Role</th>
                             <th>Description</th>
                             <th>Tech1</th>
-                            <th>Tech2</th>
-                            <th>Tech3</th>
-                            <th>Tech4</th>
-                            <th>Imahe</th>
+                            <th>Image</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -45,22 +42,19 @@
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->role }}</td>
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->description }}</td>
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->tech1 }}</td>
-                            <td class="text-truncate" style="max-width:180px;">{{ $sec->tech2 }}</td>
-                            <td class="text-truncate" style="max-width:180px;">{{ $sec->tech3 }}</td>
-                            <td class="text-truncate" style="max-width:180px;">{{ $sec->tech4 }}</td>
-
                             <td>
                                 <img src="{{ asset('storage/'. $sec->image) }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
-                            <td class="text-truncate" style="max-width:90px;">
+                            <td class="text-truncate" style="max-width:150px;">
                                 <a href="{{ route('section.eight.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
-                                <br>
-                                <br>
                                 <a href="{{ route('section.eight.edit.view', $sec->id) }}">
                                     <button class="badge badge-success">Edit</button>
                                 </a>
+                                <br>
+                                <br>
+                                <a href="{{ route('section.nine') }}"><button class="badge badge-success">Add Portfolio</button></a>
                             </td>
                         </tr>
                         @endforeach

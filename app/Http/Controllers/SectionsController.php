@@ -33,8 +33,7 @@ class SectionsController extends Controller
         SectionSevenRepositoryInterface $sectionSevenRepo,
         SectionEightRepositoryInterface $sectionEightRepo
 
-    )
-    {
+    ) {
         $this->sectionOneRepo = $sectionOneRepo;
         $this->sectionTwoRepo = $sectionTwoRepo;
         $this->sectionThreeRepo = $sectionThreeRepo;
@@ -376,7 +375,6 @@ class SectionsController extends Controller
 
         $sectionFive = $this->sectionFiveRepo->create($data);
         return redirect()->route('section.five');
-
     }
 
     public function deleteFive($id)
@@ -609,7 +607,28 @@ class SectionsController extends Controller
 
 
     // Section Controller (Developer Portfolio)
-    public function sectionNine() {
+    public function sectionNine()
+    {
         return view('admin.sections.sectionNine');
+    }
+
+
+    // Developer Education 
+    public function viewDeveloperEducationForm()
+    {
+        $title = "Insert Education Record";
+        return view('admin.inputs.developer_education', compact('title'));
+    }
+
+    public function viewDeveloperContactForm()
+    {
+        $title = "Insert Contact Record For Develoepr";
+        return view('admin.inputs.developer_contact', compact('title'));
+    }
+
+    public function viewDeveloperExperianceForm()
+    {
+        $title = "Add Developer Experiance";
+        return view('admin.inputs.developer_experiance', compact('title'));
     }
 }

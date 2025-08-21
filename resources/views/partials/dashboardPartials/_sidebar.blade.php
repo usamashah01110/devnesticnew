@@ -68,7 +68,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('section.eight') }}">
-                <span class="menu-title">Section Seven (Developers)</span>
+                <span class="menu-title">Section Eight (Developers)</span>
             </a>
         </li>
 

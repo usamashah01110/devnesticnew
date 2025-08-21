@@ -8382,7 +8382,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #b66dff;
+  --bs-primary: #E89922;
   --bs-secondary: #c3bdbd;
   --bs-success: #1bcfb4;
   --bs-info: #198ae3;
@@ -8398,7 +8398,7 @@
   --bs-danger-rgb: 254, 124, 150;
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 62, 75, 91;
-  --bs-primary-text-emphasis: #052c65;
+  --bs-primary-text-emphasis: #E89922;
   --bs-secondary-text-emphasis: #2b2f32;
   --bs-success-text-emphasis: #0a3622;
   --bs-info-text-emphasis: #055160;
@@ -8406,7 +8406,7 @@
   --bs-danger-text-emphasis: #58151c;
   --bs-light-text-emphasis: #495057;
   --bs-dark-text-emphasis: #495057;
-  --bs-primary-bg-subtle: #cfe2ff;
+  --bs-primary-bg-subtle: #E89922;
   --bs-secondary-bg-subtle: #e2e3e5;
   --bs-success-bg-subtle: #d1e7dd;
   --bs-info-bg-subtle: #cff4fc;
@@ -8414,7 +8414,7 @@
   --bs-danger-bg-subtle: #f8d7da;
   --bs-light-bg-subtle: #fcfcfd;
   --bs-dark-bg-subtle: #ced4da;
-  --bs-primary-border-subtle: #9ec5fe;
+  --bs-primary-border-subtle: #E89922;
   --bs-secondary-border-subtle: #c4c8cb;
   --bs-success-border-subtle: #a3cfbb;
   --bs-info-border-subtle: #9eeaf9;
@@ -8494,7 +8494,7 @@
   --bs-tertiary-color-rgb: 222, 226, 230;
   --bs-tertiary-bg: #2b3035;
   --bs-tertiary-bg-rgb: 43, 48, 53;
-  --bs-primary-text-emphasis: #d3a7ff;
+  --bs-primary-text-emphasis: #E89922;
   --bs-secondary-text-emphasis: #dbd7d7;
   --bs-success-text-emphasis: #76e2d2;
   --bs-info-text-emphasis: #75b9ee;
