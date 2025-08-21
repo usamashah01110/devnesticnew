@@ -34,6 +34,10 @@
     .hidden-input {
         display: none;
     }
+
+    .image-container {
+        position: relative;
+    }
 </style>
 
 <div class="container">
@@ -47,7 +51,7 @@
                 <label for="developer_id" class="form-label">Developer ID</label>
                 <input type="text" name="developer_id" id="developer_id" class="form-control" value="{{ old('developer_id') }}">
             </div>
-            
+
             <div class="mb-3">
                 <label for="name" class="form-label">Developer Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
@@ -84,14 +88,19 @@
             </div>
 
             <!-- Image Upload with Preview -->
-            <div class="mb-2">
-                <label class="form-label">Image of Developer</label>
-                <input type="file" class="hidden-input" name="image" id="image" accept="image/*">
-                <div id="preview_image" class="image-preview">
-                    <div class="upload-placeholder">
-                        <i class="fas fa-image fa-3x mb-3"></i>
-                        <p>Click to upload image</p>
-                        <small>Choose an image file (Max 5MB)</small>
+            <div class="mb-3">
+                <label class="form-label">Project Image</label>
+                <!-- Hidden file input -->
+                <input type="file" class="hidden-input" name="image" id="imageInput" accept="image/*">
+
+                <!-- Image Preview Container -->
+                <div id="imagePreviewContainer" class="image-preview">
+                    <div id="placeholderContainer">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-image fa-3x mb-3"></i>
+                            <p>Click to upload image</p>
+                            <small>Choose an image file</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,7 +111,7 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
         const imageInput = document.getElementById('imageInput');
         const imagePreviewContainer = document.getElementById('imagePreviewContainer');
 

@@ -84,26 +84,20 @@
             </div>
 
             <!-- Image Upload with Preview -->
-            <div class="mb-2">
-                <label class="form-label">Image of Developer</label>
-                <input type="file" class="hidden-input" name="image" id="image" accept="image/*">
-                <div id="preview_image" class="image-preview">
-                    @if($sectionEight->image)
-                    <div class="image-container">
-                        <img id="previewImage" class="preview-image" src="{{ asset('storage/'.$sectionEight->image) }}" alt="Current Team Member Image">
-                        <div>
-                            <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
-                                Remove Image
-                            </button>
+            <div class="mb-3">
+                <label class="form-label">Developer Image</label>
+                <!-- Hidden file input -->
+                <input type="file" class="hidden-input" name="image" id="imageInput" accept="image/*">
+
+                <!-- Image Preview Container -->
+                <div id="imagePreviewContainer" class="image-preview">
+                    <div id="placeholderContainer">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-image fa-3x mb-3"></i>
+                            <p>Click to upload image</p>
+                            <small>Choose an image file</small>
                         </div>
                     </div>
-                    @else
-                    <div class="upload-placeholder">
-                        <i class="fas fa-image fa-3x mb-3"></i>
-                        <p>Click to upload image</p>
-                        <small>Choose an image file</small>
-                    </div>
-                    @endif
                 </div>
             </div>
 

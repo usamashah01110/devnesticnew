@@ -22,4 +22,6 @@ class SectionEight extends Model
         'tech4',
         'image'
     ];
+
+    
 }

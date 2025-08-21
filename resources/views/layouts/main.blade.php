@@ -44,7 +44,7 @@
 <!-- Main -->
 
 <main class="main">
-    @include('pages.hero', $sectionOne)
+    @include('pages.hero')
 
     @include('pages.about')
     @include('pages.services')
