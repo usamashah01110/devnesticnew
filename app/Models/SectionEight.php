@@ -12,7 +12,7 @@ class SectionEight extends Model
     protected $table = 'section_eights';
 
     protected $fillable = [
-        'developer_id',
+        '',
         'name',
         'role',
         'description',
@@ -23,5 +23,8 @@ class SectionEight extends Model
         'image'
     ];
 
-    
+    public function developerProject()
+    {
+        return $this->hasMany(DeveloperProject::class);
+    }
 }

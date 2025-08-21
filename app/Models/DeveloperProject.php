@@ -14,4 +14,9 @@ class DeveloperProject extends Model
         'description',
         'tech'
     ];
+
+    public function sectionEight()
+    {
+        return $this->belongsTo(SectionEight::class);
+    }
 }
