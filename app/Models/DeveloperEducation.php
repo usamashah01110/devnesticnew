@@ -15,4 +15,9 @@ class DeveloperEducation extends Model
         'education_starting_date',
         'education_ending_date'
     ];
+
+    public function sectionEight()
+    {
+        return $this->belongsTo(SectionEight::class);
+    }
 }

@@ -113,10 +113,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/section/8/update/{id}', [SectionsController::class, 'updateEight'])->name('section.eight.update');
 
     // Section 9
-    Route::get('/section/9', [SectionsController::class, 'sectionNine'])->name('section.nine');
+    Route::get('/section/9/{id}', [SectionsController::class, 'sectionNine'])->name('section.nine');
 
     // Developer Education 
-    Route::get('/developer/education', [SectionsController::class, 'viewDeveloperEducationForm'])->name('developer.education.form.view');
+    Route::get('/developer/education/{id}', [SectionsController::class, 'viewDeveloperEducationForm'])->name('developer.education.form.view');
+    Route::post('/developer/education/store', [SectionsController::class, 'DeveloperEducationStore'])->name('developer.education.store');
 
     // Developer Contact
     Route::get('/developer/contact', [SectionsController::class, 'viewDeveloperContactForm'])->name('developer.contact.form.view');

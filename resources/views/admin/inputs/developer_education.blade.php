@@ -9,6 +9,7 @@
         <hr />
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
+                <input type="hidden" name="education_degree" id="education_degree" class="form-control" value="{{ old('education_degree') }}">
             <div class="mb-3">
                 <label for="education_degree" class="form-label">Degree Title</label>
                 <input type="text" name="education_degree" id="education_degree" class="form-control" value="{{ old('education_degree') }}">

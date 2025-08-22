@@ -27,4 +27,9 @@ class SectionEight extends Model
     {
         return $this->hasMany(DeveloperProject::class);
     }
+
+    public function developerEducation()
+    {
+        return $this->hasMany(DeveloperEducation::class);
+    }
 }

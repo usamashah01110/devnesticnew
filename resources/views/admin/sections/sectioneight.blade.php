@@ -49,12 +49,12 @@
                                 <a href="{{ route('section.eight.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
-                                <a href="{{ route('section.eight.edit.view', $sec->id) }}">
+                                <a href="{{ route('section.eight.edit.view', parameters: $sec->id) }}">
                                     <button class="badge badge-success">Edit</button>
                                 </a>
                                 <br>
                                 <br>
-                                <a href="{{ route('section.nine') }}"><button class="badge badge-success">Add Portfolio</button></a>
+                                <a href="{{ route('section.nine',$sec->id) }}"><button class="badge badge-success">Add Portfolio</button></a>
                             </td>
                         </tr>
                         @endforeach

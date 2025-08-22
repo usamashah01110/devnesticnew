@@ -11,6 +11,7 @@ use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
 use App\Repositories\Interfaces\SectionSixRepositoryInterface;
 use App\Repositories\Interfaces\SectionSevenRepositoryInterface;
 use App\Repositories\Interfaces\SectionEightRepositoryInterface;
+use App\Repositories\Interfaces\DeveloperEducationInterface;
 
 class SectionsController extends Controller
 {
@@ -22,6 +23,7 @@ class SectionsController extends Controller
     protected $sectionSixRepo;
     protected $sectionSevenRepo;
     protected $sectionEightRepo;
+    protected $developerEducationRepo;
 
     public function __construct(
         SectionOneRepositoryInterface   $sectionOneRepo,
@@ -31,7 +33,8 @@ class SectionsController extends Controller
         SectionFiveRepositoryInterface  $sectionFiveRepo,
         SectionSixRepositoryInterface   $sectionSixRepo,
         SectionSevenRepositoryInterface $sectionSevenRepo,
-        SectionEightRepositoryInterface $sectionEightRepo
+        SectionEightRepositoryInterface $sectionEightRepo,
+        DeveloperEducationInterface $developerEducationRepo
 
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
@@ -42,6 +45,7 @@ class SectionsController extends Controller
         $this->sectionSixRepo = $sectionSixRepo;
         $this->sectionSevenRepo = $sectionSevenRepo;
         $this->sectionEightRepo = $sectionEightRepo;
+        $this->developerEducationRepo = $developerEducationRepo;
     }
 
     // Section one (Hero Section)
@@ -609,7 +613,8 @@ class SectionsController extends Controller
     // Section Controller (Developer Portfolio)
     public function sectionNine()
     {
-        return view('admin.sections.sectionNine');
+        $DeveloperEducation = $this->developerEducationRepo->all();
+        return view('admin.sections.sectionNine', compact('DeveloperEducation'));
     }
 
 
@@ -618,6 +623,15 @@ class SectionsController extends Controller
     {
         $title = "Insert Education Record";
         return view('admin.inputs.developer_education', compact('title'));
+    }
+    public function DeveloperEducationStore(Request $request)
+    {
+        $data = $request->validate([
+            'education_degree' => 'string',
+            'education_institute' => 'string',
+            'education_starting_date' => 'date',
+            'education_ending_date' => 'date'
+        ]);
     }
 
     public function viewDeveloperContactForm()
