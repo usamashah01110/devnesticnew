@@ -127,6 +127,7 @@ Route::middleware('auth')->group(function () {
 
     // Developer Projects
     Route::get('/developer/project', [SectionsController::class, 'viewDeveloperProjectsForm'])->name('developer.projects.form.view');
+    Route::get('/developer/project', [SectionsController::class, 'viewDeveloperProjectsForm'])->name('developer.projects.form.view');
 });
 
 require __DIR__ . '/auth.php';
