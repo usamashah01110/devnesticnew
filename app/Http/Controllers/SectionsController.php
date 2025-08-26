@@ -611,27 +611,31 @@ class SectionsController extends Controller
 
 
     // Section Controller (Developer Portfolio)
-    public function sectionNine()
+    public function sectionNine($id)
     {
-        $DeveloperEducation = $this->developerEducationRepo->all();
-        return view('admin.sections.sectionNine', compact('DeveloperEducation'));
+        $developerEducation = $this->developerEducationRepo->all();
+        return view('admin.sections.sectionNine', compact('developerEducation', 'id'));
     }
 
 
     // Developer Education 
-    public function viewDeveloperEducationForm()
+    public function viewDeveloperEducationForm($id)
     {
         $title = "Insert Education Record";
-        return view('admin.inputs.developer_education', compact('title'));
+        return view('admin.inputs.developer_education', compact('title', 'id'));
     }
     public function DeveloperEducationStore(Request $request)
     {
         $data = $request->validate([
+            'dev_id' => 'string',
             'education_degree' => 'string',
             'education_institute' => 'string',
             'education_starting_date' => 'date',
             'education_ending_date' => 'date'
         ]);
+
+        $DeveloperEducation = $this->developerEducationRepo->create($data);
+        return redirect()->back();
     }
 
     public function viewDeveloperContactForm()

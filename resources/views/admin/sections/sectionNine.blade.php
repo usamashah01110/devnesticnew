@@ -15,7 +15,7 @@
             <!-- Table Header -->
             <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Developer Education </h5>
-                <a href=""><button class="btn text-white bg-black  rounded-xl">Add</button></a>
+                <a href="{{ route('developer.education.form.view', $id) }}"><button class="btn text-white bg-black  rounded-xl">Add</button></a>
             </div>
             <!-- Table Body -->
             <div class="card-body p-0">
@@ -31,8 +31,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if(!empty($DeveloperEducation))
-                        @foreach($DeveloperEducation as $sec)
+
+                        @foreach($developerEducation as $sec)
                         <tr>
                             <td class="text-truncate" style="max-width:120px;">{{ $sec->dev_id }}</td>
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->education_degree }}</td>
@@ -54,7 +54,7 @@
                             </td>
                         </tr>
                         @endforeach
-                        @endif
+
 
                     </tbody>
                 </table>

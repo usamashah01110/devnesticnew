@@ -10,6 +10,7 @@ class DeveloperEducation extends Model
     use HasFactory;
 
     protected $fillable = [
+        'dev_id',
         'education_degree',
         'education_institute',
         'education_starting_date',

@@ -10,6 +10,7 @@ class DeveloperProject extends Model
     use HasFactory;
     protected $fillable = [
         'image',
+        'dev_id', // Foreign key from developer table
         'title',
         'description',
         'tech'

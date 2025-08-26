@@ -7,9 +7,9 @@
     <div class="container">
         <h1 class="text-center">{{ $title }}</h1>
         <hr />
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{ route('developer.education.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-                <input type="hidden" name="education_degree" id="education_degree" class="form-control" value="{{ old('education_degree') }}">
+            <input name="dev_id" id="dev_id" class="form-control" value="{{ $id }}">
             <div class="mb-3">
                 <label for="education_degree" class="form-label">Degree Title</label>
                 <input type="text" name="education_degree" id="education_degree" class="form-control" value="{{ old('education_degree') }}">

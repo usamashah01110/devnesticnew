@@ -111,7 +111,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/section/8/delete/{id}', [SectionsController::class, 'deleteEight'])->name('section.eight.delete');
     Route::get('/section/8/edit/{id}', [SectionsController::class, 'sectionEightEditView'])->name('section.eight.edit.view');
     Route::post('/section/8/update/{id}', [SectionsController::class, 'updateEight'])->name('section.eight.update');
-
+    
     // Section 9
     Route::get('/section/9/{id}', [SectionsController::class, 'sectionNine'])->name('section.nine');
 

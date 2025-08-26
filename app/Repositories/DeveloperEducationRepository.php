@@ -29,7 +29,7 @@ class DeveloperEducationRepository implements DeveloperEducationInterface
 
     public function all()
     {
-        return $this->model->latest()->first();
+        return $this->model->all();
     }
     public function update($id, array $data)
     {

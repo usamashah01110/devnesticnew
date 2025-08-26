@@ -289,7 +289,7 @@
             background-color: var(--primary-color);
             color: white;
             border: 2px solid var(--primary-color);
-            width:80%;
+            width: 80%;
         }
 
         .btn-primary:hover {
@@ -303,7 +303,7 @@
             border: 2px solid var(--primary-color);
             position: absolute;
             left: 90px;
-            top:50px;
+            top: 50px;
         }
 
         .btn-secondary:hover {
@@ -480,16 +480,13 @@
 
                 <section class="section">
                     <h2 class="section-title">Education</h2>
+                    @foreach ($developerEducation as $sec)
                     <div class="education-item">
-                        <h3 class="item-title">Master of Computer Science</h3>
-                        <p class="item-subtitle">Stanford University</p>
-                        <p class="item-date">2014 - 2016</p>
+                        <h3 class="item-title">{{ $sec->education_degree }}</h3>
+                        <p class="item-subtitle">{{ $sec->education_institute }}</p>
+                        <p class="item-date">{{ $sec->education_starting_date }} - {{ $sec->education_ending_date }}</p>
                     </div>
-                    <div class="education-item">
-                        <h3 class="item-title">Bachelor of Software Engineering</h3>
-                        <p class="item-subtitle">MIT</p>
-                        <p class="item-date">2010 - 2014</p>
-                    </div>
+                    @endforeach
                 </section>
 
                 <section class="section">
