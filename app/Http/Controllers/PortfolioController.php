@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DeveloperEducation;
 use App\Models\DeveloperContact;
 use App\Models\DeveloperExperiance;
+use App\Models\DeveloperProject;
 
 class PortfolioController extends Controller
 {
@@ -14,6 +15,7 @@ class PortfolioController extends Controller
         $developerEducation = DeveloperEducation::all();
         $developerContact = DeveloperContact::latest()->first();
         $developerExperiance = DeveloperExperiance::all();
+        $developerProject = DeveloperProject::all();
 
         
 
@@ -22,7 +24,8 @@ class PortfolioController extends Controller
             compact(
                 'developerEducation',
                 'developerContact',
-                'developerExperiance'
+                'developerExperiance',
+                'developerProject'
             )
         );
     }

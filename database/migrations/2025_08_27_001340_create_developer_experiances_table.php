@@ -18,8 +18,9 @@ return new class extends Migration
             $table->date('experiance_starting_date');
             $table->date('experiance_ending_date');
             $table->text('experiance_description');
-            $table->foreignId('dev_id')
-                ->references('dev_id')
+            $table->unsignedBigInteger('dev_id');
+            $table->foreign('dev_id')
+                ->references('id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();

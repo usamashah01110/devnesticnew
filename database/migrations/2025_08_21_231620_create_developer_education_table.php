@@ -17,8 +17,9 @@ return new class extends Migration
             $table->text('education_institute');
             $table->date('education_starting_date');
             $table->date('education_ending_date');
-            $table->foreignId('dev_id')
-                ->references('dev_id')
+            $table->unsignedBigInteger('dev_id');
+            $table->foreign('dev_id')
+                ->references('id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();

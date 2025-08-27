@@ -46,15 +46,15 @@
                                 <img src="{{ asset('storage/'. $sec->image) }}" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
                             <td class="text-truncate" style="max-width:150px;">
-                                <a href="{{ route('section.eight.delete', $sec->dev_id) }}">
+                                <a href="{{ route('section.eight.delete', $sec->id) }}">
                                     <button class="badge badge-danger">Delete</button>
                                 </a>
-                                <a href="{{ route('section.eight.edit.view', parameters: $sec->dev_id) }}">
+                                <a href="{{ route('section.eight.edit.view', $sec->id) }}">
                                     <button class="badge badge-success">Edit</button>
                                 </a>
                                 <br>
                                 <br>
-                                <a href="{{ route('section.nine',$sec->dev_id) }}"><button class="badge badge-success">Add Portfolio</button></a>
+                                <a href="{{ route('section.nine',$sec->id) }}"><button class="badge badge-success">Add Portfolio</button></a>
                             </td>
                         </tr>
                         @endforeach

@@ -415,42 +415,23 @@
                 <section class="section">
                     <h2 class="section-title">Latest Projects</h2>
                     <div class="projects-grid">
+                        @foreach ($developerProject as $pro)
                         <div class="project-card">
-                            <img src="https://source.unsplash.com/random/600x400/?web,design" alt="E-commerce Platform" class="project-image">
+                            <img src="{{ asset('storage/'.$pro->image) }}" alt="{{ $pro->title }}" class="project-image">
                             <div class="project-info">
-                                <h3 class="project-title">E-commerce Platform</h3>
-                                <p class="project-description">A full-featured online store with payment integration, inventory management, and analytics dashboard.</p>
+                                <h3 class="project-title">{{ $pro->title }}</h3>
+                                <p class="project-description">{{ $pro->description }}</p>
                                 <div class="project-tags">
-                                    <span class="project-tag">React</span>
-                                    <span class="project-tag">Node.js</span>
-                                    <span class="project-tag">MongoDB</span>
+                                    @foreach(json_decode($pro->tech) as $t)
+                                    <span class="project-tag">{{ $t }}</span>
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="project-card">
-                            <img src="https://source.unsplash.com/random/600x400/?app,ui" alt="Task Management App" class="project-image">
-                            <div class="project-info">
-                                <h3 class="project-title">Task Management App</h3>
-                                <p class="project-description">Collaborative project management tool with real-time updates, kanban boards, and team messaging.</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Vue.js</span>
-                                    <span class="project-tag">Firebase</span>
-                                    <span class="project-tag">WebSockets</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <img src="https://source.unsplash.com/random/600x400/?data,analytics" alt="Data Visualization Dashboard" class="project-image">
-                            <div class="project-info">
-                                <h3 class="project-title">Data Visualization Dashboard</h3>
-                                <p class="project-description">Interactive dashboard for analyzing and visualizing complex datasets with customizable reports.</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">D3.js</span>
-                                    <span class="project-tag">Python</span>
-                                    <span class="project-tag">Flask</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </section>
             </div>

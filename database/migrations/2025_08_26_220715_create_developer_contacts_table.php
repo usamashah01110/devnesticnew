@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('developer_email')->nullable();
             $table->string('developer_phone_no')->nllable();
             $table->text('developer_location')->nullable();
-            $table->foreignId('dev_id')
-                ->references('dev_id')
+            $table->unsignedBigInteger('dev_id');
+            $table->foreign('dev_id')
+                ->references('id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();
