@@ -776,18 +776,20 @@ class SectionsController extends Controller
     public function developerProjectStore(Request $request)
     {
         $data = $request->validate([
-            'image' => 'nullable|image',
-            'title' => 'required|string|max:255',
+            'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
-            'tech' => 'nullable|array',
-            'tech.*' => 'string|max:100',
-            'dev_id' => 'required',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'tech'        => 'nullable|string', 
+            'dev_id'      => 'required|exists:section_eights,id',
         ]);
 
-        $data['tech'] = json_encode($data['tech'] ?? []);
-
+       
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('developer_project', 'public');
+        }
+
+        if ($request->filled('tech')) {
+            $data['tech'] = $request->tech; 
         }
 
         $this->developerExperianceRepo->create($data);
