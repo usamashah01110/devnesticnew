@@ -14,6 +14,7 @@ use App\Repositories\Interfaces\SectionEightRepositoryInterface;
 use App\Repositories\Interfaces\DeveloperEducationInterface;
 use App\Repositories\Interfaces\DeveloperContactInterface;
 use App\Repositories\Interfaces\DeveloperExperianceInterface;
+use App\Repositories\Interfaces\DeveloperProjectInterface;
 
 class SectionsController extends Controller
 {
@@ -28,6 +29,7 @@ class SectionsController extends Controller
     protected $developerEducationRepo;
     protected $developerContactRepo;
     protected $developerExperianceRepo;
+    protected $developerProjectRepo;
 
     public function __construct(
         SectionOneRepositoryInterface   $sectionOneRepo,
@@ -40,7 +42,8 @@ class SectionsController extends Controller
         SectionEightRepositoryInterface $sectionEightRepo,
         DeveloperEducationInterface $developerEducationRepo,
         DeveloperContactInterface $developerContactRepo,
-        DeveloperExperianceInterface $developerExperianceRepo
+        DeveloperExperianceInterface $developerExperianceRepo,
+        DeveloperProjectInterface $developerProjectRepo
 
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
@@ -54,6 +57,7 @@ class SectionsController extends Controller
         $this->developerEducationRepo = $developerEducationRepo;
         $this->developerContactRepo = $developerContactRepo;
         $this->developerExperianceRepo = $developerExperianceRepo;
+        $this->developerProjectRepo = $developerProjectRepo;
     }
 
     // Section one (Hero Section)
@@ -775,6 +779,7 @@ class SectionsController extends Controller
     }
     public function developerProjectStore(Request $request)
     {
+        
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -791,8 +796,8 @@ class SectionsController extends Controller
         if ($request->filled('tech')) {
             $data['tech'] = $request->tech; 
         }
-
-        $this->developerExperianceRepo->create($data);
+        
+        $this->developerProjectRepo->create($data);
         return redirect()->route('section.nine');
     }
 }

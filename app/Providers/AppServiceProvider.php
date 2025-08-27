@@ -15,6 +15,7 @@ use App\Repositories\Interfaces\SectionNineRepositoryInterface;
 use App\Repositories\Interfaces\DeveloperEducationInterface;
 use App\Repositories\Interfaces\DeveloperContactInterface;
 use App\Repositories\Interfaces\DeveloperExperianceInterface;
+use App\Repositories\Interfaces\DeveloperProjectInterface;
 use App\Repositories\SectionOneRepository;
 use App\Repositories\SectionTwoRepository;
 use App\Repositories\SectionThreeRepository;
@@ -27,6 +28,7 @@ use App\Repositories\SectionNineRepository;
 use App\Repositories\DeveloperEducationRepository;
 use App\Repositories\DeveloperContactRepository;
 use App\Repositories\DeveloperExperianceRepository;
+use App\Repositories\DeveloperProjectRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -48,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DeveloperEducationInterface::class, DeveloperEducationRepository::class);
         $this->app->bind(DeveloperContactInterface::class, DeveloperContactRepository::class);
         $this->app->bind(DeveloperExperianceInterface::class, DeveloperExperianceRepository::class);
+        $this->app->bind(DeveloperProjectInterface::class, DeveloperProjectRepository::class);
     }
 
     /**

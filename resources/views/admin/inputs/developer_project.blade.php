@@ -80,7 +80,7 @@
         
         <form action="{{ route('developer.project.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="text" name="dev_id" id="dev_id" class="form-control" value="{{ $id }}">
+            <input type="hidden" name="dev_id" class="form-control" value="{{ $id }}">
             <div class="mb-3">
                 <label class="form-label">Project Image</label>
                 <!-- Hidden file input -->
