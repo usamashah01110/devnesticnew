@@ -779,25 +779,30 @@ class SectionsController extends Controller
     }
     public function developerProjectStore(Request $request)
     {
-        
+
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'tech'        => 'nullable|string', 
+            'tech'        => 'nullable|string',
             'dev_id'      => 'required|exists:section_eights,id',
         ]);
 
-       
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('developer_project', 'public');
         }
 
         if ($request->filled('tech')) {
-            $data['tech'] = $request->tech; 
+            $data['tech'] = $request->tech;
         }
-        
+
         $this->developerProjectRepo->create($data);
         return redirect()->route('section.nine');
+    }
+    public function developerProjectDelete($id)
+    {
+        $this->developerProjectRepo->delete($id);
+        return redirect()->back();
     }
 }
