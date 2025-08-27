@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SectionOneController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,7 @@ Route::get('/dashboard/login', [AdminController::class, 'loginPage'])->name('das
 Route::get('/dashboard/register', [AdminController::class, 'registerPage'])->name('dashboard.register');
 Route::get('/dashboard/documentation', [AdminController::class, 'documentation'])->name('dashboard.documentation');
 
-// Develoer Portfolio 
+// Develoer Portfolio
 Route::get('/Portfolio', [PortfolioController::class, 'viewDeveloperPorfolio'])->name('developer.portfolio.view');
 
 
@@ -49,12 +50,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Section 1
-    Route::get('/section/1', [SectionsController::class, 'index'])->name('section.index');
-    Route::get('/section/1/Store', [SectionsController::class, 'sectionOneCreate'])->name('section.1.view');
-    Route::get('/section/1/edit/{id}', [SectionsController::class, 'editView'])->name('section.one.edit.view');
-    Route::post('/section/1/update/{id}', [SectionsController::class, 'update'])->name('section.one.update');
-    Route::get('/section/1/delete/{id}', [SectionsController::class, 'deleteOne'])->name('section.one.delete');
-    Route::post('/section/1/store', [SectionsController::class, 'store'])->name('section.store');
+//    Route::get('/section/1', [SectionsController::class, 'index'])->name('section.index');
+//    Route::get('/section/1/Store', [SectionsController::class, 'sectionOneCreate'])->name('section.1.view');
+//    Route::get('/section/1/edit/{id}', [SectionsController::class, 'editView'])->name('section.one.edit.view');
+//    Route::post('/section/1/update/{id}', [SectionsController::class, 'update'])->name('section.one.update');
+//    Route::get('/section/1/delete/{id}', [SectionsController::class, 'deleteOne'])->name('section.one.delete');
+//    Route::post('/section/1/store', [SectionsController::class, 'store'])->name('section.store');
+
+
+    Route::prefix('section-one')->group(function () {
+        Route::get('/', [SectionOneController::class, 'index'])->name('section.index');
+        Route::get('/create', [SectionOneController::class, 'create'])->name('section.1.view');
+        Route::post('/store', [SectionOneController::class, 'store'])->name('section.store');
+        Route::get('/edit/{id}', [SectionOneController::class, 'edit'])->name('section.one.edit.view');
+        Route::post('/update/{id}', [SectionOneController::class, 'update'])->name('section.one.update');
+        Route::get('/delete/{id}', [SectionOneController::class, 'destroy'])->name('section.one.delete');
+    });
 
     // Section 2
     Route::get('/section/2', [SectionsController::class, 'sectiontwo'])->name('section.two');
@@ -115,7 +126,7 @@ Route::middleware('auth')->group(function () {
     // Section 9
     Route::get('/section/9/{id}', [SectionsController::class, 'sectionNine'])->name('section.nine');
 
-    // Developer Education 
+    // Developer Education
     Route::get('/developer/education/{id}', [SectionsController::class, 'viewDeveloperEducationForm'])->name('developer.education.form.view');
     Route::post('/developer/education/store', [SectionsController::class, 'DeveloperEducationStore'])->name('developer.education.store');
     Route::get('/developer/education/delete/{id}', [SectionsController::class, 'DeveloperEducationDelete'])->name('developer.education.delete');

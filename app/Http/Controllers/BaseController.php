@@ -13,12 +13,14 @@ abstract class BaseController extends Controller
     protected $validationRules = [];
     protected $fileFields = [];
     protected $storageFolder;
+    protected $redirectRoute;
 
-    public function __construct($repository, string $sectionName, string $storageFolder)
+    public function __construct($repository, string $sectionName, string $storageFolder,string $redirectRoute)
     {
         $this->repository = $repository;
         $this->sectionName = $sectionName;
         $this->storageFolder = $storageFolder;
+        $this->redirectRoute = $redirectRoute;
     }
 
     /**
@@ -29,9 +31,7 @@ abstract class BaseController extends Controller
         $items = $this->repository->all();
         $viewName = 'admin.sections.' . strtolower($this->sectionName);
 
-        return view($viewName, [
-            strtolower($this->sectionName) => $items
-        ]);
+        return view($viewName, compact('items'));
     }
 
     /**
@@ -67,10 +67,7 @@ abstract class BaseController extends Controller
         $title = "Update {$this->sectionName}";
         $viewName = 'admin.editInputs.edit' . strtolower($this->sectionName);
 
-        return view($viewName, [
-            strtolower($this->sectionName) => $item,
-            'title' => $title
-        ]);
+        return view($viewName, compact('item', 'title'));
     }
 
     /**
@@ -78,14 +75,14 @@ abstract class BaseController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $item = $this->findOrFail($id);
+        $items = $this->findOrFail($id);
 
         $data = $this->validateRequest($request);
         $data = $this->handleFileUploads($request, $data);
 
         $updatedItem = $this->repository->update($id, $data);
 
-        return $this->redirectWithSuccess($updatedItem);
+        return $this->redirectWithSuccess();
     }
 
     /**
@@ -96,7 +93,8 @@ abstract class BaseController extends Controller
         $item = $this->findOrFail($id);
         $item->delete();
 
-        return redirect()->back()->with('success', "{$this->sectionName} deleted successfully");
+        return redirect()
+        ->route($this->redirectRoute);
     }
 
     /**
@@ -138,10 +136,14 @@ abstract class BaseController extends Controller
     /**
      * Redirect with success message
      */
-    protected function redirectWithSuccess($item): RedirectResponse
+    protected function redirectWithSuccess(): RedirectResponse
     {
-        $sessionKey = 'section_data';
-        return redirect('/')->with($sessionKey, $item);
+        $items = $this->repository->all();
+
+        return redirect()
+            ->route($this->redirectRoute)
+            ->with('items', $items);
+
     }
 
     /**

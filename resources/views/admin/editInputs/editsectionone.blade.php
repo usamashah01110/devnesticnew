@@ -30,11 +30,11 @@
             color: #6c757d;
             font-style: italic;
         }
-        
+
         .hidden-input {
             display: none;
         }
-        
+
         .image-container {
             position: relative;
         }
@@ -43,48 +43,48 @@
         <div class="container">
             <h1 class="text-center">{{ $title }}</h1>
             <hr/>
-            <form action="{{ route('section.one.update', $sectionOne->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('section.one.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Heading One</label>
-                    <input type="text" class="form-control" name="heading_one" value="{{ $sectionOne->heading_one }}">
+                    <input type="text" class="form-control" name="heading_one" value="{{ $item->heading_one }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Paragraph</label>
-                    <textarea class="form-control" name="paragraph" rows="3">{{ $sectionOne->paragraph }}</textarea>
+                    <textarea class="form-control" name="paragraph" rows="3">{{ $item->paragraph }}</textarea>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Button Text</label>
-                    <input type="text" class="form-control" name="btn_one_text" value="{{ $sectionOne->btn_one_text }}">
+                    <input type="text" class="form-control" name="btn_one_text" value="{{ $item->btn_one_text }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Years</label>
-                    <input type="text" class="form-control" name="years" value="{{ $sectionOne->years }}">
+                    <input type="text" class="form-control" name="years" value="{{ $item->years }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Clients</label>
-                    <input type="text" class="form-control" name="clients" value="{{ $sectionOne->clients }}">
+                    <input type="text" class="form-control" name="clients" value="{{ $item->clients }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Success Rate</label>
-                    <input type="text" class="form-control" name="success_rate" value="{{ $sectionOne->success_rate }}">
+                    <input type="text" class="form-control" name="success_rate" value="{{ $item->success_rate }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Image</label>
                     <!-- Hidden file input -->
                     <input type="file" class="hidden-input" name="image_path" id="imageInput" accept="image/*">
-                    
+
                     <!-- Image Preview Container (also acts as upload area) -->
                     <div id="imagePreviewContainer" class="image-preview">
-                        @if($sectionOne->image_path)
+                        @if($item->image_path)
                             <div class="image-container">
-                                <img id="previewImage" class="preview-image" src="{{ asset('storage/'.$sectionOne->image_path) }}" alt="Current Image">
+                                <img id="previewImage" class="preview-image" src="{{ asset('storage/'.$item->image_path) }}" alt="Current Image">
                                 <div>
                                     <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
                                         Remove Image
@@ -117,7 +117,7 @@
             // Make the preview container clickable
             imagePreviewContainer.addEventListener('click', function(e) {
                 // Only trigger file input if clicking on the container itself, not buttons inside it
-                if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') || 
+                if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') ||
                     e.target.classList.contains('fa-image') || e.target.tagName === 'P' || e.target.tagName === 'SMALL') {
                     imageInput.click();
                 }
@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                         `;
-                        
+
                         // Re-attach event listener to the new remove button
                         document.getElementById('removeImage').addEventListener('click', function(e) {
                             e.stopPropagation();
@@ -183,7 +183,7 @@
             function resetPreview() {
                 // Clear the file input
                 imageInput.value = '';
-                
+
                 // Reset the preview container
                 imagePreviewContainer.innerHTML = `
                     <div id="placeholderContainer">

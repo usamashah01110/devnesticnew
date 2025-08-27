@@ -30,11 +30,11 @@
             color: #6c757d;
             font-style: italic;
         }
-        
+
         .hidden-input {
             display: none;
         }
-        
+
         .image-container {
             position: relative;
         }
@@ -42,6 +42,8 @@
 
 <div class="container">
     <div class="container">
+        <h1 class="mb-5 text-center">{{ $title }}</h1>
+        <hr>
         <form action="{{ route('section.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -78,7 +80,7 @@
                 <label class="form-label">Image</label>
                 <!-- Hidden file input -->
                 <input type="file" class="hidden-input" name="image_path" id="imageInput" accept="image/*">
-                
+
                 <!-- Image Preview Container -->
                 <div id="imagePreviewContainer" class="image-preview">
                     <div id="placeholderContainer">
@@ -103,7 +105,7 @@
 
         // Make preview container clickable
         imagePreviewContainer.addEventListener('click', function(e) {
-            if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') || 
+            if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') ||
                 e.target.classList.contains('fa-image') || e.target.tagName === 'P' || e.target.tagName === 'SMALL') {
                 imageInput.click();
             }

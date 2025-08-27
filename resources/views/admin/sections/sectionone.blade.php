@@ -37,13 +37,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($sectionOne as $sec)
+                        @foreach($items as $sec)
                         <tr>
                             <td>{{ $sec->id }}</td>
                             <td class="text-truncate" style="max-width:120px;">{{ $sec->heading_one }}</td>
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->paragraph }}</td>
                             <td>{{ $sec->btn_one_text }}</td>
-                            <td>{{ $sec->year }}</td>
+                            <td>{{ $sec->years }}</td>
                             <td>{{ $sec->clients }}</td>
                             <td>{{ $sec->success_rate }}%</td>
                             <td>
