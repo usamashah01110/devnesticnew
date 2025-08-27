@@ -1,66 +1,156 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Devnestic – Digital Solutions Company
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🌟 Overview
 
-## About Laravel
+Devnestic is a **digital solutions company** that focuses on providing modern, scalable, and efficient technology services. We offer **custom software development, UI/UX design, and educational courses** for students and professionals who want to step into the tech industry.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This repository contains the **official website and platform** for Devnestic, built using the **Laravel framework** along with modern frontend technologies.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Core Features
 
-## Learning Laravel
+### 🔹 Full-Stack Development
+- Develops robust and secure web applications
+- Uses **PHP (Laravel)** as backend framework
+- Implements modern frontend technologies for smooth user experience
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🔹 UI/UX Design
+- Pixel-perfect, responsive, and interactive designs
+- Wireframes, prototypes, and mockups created with **Figma**
+- Focus on user accessibility and mobile-first approach
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 🔹 Learning & Courses
+- Student-friendly courses in **Web Development** and **Digital Marketing**
+- Affordable pricing and practical project-based learning
+- Designed to help beginners and intermediate learners build careers in tech
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔹 Business Solutions
+- Tailored enterprise-level applications
+- Web presence and digital branding services
+- Optimized workflows for startups and businesses
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 🛠️ Tech Stack
 
-### Premium Partners
+- **Backend:** PHP, Laravel
+- **Frontend:** HTML5, CSS3, JavaScript, TailwindCSS
+- **Design Tools:** Figma, Adobe XD
+- **Database:** MySQL
+- **Package Management:** Composer, NPM
+- **Version Control:** Git, GitHub
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+---
 
-## Contributing
+## 📁 Project Structure (Laravel Based)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+devnesticnew/
+├── app/                # Core application logic
+├── bootstrap/          # Laravel bootstrap files
+├── config/             # Configuration files
+├── database/           # Migrations and seeds
+├── public/             # Public assets and index.php
+├── resources/          # Views, CSS, JS, Blade templates
+├── routes/             # Web & API routes
+├── storage/            # Logs, cache, sessions
+├── tests/              # Unit and feature tests
+└── vendor/             # Composer dependencies
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚡ Installation & Setup
 
-## Security Vulnerabilities
+To run this project locally:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/usamashah01110/devnesticnew.git
+   cd devnesticnew
+   ```
 
-## License
+2. **Install Dependencies**
+   ```bash
+   composer install
+   npm install && npm run dev
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. **Environment Configuration**
+   - Copy `.env.example` to `.env`
+   - Update database credentials and app configuration
+   ```bash
+   php artisan key:generate
+   ```
+
+4. **Run Database Migrations**
+   ```bash
+   php artisan migrate
+   ```
+
+5. **Start Development Server**
+   ```bash
+   php artisan serve
+   ```
+   Project will be available at: `http://127.0.0.1:8000`
+
+---
+
+## 💡 Usage
+
+- After installation, visit the homepage to explore the website
+- Admin features and backend tools are accessible after authentication
+- Developers can extend features by adding new routes, controllers, and views inside the **resources/views** and **routes/web.php** files
+
+---
+
+## 📸 Demo
+
+👉 **Live Website:** [https://www.devnestic.com](https://www.devnestic.com)
+
+*Screenshots of the application can be added here to showcase the homepage, dashboard, and course pages.*
+
+---
+
+## 🤝 Contribution Guidelines
+
+We welcome contributions to improve this project:
+
+1. Fork the repository
+2. Create a feature branch
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit changes
+   ```bash
+   git commit -m "Added new feature"
+   ```
+4. Push to branch
+   ```bash
+   git push origin feature-name
+   ```
+5. Submit a Pull Request
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** – you are free to use, modify, and distribute it with proper credit.
+
+---
+
+## 📞 Contact
+
+- 🌐 Website: [www.devnestic.com](https://www.devnestic.com)
+- 💼 Fiverr: [fiverr.com/devnestic](https://www.fiverr.com/devnestic)
+- 📧 Email: *Add official email address here*
+- 📷 Instagram: [@devnestic](https://www.instagram.com/devnestic)
+
+---
+
+<div align="center">
+  
+**Made with ❤️ by Devnestic Team**
+
+</div>

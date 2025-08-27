@@ -83,6 +83,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($developerProject as $pro)
                         <tr>
                             <td class="text-truncate" style="max-width:120px;">DEV001</td>
                             <td class="text-truncate" style="max-width:180px;">Sarah Johnson</td>
@@ -93,7 +94,7 @@
                                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="Image" class="rounded shadow-sm border" width="32" height="32">
                             </td>
                             <td class="text-truncate" style="max-width:150px;">
-                                <a href="#">
+                                <a href="{{ route('developer.project.delete', $pro->id) }}">
                                     <span class="badge bg-danger">Delete</span>
                                 </a>
                                 <a href="#">
@@ -104,6 +105,7 @@
                                 <a href="#"><span class="badge bg-success">Add Portfolio</span></a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

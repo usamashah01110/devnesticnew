@@ -628,13 +628,15 @@ class SectionsController extends Controller
         $developerEducation = $this->developerEducationRepo->all();
         $developerContact = $this->developerContactRepo->all();
         $developerExperiance = $this->developerExperianceRepo->all();
+        $developerProject = $this->developerProjectRepo->all();
         return view(
             'admin.sections.sectionNine',
             compact(
                 'developerEducation',
                 'id',
                 'developerContact',
-                'developerExperiance'
+                'developerExperiance',
+                'developerProject'
             )
         );
     }
