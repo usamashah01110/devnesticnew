@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->json('tech')->nullable();
             $table->foreignId('dev_id')
-                ->references('id')
+                ->references('dev_id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();

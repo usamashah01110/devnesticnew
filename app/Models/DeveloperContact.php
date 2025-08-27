@@ -14,4 +14,9 @@ class DeveloperContact extends Model
         'developer_location',
         'dev_id'
     ];
+
+    public function sectionEight()
+    {
+        return $this->belongsTo(SectionEight::class);
+    }
 }

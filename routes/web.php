@@ -139,7 +139,9 @@ Route::middleware('auth')->group(function () {
     // Developer Projects
     Route::get('/developer/project/{id}', [SectionsController::class, 'viewDeveloperProjectsForm'])->name('developer.projects.form.view');
     Route::post('/developer/project/store', [SectionsController::class, 'developerProjectStore'])->name('developer.project.store');
-    Route::get('/developer/project/delete{id}', [SectionsController::class, 'developerProjectDelete'])->name('developer.project.delete');
+    Route::get('/developer/project/delete/{id}', [SectionsController::class, 'developerProjectDelete'])->name('developer.project.delete');
+    Route::get('/developer/project/edit/{id}', [SectionsController::class, 'developerProjectEditFormView'])->name('developer.project.edit.view');
+    Route::post('/developer/project/update/{id}', [SectionsController::class, 'developerProjectUpdate'])->name('developer.project.update');
 });
 
 require __DIR__ . '/auth.php';

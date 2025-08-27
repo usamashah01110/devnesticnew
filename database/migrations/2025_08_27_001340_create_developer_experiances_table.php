@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('experiance_ending_date');
             $table->text('experiance_description');
             $table->foreignId('dev_id')
-                ->references('id')
+                ->references('dev_id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();

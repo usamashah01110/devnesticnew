@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('developer_phone_no')->nllable();
             $table->text('developer_location')->nullable();
             $table->foreignId('dev_id')
-                ->references('id')
+                ->references('dev_id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();

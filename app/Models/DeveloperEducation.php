@@ -23,4 +23,6 @@ class DeveloperEducation extends Model
     {
         return $this->belongsTo(SectionEight::class);
     }
+
+    
 }

@@ -562,7 +562,7 @@ class SectionsController extends Controller
     public function sectionEightStore(Request $request)
     {
         $data = $request->validate([
-            'developer_id' => 'string',
+            'developer_id' => 'string|nullable',
             'name' => 'string|nullable',
             'role' => 'string|nullable',
             'description' => 'string|nullable',
@@ -787,7 +787,7 @@ class SectionsController extends Controller
             'description' => 'nullable|string',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'tech'        => 'nullable|string',
-            'dev_id'      => 'required|exists:section_eights,id',
+            'dev_id'      => 'required',
         ]);
 
 
@@ -800,11 +800,38 @@ class SectionsController extends Controller
         }
 
         $this->developerProjectRepo->create($data);
-        return redirect()->route('section.nine');
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
     }
     public function developerProjectDelete($id)
     {
         $this->developerProjectRepo->delete($id);
         return redirect()->back();
+    }
+    public function developerProjectEditFormView($id)
+    {
+        $project = $this->developerProjectRepo->find($id);
+        return view('admin.editInputs.editdeveloperproject', compact('project'));
+    }
+    public function developerProjectUpdate($id, Request $request)
+    {
+        $data = $request->validate([
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'tech'        => 'nullable|string',
+            'dev_id'      => 'required',
+        ]);
+
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('developer_project', 'public');
+        }
+
+        if ($request->filled('tech')) {
+            $data['tech'] = $request->tech;
+        }
+
+        $this->developerProjectRepo->find($id)->update($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
     }
 }

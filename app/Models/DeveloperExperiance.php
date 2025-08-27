@@ -17,4 +17,8 @@ class DeveloperExperiance extends Model
         'experiance_ending_date',
         'experiance_description'
     ];
+
+    public function sectionEight() {
+        return $this->belongsTo(SectionEight::class);
+    }
 }

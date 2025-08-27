@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('education_starting_date');
             $table->date('education_ending_date');
             $table->foreignId('dev_id')
-                ->references('id')
+                ->references('dev_id')
                 ->on('section_eights')
                 ->onDelete('cascade');
             $table->timestamps();

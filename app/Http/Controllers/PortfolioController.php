@@ -15,6 +15,8 @@ class PortfolioController extends Controller
         $developerContact = DeveloperContact::latest()->first();
         $developerExperiance = DeveloperExperiance::all();
 
+        
+
         return view(
             'pages.developer_portfolio',
             compact(

@@ -12,7 +12,7 @@ class SectionEight extends Model
     protected $table = 'section_eights';
 
     protected $fillable = [
-        '',
+        'developer_id',
         'name',
         'role',
         'description',
@@ -31,5 +31,13 @@ class SectionEight extends Model
     public function developerEducation()
     {
         return $this->hasMany(DeveloperEducation::class);
+    }
+    public function developerContact()
+    {
+        return $this->hasMany(DeveloperContact::class);
+    }
+    public function developerExperiance()
+    {
+        return $this->hasMany(DeveloperExperiance::class);
     }
 }
