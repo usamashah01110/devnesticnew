@@ -9,6 +9,8 @@ class DeveloperEducation extends Model
 {
     use HasFactory;
 
+    protected $table = "developer_education";
+
     protected $fillable = [
         'dev_id',
         'education_degree',

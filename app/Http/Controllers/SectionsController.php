@@ -12,6 +12,8 @@ use App\Repositories\Interfaces\SectionSixRepositoryInterface;
 use App\Repositories\Interfaces\SectionSevenRepositoryInterface;
 use App\Repositories\Interfaces\SectionEightRepositoryInterface;
 use App\Repositories\Interfaces\DeveloperEducationInterface;
+use App\Repositories\Interfaces\DeveloperContactInterface;
+use App\Repositories\Interfaces\DeveloperExperianceInterface;
 
 class SectionsController extends Controller
 {
@@ -24,6 +26,8 @@ class SectionsController extends Controller
     protected $sectionSevenRepo;
     protected $sectionEightRepo;
     protected $developerEducationRepo;
+    protected $developerContactRepo;
+    protected $developerExperianceRepo;
 
     public function __construct(
         SectionOneRepositoryInterface   $sectionOneRepo,
@@ -34,7 +38,9 @@ class SectionsController extends Controller
         SectionSixRepositoryInterface   $sectionSixRepo,
         SectionSevenRepositoryInterface $sectionSevenRepo,
         SectionEightRepositoryInterface $sectionEightRepo,
-        DeveloperEducationInterface $developerEducationRepo
+        DeveloperEducationInterface $developerEducationRepo,
+        DeveloperContactInterface $developerContactRepo,
+        DeveloperExperianceInterface $developerExperianceRepo
 
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
@@ -46,6 +52,8 @@ class SectionsController extends Controller
         $this->sectionSevenRepo = $sectionSevenRepo;
         $this->sectionEightRepo = $sectionEightRepo;
         $this->developerEducationRepo = $developerEducationRepo;
+        $this->developerContactRepo = $developerContactRepo;
+        $this->developerExperianceRepo = $developerExperianceRepo;
     }
 
     // Section one (Hero Section)
@@ -614,7 +622,17 @@ class SectionsController extends Controller
     public function sectionNine($id)
     {
         $developerEducation = $this->developerEducationRepo->all();
-        return view('admin.sections.sectionNine', compact('developerEducation', 'id'));
+        $developerContact = $this->developerContactRepo->all();
+        $developerExperiance = $this->developerExperianceRepo->all();
+        return view(
+            'admin.sections.sectionNine',
+            compact(
+                'developerEducation',
+                'id',
+                'developerContact',
+                'developerExperiance'
+            )
+        );
     }
 
 
@@ -637,22 +655,142 @@ class SectionsController extends Controller
         $DeveloperEducation = $this->developerEducationRepo->create($data);
         return redirect()->back();
     }
-
-    public function viewDeveloperContactForm()
+    public function DeveloperEducationDelete($id)
     {
-        $title = "Insert Contact Record For Develoepr";
-        return view('admin.inputs.developer_contact', compact('title'));
+        $this->developerEducationRepo->delete($id);
+        return redirect()->back();
+    }
+    public function DeveloperEducationEditView($id)
+    {
+        $developerEducation =  $this->developerEducationRepo->find($id);
+        return view('admin.editInputs.editdevelopereducation', compact('developerEducation'));
+    }
+    public function DeveloperEducationUpdate($id, Request $request)
+    {
+        $data = $request->validate([
+            'dev_id' => 'string',
+            'education_degree' => 'string',
+            'education_institute' => 'string',
+            'education_starting_date' => 'date',
+            'education_ending_date' => 'date'
+        ]);
+        $DeveloperEducation = $this->developerEducationRepo->update($id, $data);
+        return redirect()->route('section.nine', ['id' => $data['dev_id']]);
     }
 
-    public function viewDeveloperExperianceForm()
+    // Developer Conatct 
+    public function viewDeveloperContactForm($id)
     {
-        $title = "Add Developer Experiance";
-        return view('admin.inputs.developer_experiance', compact('title'));
+
+        return view('admin.inputs.developer_contact', compact('id'));
+    }
+    public function viewDeveloperContactStore(Request $request)
+    {
+        $data = $request->validate([
+            'developer_email' => 'email',
+            'developer_phone_no' => 'string',
+            'developer_location' => 'string',
+            'dev_id' => 'string'
+        ]);
+
+        $this->developerContactRepo->create($data);
+        return redirect()->back();
+    }
+    public function developerContactDelete($id)
+    {
+        $this->developerContactRepo->delete($id);
+        return redirect()->back();
+    }
+    public function developerContactEditView($id)
+    {
+        $developerContact = $this->developerContactRepo->find($id);
+        return view('admin.editInputs.editdevelopercontact', compact('developerContact'));
+    }
+    public function developerContactUpdate($id, Request $request)
+    {
+        $data = $request->validate(
+            [
+                'developer_email' => 'email',
+                'developer_phone_no' => 'string',
+                'developer_location' => 'string',
+                'dev_id' => 'string'
+            ]
+        );
+        $this->developerContactRepo->update($id, $data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
     }
 
-    public function viewDeveloperProjectsForm()
+    // Developer Experiance
+    public function viewDeveloperExperianceForm($id)
     {
-        $title = "Add Developer Project";
-        return view('admin.inputs.developer_project', compact('title'));
+        return view('admin.inputs.developer_experiance', compact('id'));
+    }
+    public function DeveloperExperianceStore(Request $request)
+    {
+        $data = $request->validate(
+            [
+                'dev_id' => 'string|required',
+                'experiance_degree' => 'string|required',
+                'experiance_institute' => 'string|required',
+                'experiance_starting_date' => 'date|required',
+                'experiance_ending_date' => 'date|required',
+                'experiance_description' => 'string|required'
+            ]
+        );
+
+        $this->developerExperianceRepo->create($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
+    }
+    public function DeveloperExperianceDelete($id)
+    {
+        $this->developerExperianceRepo->delete($id);
+        return redirect()->back();
+    }
+    public function DeveloperExperianceUpdate($id, Request $request)
+    {
+        $data = $request->validate(
+            [
+                'dev_id' => 'string|required',
+                'experiance_degree' => 'string|required',
+                'experiance_institute' => 'string|required',
+                'experiance_starting_date' => 'date|required',
+                'experiance_ending_date' => 'date|required',
+                'experiance_description' => 'string|required'
+            ]
+        );
+
+        $this->developerExperianceRepo->find($id)->update($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
+    }
+    public function DeveloperExperianceEditView($id)
+    {
+        $developerExperiance = $this->developerExperianceRepo->find($id);
+        return view('admin.editInputs.editdeveloperexperiance', compact('developerExperiance'));
+    }
+
+    // Developer Projects
+    public function viewDeveloperProjectsForm($id)
+    {
+        return view('admin.inputs.developer_project', compact('id'));
+    }
+    public function developerProjectStore(Request $request)
+    {
+        $data = $request->validate([
+            'image' => 'nullable|image',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'tech' => 'nullable|array',
+            'tech.*' => 'string|max:100',
+            'dev_id' => 'required',
+        ]);
+
+        $data['tech'] = json_encode($data['tech'] ?? []);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('developer_project', 'public');
+        }
+
+        $this->developerExperianceRepo->create($data);
+        return redirect()->route('section.nine');
     }
 }

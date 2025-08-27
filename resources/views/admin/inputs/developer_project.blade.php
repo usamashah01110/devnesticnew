@@ -75,10 +75,12 @@
 
 <div class="container">
     <div class="container">
-        <h1 class="text-center">{{ $title }}</h1>
+        <h1 class="text-center">Create Developer Project</h1>
         <hr />
-        <form action="" method="post" enctype="multipart/form-data">
+        
+        <form action="{{ route('developer.project.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="text" name="dev_id" id="dev_id" class="form-control" value="{{ $id }}">
             <div class="mb-3">
                 <label class="form-label">Project Image</label>
                 <!-- Hidden file input -->

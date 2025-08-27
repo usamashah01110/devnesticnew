@@ -5,10 +5,12 @@
 
 <div class="container">
     <div class="container">
-        <h1 class="text-center">{{ $title }}</h1>
+        <h1 class="text-center">Create Developer Experiance</h1>
         <hr />
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{ route('developer.experiance.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+
+            <input type="text" name="dev_id" id="dev_id" class="form-control" value="{{ $id }}">
             <div class="mb-3">
                 <label for="experiance_degree" class="form-label">Experiance Title</label>
                 <input type="text" name="experiance_degree" id="experiance_degree" class="form-control" value="{{ old('experiance_degree') }}">

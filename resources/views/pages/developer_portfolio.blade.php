@@ -402,18 +402,14 @@
 
                 <section class="section">
                     <h2 class="section-title">Experience</h2>
+                    @foreach ($developerExperiance as $exp)
                     <div class="experience-item">
-                        <h3 class="item-title">Lead Developer</h3>
-                        <p class="item-subtitle">Tech Solutions Inc.</p>
-                        <p class="item-date">January 2020 - Present</p>
-                        <p class="item-description">Leading a team of 5 developers to build enterprise-level web applications. Responsibilities include architecture design, code reviews, mentoring junior developers, and implementing CI/CD pipelines.</p>
+                        <h3 class="item-title">{{ $exp->experiance_degree }}</h3>
+                        <p class="item-subtitle">{{ $exp->experiance_institute }}</p>
+                        <p class="item-date">{{ \Carbon\Carbon::parse($exp->experiance_starting_date)->format('Y') }} - {{ \Carbon\Carbon::parse($exp->experiance_ending_date)->format(('Y')) }}</p>
+                        <p class="item-description">{{ $exp->experiance_description }}</p>
                     </div>
-                    <div class="experience-item">
-                        <h3 class="item-title">Senior Web Developer</h3>
-                        <p class="item-subtitle">Digital Creations Agency</p>
-                        <p class="item-date">March 2017 - December 2019</p>
-                        <p class="item-description">Developed custom web solutions for clients across various industries. Worked closely with designers to implement pixel-perfect UIs while ensuring optimal performance and accessibility.</p>
-                    </div>
+                    @endforeach
                 </section>
 
                 <section class="section">
@@ -484,7 +480,7 @@
                     <div class="education-item">
                         <h3 class="item-title">{{ $sec->education_degree }}</h3>
                         <p class="item-subtitle">{{ $sec->education_institute }}</p>
-                        <p class="item-date">{{ $sec->education_starting_date }} - {{ $sec->education_ending_date }}</p>
+                        <p class="item-date">{{ \Carbon\Carbon::parse($sec->education_starting_date)->format('Y') }} - {{ \Carbon\Carbon::parse($sec->education_ending_date)->format('Y') }}</p>
                     </div>
                     @endforeach
                 </section>
@@ -492,18 +488,24 @@
                 <section class="section">
                     <h2 class="section-title">Contact</h2>
                     <div class="contact-info">
+                        @if ($developerContact)
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <span>john.doe@example.com</span>
+                            <span>{{ $developerContact->developer_email }}</span>
                         </div>
+                        @endif
+                        @if($developerContact)
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                            <span>+1 (555) 123-4567</span>
+                            <span>{{ $developerContact->developer_phone_no }}</span>
                         </div>
+                        @endif
+                        @if($developerContact)
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <span>San Francisco, CA</span>
+                            <span>{{ $developerContact->developer_location }}</span>
                         </div>
+                        @endif
                     </div>
                 </section>
 
