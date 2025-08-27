@@ -11,6 +11,10 @@ use App\Repositories\Interfaces\SectionFiveRepositoryInterface;
 use App\Repositories\Interfaces\SectionSixRepositoryInterface;
 use App\Repositories\Interfaces\SectionSevenRepositoryInterface;
 use App\Repositories\Interfaces\SectionEightRepositoryInterface;
+use App\Repositories\Interfaces\DeveloperEducationInterface;
+use App\Repositories\Interfaces\DeveloperContactInterface;
+use App\Repositories\Interfaces\DeveloperExperianceInterface;
+use App\Repositories\Interfaces\DeveloperProjectInterface;
 
 class SectionsController extends Controller
 {
@@ -22,6 +26,10 @@ class SectionsController extends Controller
     protected $sectionSixRepo;
     protected $sectionSevenRepo;
     protected $sectionEightRepo;
+    protected $developerEducationRepo;
+    protected $developerContactRepo;
+    protected $developerExperianceRepo;
+    protected $developerProjectRepo;
 
     public function __construct(
         SectionOneRepositoryInterface   $sectionOneRepo,
@@ -31,7 +39,11 @@ class SectionsController extends Controller
         SectionFiveRepositoryInterface  $sectionFiveRepo,
         SectionSixRepositoryInterface   $sectionSixRepo,
         SectionSevenRepositoryInterface $sectionSevenRepo,
-        SectionEightRepositoryInterface $sectionEightRepo
+        SectionEightRepositoryInterface $sectionEightRepo,
+        DeveloperEducationInterface $developerEducationRepo,
+        DeveloperContactInterface $developerContactRepo,
+        DeveloperExperianceInterface $developerExperianceRepo,
+        DeveloperProjectInterface $developerProjectRepo
 
     ) {
         $this->sectionOneRepo = $sectionOneRepo;
@@ -42,6 +54,10 @@ class SectionsController extends Controller
         $this->sectionSixRepo = $sectionSixRepo;
         $this->sectionSevenRepo = $sectionSevenRepo;
         $this->sectionEightRepo = $sectionEightRepo;
+        $this->developerEducationRepo = $developerEducationRepo;
+        $this->developerContactRepo = $developerContactRepo;
+        $this->developerExperianceRepo = $developerExperianceRepo;
+        $this->developerProjectRepo = $developerProjectRepo;
     }
 
     // Section one (Hero Section)
@@ -546,7 +562,7 @@ class SectionsController extends Controller
     public function sectionEightStore(Request $request)
     {
         $data = $request->validate([
-            'developer_id' => 'string',
+            'developer_id' => 'string|nullable',
             'name' => 'string|nullable',
             'role' => 'string|nullable',
             'description' => 'string|nullable',
@@ -607,28 +623,215 @@ class SectionsController extends Controller
 
 
     // Section Controller (Developer Portfolio)
-    public function sectionNine()
+    public function sectionNine($id)
     {
-        return view('admin.sections.sectionNine');
+        $developerEducation = $this->developerEducationRepo->all();
+        $developerContact = $this->developerContactRepo->all();
+        $developerExperiance = $this->developerExperianceRepo->all();
+        $developerProject = $this->developerProjectRepo->all();
+        return view(
+            'admin.sections.sectionNine',
+            compact(
+                'developerEducation',
+                'id',
+                'developerContact',
+                'developerExperiance',
+                'developerProject'
+            )
+        );
     }
 
 
     // Developer Education 
-    public function viewDeveloperEducationForm()
+    public function viewDeveloperEducationForm($id)
     {
         $title = "Insert Education Record";
-        return view('admin.inputs.developer_education', compact('title'));
+        return view('admin.inputs.developer_education', compact('title', 'id'));
+    }
+    public function DeveloperEducationStore(Request $request)
+    {
+        $data = $request->validate([
+            'dev_id' => 'string',
+            'education_degree' => 'string',
+            'education_institute' => 'string',
+            'education_starting_date' => 'date',
+            'education_ending_date' => 'date'
+        ]);
+
+        $DeveloperEducation = $this->developerEducationRepo->create($data);
+        return redirect()->back();
+    }
+    public function DeveloperEducationDelete($id)
+    {
+        $this->developerEducationRepo->delete($id);
+        return redirect()->back();
+    }
+    public function DeveloperEducationEditView($id)
+    {
+        $developerEducation =  $this->developerEducationRepo->find($id);
+        return view('admin.editInputs.editdevelopereducation', compact('developerEducation'));
+    }
+    public function DeveloperEducationUpdate($id, Request $request)
+    {
+        $data = $request->validate([
+            'dev_id' => 'string',
+            'education_degree' => 'string',
+            'education_institute' => 'string',
+            'education_starting_date' => 'date',
+            'education_ending_date' => 'date'
+        ]);
+        $DeveloperEducation = $this->developerEducationRepo->update($id, $data);
+        return redirect()->route('section.nine', ['id' => $data['dev_id']]);
     }
 
-    public function viewDeveloperContactForm()
+    // Developer Conatct 
+    public function viewDeveloperContactForm($id)
     {
-        $title = "Insert Contact Record For Develoepr";
-        return view('admin.inputs.developer_contact', compact('title'));
+
+        return view('admin.inputs.developer_contact', compact('id'));
+    }
+    public function viewDeveloperContactStore(Request $request)
+    {
+        $data = $request->validate([
+            'developer_email' => 'email',
+            'developer_phone_no' => 'string',
+            'developer_location' => 'string',
+            'dev_id' => 'string'
+        ]);
+
+        $this->developerContactRepo->create($data);
+        return redirect()->back();
+    }
+    public function developerContactDelete($id)
+    {
+        $this->developerContactRepo->delete($id);
+        return redirect()->back();
+    }
+    public function developerContactEditView($id)
+    {
+        $developerContact = $this->developerContactRepo->find($id);
+        return view('admin.editInputs.editdevelopercontact', compact('developerContact'));
+    }
+    public function developerContactUpdate($id, Request $request)
+    {
+        $data = $request->validate(
+            [
+                'developer_email' => 'email',
+                'developer_phone_no' => 'string',
+                'developer_location' => 'string',
+                'dev_id' => 'string'
+            ]
+        );
+        $this->developerContactRepo->update($id, $data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
     }
 
-    public function viewDeveloperExperianceForm()
+    // Developer Experiance
+    public function viewDeveloperExperianceForm($id)
     {
-        $title = "Add Developer Experiance";
-        return view('admin.inputs.developer_experiance', compact('title'));
+        return view('admin.inputs.developer_experiance', compact('id'));
+    }
+    public function DeveloperExperianceStore(Request $request)
+    {
+        $data = $request->validate(
+            [
+                'dev_id' => 'string|required',
+                'experiance_degree' => 'string|required',
+                'experiance_institute' => 'string|required',
+                'experiance_starting_date' => 'date|required',
+                'experiance_ending_date' => 'date|required',
+                'experiance_description' => 'string|required'
+            ]
+        );
+
+        $this->developerExperianceRepo->create($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
+    }
+    public function DeveloperExperianceDelete($id)
+    {
+        $this->developerExperianceRepo->delete($id);
+        return redirect()->back();
+    }
+    public function DeveloperExperianceUpdate($id, Request $request)
+    {
+        $data = $request->validate(
+            [
+                'dev_id' => 'string|required',
+                'experiance_degree' => 'string|required',
+                'experiance_institute' => 'string|required',
+                'experiance_starting_date' => 'date|required',
+                'experiance_ending_date' => 'date|required',
+                'experiance_description' => 'string|required'
+            ]
+        );
+
+        $this->developerExperianceRepo->find($id)->update($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
+    }
+    public function DeveloperExperianceEditView($id)
+    {
+        $developerExperiance = $this->developerExperianceRepo->find($id);
+        return view('admin.editInputs.editdeveloperexperiance', compact('developerExperiance'));
+    }
+
+    // Developer Projects
+    public function viewDeveloperProjectsForm($id)
+    {
+        return view('admin.inputs.developer_project', compact('id'));
+    }
+    public function developerProjectStore(Request $request)
+    {
+
+        $data = $request->validate([
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'tech'        => 'nullable|string',
+            'dev_id'      => 'required',
+        ]);
+
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('developer_project', 'public');
+        }
+
+        if ($request->filled('tech')) {
+            $data['tech'] = $request->tech;
+        }
+
+        $this->developerProjectRepo->create($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
+    }
+    public function developerProjectDelete($id)
+    {
+        $this->developerProjectRepo->delete($id);
+        return redirect()->back();
+    }
+    public function developerProjectEditFormView($id)
+    {
+        $project = $this->developerProjectRepo->find($id);
+        return view('admin.editInputs.editdeveloperproject', compact('project'));
+    }
+    public function developerProjectUpdate($id, Request $request)
+    {
+        $data = $request->validate([
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'tech'        => 'nullable|string',
+            'dev_id'      => 'required',
+        ]);
+
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('developer_project', 'public');
+        }
+
+        if ($request->filled('tech')) {
+            $data['tech'] = $request->tech;
+        }
+
+        $this->developerProjectRepo->find($id)->update($data);
+        return redirect()->route('section.nine', ['id' => 'dev_id']);
     }
 }

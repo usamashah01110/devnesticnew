@@ -22,4 +22,22 @@ class SectionEight extends Model
         'tech4',
         'image'
     ];
+
+    public function developerProject()
+    {
+        return $this->hasMany(DeveloperProject::class);
+    }
+
+    public function developerEducation()
+    {
+        return $this->hasMany(DeveloperEducation::class);
+    }
+    public function developerContact()
+    {
+        return $this->hasMany(DeveloperContact::class);
+    }
+    public function developerExperiance()
+    {
+        return $this->hasMany(DeveloperExperiance::class);
+    }
 }
