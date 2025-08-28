@@ -362,7 +362,7 @@ class SectionsController extends Controller
     public function sectionFive()
     {
         $sectionFive = $this->sectionFiveRepo->all();
-        return view('admin.sections.sectionfive', compact('sectionFive'));
+        return view('admin.sections.sectionfive', compact('sectionfive'));
     }
 
     public function sectionFiveCreate()

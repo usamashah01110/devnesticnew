@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sectionFive as $sec)
+                        @foreach ($sectionfive as $sec)
 
                         <tr>
                             <td>{{ $sec->id }}</td>
