@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sectionTwo as $sec)
+                        @foreach ($sectiontwo as $sec)
 
                         <tr>
                             <td class="text-truncate" style="max-width:50px;">{{ $sec->short_about_us }}</td>

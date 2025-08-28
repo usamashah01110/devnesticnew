@@ -34,7 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sectionFour as $sec)
+                        @foreach ($sectionfour as $sec)
                         <tr>
                             <td>{{ $sec->id }}</td>
                             <td class="text-truncate" style="max-width:120px;">{{ $sec->name }}</td>
@@ -50,7 +50,7 @@
                                 </a>
                                 <br>
                                 <br>
-                                @if($sectionFour)
+                                @if($sectionfour)
                                 <a href="{{ route('section.four.edit.view', $sec->id) }}">
                                     <button class="badge badge-success">Edit</button>
                                 </a>

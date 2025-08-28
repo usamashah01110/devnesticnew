@@ -141,7 +141,7 @@ class SectionsController extends Controller
     public function sectiontwo()
     {
         $sectionTwo = $this->sectionTwoRepo->all();
-        return view('admin.sections.sectiontwo', compact('sectionTwo'));
+        return view('admin.sections.sectiontwo', compact('sectiontwo'));
     }
 
     public function sectiontwoCreate()
@@ -237,7 +237,7 @@ class SectionsController extends Controller
     public function sectionThree()
     {
         $sectionThree = $this->sectionThreeRepo->all();
-        return view('admin.sections.sectionthree', compact('sectionThree'));
+        return view('admin.sections.sectionthree', compact('sectionthree'));
     }
 
     public function sectionThreeCreate()
@@ -299,7 +299,7 @@ class SectionsController extends Controller
     public function sectionFour()
     {
         $sectionFour = $this->sectionFourRepo->all();
-        return view('admin.sections.sectionfour', compact('sectionFour'));
+        return view('admin.sections.sectionfour', compact('sectionfour'));
     }
 
     public function sectionFourCreate()
