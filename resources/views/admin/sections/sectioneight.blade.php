@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sectionEight as $sec)
+                        @foreach ($sectioneight as $sec)
                         <tr>
                             <td class="text-truncate" style="max-width:120px;">{{ $sec->developer_id }}</td>
                             <td class="text-truncate" style="max-width:180px;">{{ $sec->name }}</td>

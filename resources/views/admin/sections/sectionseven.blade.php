@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sectionSeven as $sec)
+                        @foreach ($sectionseven as $sec)
                         
                         <tr>
                             <td>1</td>
