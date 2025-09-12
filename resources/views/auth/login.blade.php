@@ -213,18 +213,18 @@
             cursor: pointer;
             user-select: none;
         }
-        
+
         .error-message {
             color: #e74c3c;
             font-size: 14px;
             margin-top: 5px;
             display: none;
         }
-        
+
         .form-group.error .form-control {
             border-color: #e74c3c;
         }
-        
+
         .loading {
             display: inline-block;
             width: 20px;
@@ -236,7 +236,7 @@
             display: none;
             margin-left: 10px;
         }
-        
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
@@ -255,11 +255,13 @@
                 <form method="POST" action="{{ route('login') }}" id="loginForm">
                     @csrf
                     <div class="form-group" id="emailGroup">
-                        <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email Address" required autofocus id="emailInput">
+                        <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                               placeholder="Email Address" required autofocus id="emailInput">
                         <div class="error-message" id="emailError"></div>
                     </div>
                     <div class="form-group password-container" id="passwordGroup">
-                        <input type="password" name="password" class="form-control" placeholder="Password" required id="passwordInput">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required
+                               id="passwordInput">
                         <span class="toggle-password" id="togglePassword">👁️</span>
                         <div class="error-message" id="passwordError"></div>
                     </div>
@@ -281,6 +283,9 @@
                     <div class="register-link">
                         Don't have an account? <a href="{{ route('register') }}">Register</a>
                     </div>
+                    <a href="{{ route("google.login") }}" class="btn btn-danger">
+                        Login with Google
+                    </a>
                 </form>
             </div>
         </div>
@@ -302,17 +307,17 @@
         // Form validation and submission
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Reset error states
             document.getElementById('emailGroup').classList.remove('error');
             document.getElementById('passwordGroup').classList.remove('error');
             document.getElementById('emailError').style.display = 'none';
             document.getElementById('passwordError').style.display = 'none';
-            
+
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passwordInput').value;
             let isValid = true;
-            
+
             // Validate email
             if (!email) {
                 document.getElementById('emailGroup').classList.add('error');
@@ -325,7 +330,7 @@
                 document.getElementById('emailError').style.display = 'block';
                 isValid = false;
             }
-            
+
             // Validate password
             if (!password) {
                 document.getElementById('passwordGroup').classList.add('error');
@@ -333,12 +338,12 @@
                 document.getElementById('passwordError').style.display = 'block';
                 isValid = false;
             }
-            
+
             if (isValid) {
                 // Show loading indicator
                 document.getElementById('loadingIndicator').style.display = 'inline-block';
                 document.getElementById('submitButton').disabled = true;
-                
+
                 // Submit the form after a brief delay to show the loading state
                 setTimeout(() => {
                     this.submit();

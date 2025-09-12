@@ -201,7 +201,7 @@
                   <img src="{{ asset('logo2.jpg') }}">
                 </div>
                 <h4>New here?</h4>
-            
+
                 <form class="pt-3" method="POST" action="{{ route('register') }}">
                   @csrf
                   <!-- Name -->
@@ -233,6 +233,9 @@
                   </div>
                   <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="{{ route('login') }}" class="text-primary">Login</a>
                   </div>
+                    <a href="{{ route("google.login") }}" class="btn btn-danger">
+                        Login with Google
+                    </a>
                 </form>
               </div>
             </div>

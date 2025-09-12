@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +37,8 @@ Route::get('/dashboard/login', [AdminController::class, 'loginPage'])->name('das
 Route::get('/dashboard/register', [AdminController::class, 'registerPage'])->name('dashboard.register');
 Route::get('/dashboard/documentation', [AdminController::class, 'documentation'])->name('dashboard.documentation');
 
-// Develoer Portfolio 
+// Develoer Portfolio
 Route::get('/Portfolio', [PortfolioController::class, 'viewDeveloperPorfolio'])->name('developer.portfolio.view');
-
-
-
 
 
 Route::middleware('auth')->group(function () {
@@ -115,7 +113,7 @@ Route::middleware('auth')->group(function () {
     // Section 9
     Route::get('/section/9/{id}', [SectionsController::class, 'sectionNine'])->name('section.nine');
 
-    // Developer Education 
+    // Developer Education
     Route::get('/developer/education/{id}', [SectionsController::class, 'viewDeveloperEducationForm'])->name('developer.education.form.view');
     Route::post('/developer/education/store', [SectionsController::class, 'DeveloperEducationStore'])->name('developer.education.store');
     Route::get('/developer/education/delete/{id}', [SectionsController::class, 'DeveloperEducationDelete'])->name('developer.education.delete');
@@ -143,5 +141,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/developer/project/edit/{id}', [SectionsController::class, 'developerProjectEditFormView'])->name('developer.project.edit.view');
     Route::post('/developer/project/update/{id}', [SectionsController::class, 'developerProjectUpdate'])->name('developer.project.update');
 });
+
+Route::get("/auth/google", [GoogleController:: class, "redirectToGoogle"])->name('google.login');
+Route::get("/auth/callback", [GoogleController:: class, "handleGoogleCallback"])->name('google.callback');
 
 require __DIR__ . '/auth.php';
