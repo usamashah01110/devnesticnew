@@ -181,7 +181,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
         /*
@@ -211,7 +210,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        Laravel\Socialite\SocialiteServiceProvider::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ])->toArray(),
 
 ];
