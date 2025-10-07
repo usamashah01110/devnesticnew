@@ -7,6 +7,15 @@ use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\SectionOneController;
+use App\Http\Controllers\SectionTwoController;
+use App\Http\Controllers\SectionThreeController;
+use App\Http\Controllers\SectionFourController;
+use App\Http\Controllers\SectionFiveController;
+use App\Http\Controllers\SectionSixController;
+use App\Http\Controllers\SectionSevenController;
+use App\Http\Controllers\SectionEightController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,68 +56,68 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Section 1
-    Route::get('/section/1', [SectionsController::class, 'index'])->name('section.index');
-    Route::get('/section/1/Store', [SectionsController::class, 'sectionOneCreate'])->name('section.1.view');
-    Route::get('/section/1/edit/{id}', [SectionsController::class, 'editView'])->name('section.one.edit.view');
-    Route::post('/section/1/update/{id}', [SectionsController::class, 'update'])->name('section.one.update');
-    Route::get('/section/1/delete/{id}', [SectionsController::class, 'deleteOne'])->name('section.one.delete');
-    Route::post('/section/1/store', [SectionsController::class, 'store'])->name('section.store');
+    Route::get('/section/1', [SectionOneController::class, 'index'])->name('section.index');
+    Route::get('/section/1/Store', [SectionOneController::class, 'create'])->name('section.1.view');
+    Route::get('/section/1/edit/{id}', [SectionOneController::class, 'edit'])->name('section.one.edit.view');
+    Route::post('/section/1/update/{id}', [SectionOneController::class, 'update'])->name('section.one.update');
+    Route::get('/section/1/delete/{id}', [SectionOneController::class, 'destroy'])->name('section.one.delete');
+    Route::post('/section/1/store', [SectionOneController::class, 'store'])->name('section.store');
 
     // Section 2
-    Route::get('/section/2', [SectionsController::class, 'sectiontwo'])->name('section.two');
-    Route::get('/section/2/store', [SectionsController::class, 'sectiontwoCreate'])->name('section.two.view');
-    Route::get('/section/2/edit/{id}', [SectionsController::class, 'sectionTwoEditView'])->name('section.two.edit.view');
-    Route::get('/section/2/delete/{id}', [SectionsController::class, 'deleteTwo'])->name('section.two.delete');
-    Route::post('/section/2/store', [SectionsController::class, 'sectiontwostore'])->name('section.two.store');
-    Route::post('/section/2/update/{id}', [SectionsController::class, 'updateTwo'])->name('section.two.update');
+    Route::get('/section/2', [SectionTwoController::class, 'index'])->name('section.two');
+    Route::get('/section/2/store', [SectionTwoController::class, 'create'])->name('section.two.view');
+    Route::get('/section/2/edit/{id}', [SectionTwoController::class, 'edit'])->name('section.two.edit.view');
+    Route::get('/section/2/delete/{id}', [SectionTwoController::class, 'destroy'])->name('section.two.delete');
+    Route::post('/section/2/store', [SectionTwoController::class, 'store'])->name('section.two.store');
+    Route::post('/section/2/update/{id}', [SectionTwoController::class, 'update'])->name('section.two.update');
 
     // Section 3
-    Route::get('/section/3', [SectionsController::class, 'sectionThree'])->name('section.three');
-    Route::get('/section/3/store', [SectionsController::class, 'sectionThreeCreate'])->name('section.three.view');
-    Route::get('/section/3/edit/{id}', [SectionsController::class, 'sectionThreeEditView'])->name('section.three.edit.view');
-    Route::get('/section/3/delete/{id}', [SectionsController::class, 'deleteThree'])->name('section.three.delete');
-    Route::post('/section/3/store', [SectionsController::class, 'sectionThreeStore'])->name('section.three.store');
-    Route::post('/section/3/update/{id}', [SectionsController::class, 'updateThree'])->name('section.three.update');
+    Route::get('/section/3', [SectionThreeController::class, 'index'])->name('section.three');
+    Route::get('/section/3/store', [SectionThreeController::class, 'create'])->name('section.three.view');
+    Route::get('/section/3/edit/{id}', [SectionThreeController::class, 'edit'])->name('section.three.edit.view');
+    Route::get('/section/3/delete/{id}', [SectionThreeController::class, 'destroy'])->name('section.three.delete');
+    Route::post('/section/3/store', [SectionThreeController::class, 'store'])->name('section.three.store');
+    Route::post('/section/3/update/{id}', [SectionThreeController::class, 'update'])->name('section.three.update');
 
     // Section 4
-    Route::get('/section/4', [SectionsController::class, 'sectionFour'])->name('section.four');
-    Route::get('/section/4/store', [SectionsController::class, 'sectionFourCreate'])->name('section.four.view');
-    Route::post('/section/4/store', [SectionsController::class, 'sectionFourStore'])->name('section.four.store');
-    Route::get('/section/4/delete/{id}', [SectionsController::class, 'deleteFour'])->name('section.four.delete');
-    Route::get('/section/4/edit/{id}', [SectionsController::class, 'sectionFourEditView'])->name('section.four.edit.view');
-    Route::post('/section/4/update/{id}', [SectionsController::class, 'updateFour'])->name('section.four.update');
+    Route::get('/section/4', [SectionFourController::class, 'index'])->name('section.four');
+    Route::get('/section/4/store', [SectionFourController::class, 'create'])->name('section.four.view');
+    Route::post('/section/4/store', [SectionFourController::class, 'store'])->name('section.four.store');
+    Route::get('/section/4/delete/{id}', [SectionFourController::class, 'destroy'])->name('section.four.delete');
+    Route::get('/section/4/edit/{id}', [SectionFourController::class, 'edit'])->name('section.four.edit.view');
+    Route::post('/section/4/update/{id}', [SectionFourController::class, 'update'])->name('section.four.update');
 
     // Section 5
-    Route::get('/section/5', [SectionsController::class, 'sectionFive'])->name('section.five');
-    Route::get('/section/5/store', [SectionsController::class, 'sectionFiveCreate'])->name('section.five.view');
-    Route::post('/section/5/store', [SectionsController::class, 'sectionFiveStore'])->name('section.five.store');
-    Route::get('/section/5/delete/{id}', [SectionsController::class, 'deleteFive'])->name('section.five.delete');
-    Route::get('/section/5/edit/{id}', [SectionsController::class, 'sectionFiveEditView'])->name('section.five.edit.view');
-    Route::post('/section/5/update/{id}', [SectionsController::class, 'updateFive'])->name('section.five.update');
+    Route::get('/section/5', [SectionFiveController::class, 'index'])->name('section.five');
+    Route::get('/section/5/store', [SectionFiveController::class, 'create'])->name('section.five.view');
+    Route::post('/section/5/store', [SectionFiveController::class, 'store'])->name('section.five.store');
+    Route::get('/section/5/delete/{id}', [SectionFiveController::class, 'destroy'])->name('section.five.delete');
+    Route::get('/section/5/edit/{id}', [SectionFiveController::class, 'edit'])->name('section.five.edit.view');
+    Route::post('/section/5/update/{id}', [SectionFiveController::class, 'update'])->name('section.five.update');
 
     // Section 6
-    Route::get('/section/6', [SectionsController::class, 'sectionSix'])->name('section.six');
-    Route::get('/section/6/store', [SectionsController::class, 'sectionSixCreate'])->name('section.six.view');
-    Route::post('/section/6/store', [SectionsController::class, 'sectionSixStore'])->name('section.six.store');
-    Route::get('/section/6/delete/{id}', [SectionsController::class, 'deleteSix'])->name('delete.six');
-    Route::get('/section/6/edit/{id}', [SectionsController::class, 'sectionSixEditView'])->name('section.six.edit.view');
-    Route::post('/section/6/update/{id}', [SectionsController::class, 'updateSix'])->name('section.six.update');
+    Route::get('/section/6', [SectionSixController::class, 'index'])->name('section.six');
+    Route::get('/section/6/store', [SectionSixController::class, 'create'])->name('section.six.view');
+    Route::post('/section/6/store', [SectionSixController::class, 'store'])->name('section.six.store');
+    Route::get('/section/6/delete/{id}', [SectionSixController::class, 'destroy'])->name('delete.six');
+    Route::get('/section/6/edit/{id}', [SectionSixController::class, 'edit'])->name('section.six.edit.view');
+    Route::post('/section/6/update/{id}', [SectionSixController::class, 'update'])->name('section.six.update');
 
     // Section 7
-    Route::get('/section/7', [SectionsController::class, 'sectionSeven'])->name('section.seven');
-    Route::get('/section/7/store', [SectionsController::class, 'sectionSevenCreate'])->name('section.seven.view');
-    Route::post('/section/7/store', [SectionsController::class, 'sectionSevenStore'])->name('section.seven.store');
-    Route::get('/section/7/edit/{id}', [SectionsController::class, 'sectionSevenEditView'])->name('section.seven.edit.view');
-    Route::get('/section/7/delete/{id}', [SectionsController::class, 'deleteSeven'])->name('section.seven.delete');
-    Route::post('/section/7/update/{id}', [SectionsController::class, 'updateSeven'])->name('section.seven.update');
+    Route::get('/section/7', [SectionSevenController::class, 'index'])->name('section.seven');
+    Route::get('/section/7/store', [SectionSevenController::class, 'create'])->name('section.seven.view');
+    Route::post('/section/7/store', [SectionSevenController::class, 'store'])->name('section.seven.store');
+    Route::get('/section/7/edit/{id}', [SectionSevenController::class, 'edit'])->name('section.seven.edit.view');
+    Route::get('/section/7/delete/{id}', [SectionSevenController::class, 'destroy'])->name('section.seven.delete');
+    Route::post('/section/7/update/{id}', [SectionSevenController::class, 'update'])->name('section.seven.update');
 
     // Section 8
-    Route::get('/section/8', [SectionsController::class, 'sectionEight'])->name('section.eight');
-    Route::get('/section/8/store', [SectionsController::class, 'sectionEightCreate'])->name('section.eight.view');
-    Route::post('/section/8/store', [SectionsController::class, 'sectionEightStore'])->name('section.eight.store');
-    Route::get('/section/8/delete/{id}', [SectionsController::class, 'deleteEight'])->name('section.eight.delete');
-    Route::get('/section/8/edit/{id}', [SectionsController::class, 'sectionEightEditView'])->name('section.eight.edit.view');
-    Route::post('/section/8/update/{id}', [SectionsController::class, 'updateEight'])->name('section.eight.update');
+    Route::get('/section/8', [SectionEightController::class, 'index'])->name('section.eight');
+    Route::get('/section/8/store', [SectionEightController::class, 'create'])->name('section.eight.view');
+    Route::post('/section/8/store', [SectionEightController::class, 'store'])->name('section.eight.store');
+    Route::get('/section/8/delete/{id}', [SectionEightController::class, 'destroy'])->name('section.eight.delete');
+    Route::get('/section/8/edit/{id}', [SectionEightController::class, 'edit'])->name('section.eight.edit.view');
+    Route::post('/section/8/update/{id}', [SectionEightController::class, 'update'])->name('section.eight.update');
 
     // Section 9
     Route::get('/section/9/{id}', [SectionsController::class, 'sectionNine'])->name('section.nine');
@@ -142,7 +151,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/developer/project/update/{id}', [SectionsController::class, 'developerProjectUpdate'])->name('developer.project.update');
 });
 
-Route::get("/auth/google", [GoogleController:: class, "redirectToGoogle"])->name('google.login');
-Route::get("/auth/callback", [GoogleController:: class, "handleGoogleCallback"])->name('google.callback');
+Route::get("/auth/google", [GoogleController::class, "redirectToGoogle"])->name('google.login');
+Route::get("/auth/callback", [GoogleController::class, "handleGoogleCallback"])->name('google.callback');
 
 require __DIR__ . '/auth.php';

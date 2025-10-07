@@ -9,7 +9,7 @@ class SectionFiveController extends BaseController
 {
     public function __construct(SectionFiveRepositoryInterface $repository)
     {
-        parent::__construct($repository, 'Section Five', 'section_five');
+        parent::__construct($repository, 'SectionFive', 'section_five');
     }
 
     protected function getValidationRules(): array
