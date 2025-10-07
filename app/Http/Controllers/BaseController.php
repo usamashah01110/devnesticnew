@@ -27,7 +27,7 @@ abstract class BaseController extends Controller
     public function index(): View
     {
         $items = $this->repository->all();
-        $viewName = 'admin.sections.' . strtolower($this->sectionName);
+        $viewName = 'admin.sections.' . $this->sectionName;
 
         return view($viewName, [
             strtolower($this->sectionName) => $items
@@ -40,7 +40,7 @@ abstract class BaseController extends Controller
     public function create(): View
     {
         $title = "Create {$this->sectionName}";
-        $viewName = 'admin.inputs.' . strtolower($this->sectionName) . 'Input';
+        $viewName = 'admin.inputs.' . $this->sectionName . 'Input';
 
         return view($viewName, compact('title'));
     }
