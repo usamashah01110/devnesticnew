@@ -27,7 +27,7 @@ abstract class BaseController extends Controller
     public function index(): View
     {
         $items = $this->repository->all();
-        $viewName = 'admin.sections.' . $this->sectionName;
+        $viewName = 'admin.sections.' . $this->sectionName . "Input";
 
         return view($viewName, [
             strtolower($this->sectionName) => $items
