@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TrafiicChalanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('generate/token',[TrafiicChalanController::class,'getToken']);
+
+
+Route::post('create/order',[PaymentController::class,'createOrder']);
+Route::post('/check/status',[PaymentController::class,'getStatusOfPayment']);

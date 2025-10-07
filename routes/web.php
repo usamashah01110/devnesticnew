@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectionOneController;
 use App\Http\Controllers\SectionsController;
@@ -153,6 +154,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/developer/project/delete/{id}', [SectionsController::class, 'developerProjectDelete'])->name('developer.project.delete');
     Route::get('/developer/project/edit/{id}', [SectionsController::class, 'developerProjectEditFormView'])->name('developer.project.edit.view');
     Route::post('/developer/project/update/{id}', [SectionsController::class, 'developerProjectUpdate'])->name('developer.project.update');
+});
+
+
+Route::get('/asimit/pay/{price}/{currency}', [PaymentController::class, 'index'])->name('asimit.pay');
+Route::post('/asimit/create/order', [PaymentController::class, 'createOrder'])->name('payment.create');
+
+Route::get('/start', function (Illuminate\Http\Request $request) {
+    return view('start');
 });
 
 require __DIR__ . '/auth.php';
