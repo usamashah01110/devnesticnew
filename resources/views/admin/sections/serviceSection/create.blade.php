@@ -1,4 +1,5 @@
 @extends('admin.main')
+@section('title', 'Section one')
 @section('content')
     <style>
         .image-preview {
@@ -41,7 +42,7 @@
 
     <div class="container">
         <div class="container">
-            <h2 class="text-center">{{ $title }}</h2>
+            <h1 class="text-center">{{$title}}</h1>
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -51,39 +52,15 @@
                     </ul>
                 </div>
             @endif
-            <hr>
-            <form action="{{ route('section.store', ['section'=>'about']) }}" method="POST" enctype="multipart/form-data">
+            <hr/>
+            <form action="{{ route('section.store', ['section'=>'service']) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
-                    <label class="form-label">short about us</label>
-                    <input type="text" class="form-control" name="short_about_us" value="{{ old('short_about_us') }}">
-                </div>
 
+                <!-- Logo -->
                 <div class="mb-3">
-                    <label class="form-label">Heading One</label>
-                    <input type="text" class="form-control" name="heading_one" value="{{ old('heading_one') }}">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Paragraph</label>
-                    <textarea class="form-control" name="paragraph" rows="3">{{ old('paragraph') }}</textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Experiance</label>
-                    <input type="text" class="form-control" name="experiance" value="{{ old('btn_one_text') }}">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">CEO & Founder</label>
-                    <input type="text" class="form-control" name="ceo_founder_name" value="{{ old('years') }}">
-                </div>
-
-                <!-- CEO & Founder Profile Picture -->
-                <div class="mb-3">
-                    <label class="form-label">CEO & Founder Profile Picture</label>
-                    <input type="file" class="hidden-input" name="ceo_founder_img" id="ceo_founder_img"
-                           accept="image/*">
-                    <div id="preview_ceo_founder_img" class="image-preview">
+                    <label class="form-label">Logo</label>
+                    <input type="file" class="hidden-input" name="logo" id="logo" accept="image/*">
+                    <div id="preview_logo" class="image-preview">
                         <div class="upload-placeholder">
                             <i class="fas fa-image fa-3x mb-3"></i>
                             <p>Click to upload image</p>
@@ -92,42 +69,29 @@
                     </div>
                 </div>
 
-                <!-- Large Image -->
+                <!-- Service card title -->
                 <div class="mb-3">
-                    <label class="form-label">Large image</label>
-                    <input type="file" class="hidden-input" name="large_img" id="large_img" accept="image/*">
-                    <div id="preview_large_img" class="image-preview">
-                        <div class="upload-placeholder">
-                            <i class="fas fa-image fa-3x mb-3"></i>
-                            <p>Click to upload image</p>
-                            <small>Choose an image file</small>
-                        </div>
-                    </div>
+                    <label class="form-label" for="title">Service title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
                 </div>
 
-                <!-- Small Image -->
+                <!-- Service Description -->
                 <div class="mb-3">
-                    <label class="form-label">Small Image</label>
-                    <input type="file" class="hidden-input" name="small_img" id="small_img" accept="image/*">
-                    <div id="preview_small_img" class="image-preview">
-                        <div class="upload-placeholder">
-                            <i class="fas fa-image fa-3x mb-3"></i>
-                            <p>Click to upload image</p>
-                            <small>Choose an image file</small>
-                        </div>
-                    </div>
+                    <label class="form-label" for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                           value="{{ old('description') }}">
                 </div>
 
+                <!-- Link -->
                 <div class="mb-3">
-                    <label class="form-label">Contact</label>
-                    <input type="text" class="form-control" name="contact">
+                    <label class="form-label" for="link">Service Link</label>
+                    <input type="text" id="link" class="form-control" name="link" value="{{ old('link') }}">
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block">Save</button>
             </form>
         </div>
     </div>
-    <br>
 
     <script>
         function setupImagePreview(fileInputId, previewContainerId) {
@@ -158,13 +122,13 @@
                     const reader = new FileReader();
                     reader.onload = function (e) {
                         previewContainer.innerHTML = `
-                            <div class="image-container">
-                                <img class="preview-image" src="${e.target.result}" alt="Preview Image">
-                                <div>
-                                    <button type="button" class="btn btn-sm btn-danger remove-btn">Remove Image</button>
-                                </div>
+                        <div class="image-container">
+                            <img class="preview-image" src="${e.target.result}" alt="Preview Image">
+                            <div>
+                                <button type="button" class="btn btn-sm btn-danger remove-btn">Remove Image</button>
                             </div>
-                        `;
+                        </div>
+                    `;
                         previewContainer.querySelector('.remove-btn').addEventListener('click', function (e) {
                             e.stopPropagation();
                             resetPreview();
@@ -177,19 +141,16 @@
             function resetPreview() {
                 imageInput.value = '';
                 previewContainer.innerHTML = `
-                    <div class="upload-placeholder">
-                        <i class="fas fa-image fa-3x mb-3"></i>
-                        <p>Click to upload image</p>
-                        <small>Choose an image file</small>
-                    </div>
-                `;
+                <div class="upload-placeholder">
+                    <i class="fas fa-image fa-3x mb-3"></i>
+                    <p>Click to upload image</p>
+                    <small>Choose an image file</small>
+                </div>
+            `;
             }
         }
 
-        // Apply preview setup for each image input
-        setupImagePreview('ceo_founder_img', 'preview_ceo_founder_img');
-        setupImagePreview('large_img', 'preview_large_img');
-        setupImagePreview('small_img', 'preview_small_img');
+        setupImagePreview('logo', 'preview_logo');
     </script>
 
     <!-- Font Awesome for icons -->

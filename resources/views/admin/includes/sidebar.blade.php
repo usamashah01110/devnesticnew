@@ -39,6 +39,11 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('section.index', ['section' => 'hero']) }}">Hero</a>
                 <a class="collapse-item" href="{{ route('section.index', ['section' => 'about']) }}">About</a>
+                <a class="collapse-item" href="{{ route('section.index', ['section' => 'service']) }}">Service</a>
+                <a class="collapse-item" href="{{ route('section.index', ['section' => 'project']) }}">Project</a>
+                <a class="collapse-item" href="{{ route('section.index', ['section' => 'developer']) }}">Developer</a>
+                <a class="collapse-item" href="{{ route('section.index', ['section' => 'faq']) }}">FAQs</a>
+                <a class="collapse-item" href="{{ route('section.index', ['section' => 'contact']) }}">Contact</a>
 
             </div>
         </div>
