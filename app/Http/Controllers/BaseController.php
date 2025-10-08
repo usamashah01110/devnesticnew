@@ -26,12 +26,10 @@ abstract class BaseController extends Controller
      */
     public function index(): View
     {
-        $items = $this->repository->all();
-        $viewName = 'admin.sections.' . $this->sectionName;
+        $records = $this->repository->all();
+        $viewName = 'admin.sections.' . $this->sectionName . '.index';
 
-        return view($viewName, [
-            strtolower($this->sectionName) => $items
-        ]);
+        return view($viewName, compact('records'));
     }
 
     /**
@@ -40,7 +38,7 @@ abstract class BaseController extends Controller
     public function create(): View
     {
         $title = "Create {$this->sectionName}";
-        $viewName = 'admin.inputs.' . $this->sectionName . 'Input';
+        $viewName = 'admin.sections.' . $this->sectionName . '.create';
 
         return view($viewName, compact('title'));
     }
@@ -48,7 +46,7 @@ abstract class BaseController extends Controller
     /**
      * Store a newly created section item
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): view
     {
         $data = $this->validateRequest($request);
         $data = $this->handleFileUploads($request, $data);
@@ -61,37 +59,34 @@ abstract class BaseController extends Controller
     /**
      * Show the form for editing the specified section item
      */
-    public function edit($id): View
+    public function edit($section, $id): View
     {
-        $item = $this->findOrFail($id);
-        $title = "Update {$this->sectionName}";
-        $viewName = 'admin.editInputs.edit' . strtolower($this->sectionName);
+        $record = $this->findOrFail($id);
+        $title = "Update Section";
+        $viewName = 'admin.sections.' . $this->sectionName . '.edit';
 
-        return view($viewName, [
-            strtolower($this->sectionName) => $item,
-            'title' => $title
-        ]);
+        return view($viewName, compact('record', 'title'));
     }
 
     /**
      * Update the specified section item
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request,$section): RedirectResponse
     {
-        $item = $this->findOrFail($id);
+        $item = $this->findOrFail($request->id);
 
         $data = $this->validateRequest($request);
         $data = $this->handleFileUploads($request, $data);
 
-        $updatedItem = $this->repository->update($id, $data);
+        $updatedItem = $this->repository->update($request->id, $data);
 
-        return $this->redirectWithSuccess($updatedItem);
+        return redirect()->route('section.index', ['section' => $section]);
     }
 
     /**
      * Remove the specified section item
      */
-    public function destroy($id): RedirectResponse
+    public function destroy($section, $id): RedirectResponse
     {
         $item = $this->findOrFail($id);
         $item->delete();
@@ -138,10 +133,12 @@ abstract class BaseController extends Controller
     /**
      * Redirect with success message
      */
-    protected function redirectWithSuccess($item): RedirectResponse
+    protected function redirectWithSuccess($item): View
     {
         $sessionKey = 'section_data';
-        return redirect('/')->with($sessionKey, $item);
+        $records = $this->repository->all();
+        $viewName = 'admin.sections.' . $this->sectionName . '.index';
+        return view($viewName,compact('records','sessionKey'));
     }
 
     /**

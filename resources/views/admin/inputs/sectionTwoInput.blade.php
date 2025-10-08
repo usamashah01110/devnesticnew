@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.main')
 @section('content')
     <style>
         .image-preview {
@@ -13,22 +13,27 @@
             cursor: pointer;
             position: relative;
         }
+
         .preview-image {
             max-width: 100%;
             max-height: 250px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .remove-btn {
             margin-top: 10px;
         }
+
         .upload-placeholder {
             color: #6c757d;
             font-style: italic;
         }
+
         .hidden-input {
             display: none;
         }
+
         .image-container {
             position: relative;
         }
@@ -76,7 +81,8 @@
                 <!-- CEO & Founder Profile Picture -->
                 <div class="mb-3">
                     <label class="form-label">CEO & Founder Profile Picture</label>
-                    <input type="file" class="hidden-input" name="ceo_founder_img" id="ceo_founder_img" accept="image/*">
+                    <input type="file" class="hidden-input" name="ceo_founder_img" id="ceo_founder_img"
+                           accept="image/*">
                     <div id="preview_ceo_founder_img" class="image-preview">
                         <div class="upload-placeholder">
                             <i class="fas fa-image fa-3x mb-3"></i>
@@ -128,14 +134,14 @@
             const imageInput = document.getElementById(fileInputId);
             const previewContainer = document.getElementById(previewContainerId);
 
-            previewContainer.addEventListener('click', function(e) {
-                if (e.target === previewContainer || e.target.classList.contains('upload-placeholder') || 
+            previewContainer.addEventListener('click', function (e) {
+                if (e.target === previewContainer || e.target.classList.contains('upload-placeholder') ||
                     e.target.classList.contains('fa-image') || e.target.tagName === 'P' || e.target.tagName === 'SMALL') {
                     imageInput.click();
                 }
             });
 
-            imageInput.addEventListener('change', function(e) {
+            imageInput.addEventListener('change', function (e) {
                 const file = e.target.files[0];
                 if (file) {
                     if (!file.type.startsWith('image/')) {
@@ -150,7 +156,7 @@
                         return;
                     }
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         previewContainer.innerHTML = `
                             <div class="image-container">
                                 <img class="preview-image" src="${e.target.result}" alt="Preview Image">
@@ -159,7 +165,7 @@
                                 </div>
                             </div>
                         `;
-                        previewContainer.querySelector('.remove-btn').addEventListener('click', function(e) {
+                        previewContainer.querySelector('.remove-btn').addEventListener('click', function (e) {
                             e.stopPropagation();
                             resetPreview();
                         });

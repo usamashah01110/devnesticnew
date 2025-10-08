@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.main')
 @section('title', 'Section one')
 @section('content')
     <style>
@@ -19,7 +19,7 @@
             max-width: 100%;
             max-height: 250px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .remove-btn {
@@ -30,11 +30,11 @@
             color: #6c757d;
             font-style: italic;
         }
-        
+
         .hidden-input {
             display: none;
         }
-        
+
         .image-container {
             position: relative;
         }
@@ -43,7 +43,8 @@
         <div class="container">
             <h1 class="text-center">{{ $title }}</h1>
             <hr/>
-            <form action="{{ route('section.one.update', $sectionOne->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('section.one.update', $sectionOne->id) }}" method="POST"
+                  enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Heading One</label>
@@ -79,12 +80,13 @@
                     <label class="form-label">Image</label>
                     <!-- Hidden file input -->
                     <input type="file" class="hidden-input" name="image_path" id="imageInput" accept="image/*">
-                    
+
                     <!-- Image Preview Container (also acts as upload area) -->
                     <div id="imagePreviewContainer" class="image-preview">
                         @if($sectionOne->image_path)
                             <div class="image-container">
-                                <img id="previewImage" class="preview-image" src="{{ asset('storage/'.$sectionOne->image_path) }}" alt="Current Image">
+                                <img id="previewImage" class="preview-image"
+                                     src="{{ asset('storage/'.$sectionOne->image_path) }}" alt="Current Image">
                                 <div>
                                     <button type="button" class="btn btn-sm btn-danger remove-btn" id="removeImage">
                                         Remove Image
@@ -109,22 +111,22 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const imageInput = document.getElementById('imageInput');
             const imagePreviewContainer = document.getElementById('imagePreviewContainer');
             let removeImageBtn = document.getElementById('removeImage');
 
             // Make the preview container clickable
-            imagePreviewContainer.addEventListener('click', function(e) {
+            imagePreviewContainer.addEventListener('click', function (e) {
                 // Only trigger file input if clicking on the container itself, not buttons inside it
-                if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') || 
+                if (e.target === imagePreviewContainer || e.target.classList.contains('upload-placeholder') ||
                     e.target.classList.contains('fa-image') || e.target.tagName === 'P' || e.target.tagName === 'SMALL') {
                     imageInput.click();
                 }
             });
 
             // Handle file selection
-            imageInput.addEventListener('change', function(e) {
+            imageInput.addEventListener('change', function (e) {
                 const file = e.target.files[0];
 
                 if (file) {
@@ -146,7 +148,7 @@
                     // Create FileReader to read the file
                     const reader = new FileReader();
 
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         // Update the preview container with new image
                         imagePreviewContainer.innerHTML = `
                             <div class="image-container">
@@ -158,9 +160,9 @@
                                 </div>
                             </div>
                         `;
-                        
+
                         // Re-attach event listener to the new remove button
-                        document.getElementById('removeImage').addEventListener('click', function(e) {
+                        document.getElementById('removeImage').addEventListener('click', function (e) {
                             e.stopPropagation();
                             resetPreview();
                         });
@@ -173,7 +175,7 @@
 
             // Attach event listener to initial remove button if it exists
             if (removeImageBtn) {
-                removeImageBtn.addEventListener('click', function(e) {
+                removeImageBtn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     resetPreview();
                 });
@@ -183,7 +185,7 @@
             function resetPreview() {
                 // Clear the file input
                 imageInput.value = '';
-                
+
                 // Reset the preview container
                 imagePreviewContainer.innerHTML = `
                     <div id="placeholderContainer">

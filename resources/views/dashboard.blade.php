@@ -17,7 +17,7 @@
 {{--</x-app-layout>--}}
 
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
@@ -40,35 +40,35 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="shortcut icon" href="assets/images/favicon.png"/>
 </head>
 
 <body>
-    @include('partials.dashboardPartials._navbar')
-    @include('partials.dashboardPartials._sidebar')
-    <main>
-        @yield('content')
-    </main>
+@include('admin.includes.navbar')
+@include('admin.includes.sidebar')
+<main>
+    @yield('content')
+</main>
 
-    @include('partials.dashboardPartials._footer')
+@include('partials.dashboardPartials._footer')
 
 
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/chart.umd.js"></script>
-    <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
-    <script src="assets/js/jquery.cookie.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-    <!-- End custom js for this page -->
+<script src="assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="assets/vendors/chart.js/chart.umd.js"></script>
+<script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="assets/js/off-canvas.js"></script>
+<script src="assets/js/misc.js"></script>
+<script src="assets/js/settings.js"></script>
+<script src="assets/js/todolist.js"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="assets/js/dashboard.js"></script>
+<!-- End custom js for this page -->
 </body>
 
 </html>

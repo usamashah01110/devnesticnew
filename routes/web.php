@@ -1,20 +1,21 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SectionsController;
-use App\Http\Controllers\PortfolioController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\SectionOneController;
-use App\Http\Controllers\SectionTwoController;
-use App\Http\Controllers\SectionThreeController;
-use App\Http\Controllers\SectionFourController;
-use App\Http\Controllers\SectionFiveController;
-use App\Http\Controllers\SectionSixController;
-use App\Http\Controllers\SectionSevenController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SectionControllers\DynamicSectionController;
+use App\Http\Controllers\SectionControllers\HeroSectionController;
 use App\Http\Controllers\SectionEightController;
+use App\Http\Controllers\SectionFiveController;
+use App\Http\Controllers\SectionFourController;
+use App\Http\Controllers\SectionsController;
+use App\Http\Controllers\SectionSevenController;
+use App\Http\Controllers\SectionSixController;
+use App\Http\Controllers\SectionThreeController;
+use App\Http\Controllers\SectionTwoController;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -32,21 +33,8 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::get('/dashboard', [AdminController::class, 'login'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', [AdminController::class, 'indexPage'])->name('dashboard.index');
-Route::get('/dashboard/charts', [AdminController::class, 'charts'])->name('dashboard.charts');
-Route::get('/dashboard/forms', [AdminController::class, 'forms'])->name('dashboard.forms');
-Route::get('/dashboard/fonts', [AdminController::class, 'font'])->name('dashboard.font');
-Route::get('/dashboard/buttons', [AdminController::class, 'button'])->name('dashboard.button');
-Route::get('/dashboard/dropdowns', [AdminController::class, 'dropdown'])->name('dashboard.dropdown');
-Route::get('/dashboard/typography', [AdminController::class, 'typography'])->name('dashboard.typography');
-Route::get('/dashboard/table', [AdminController::class, 'table'])->name('dashboard.table');
-Route::get('/dashboard/blank', [AdminController::class, 'blank'])->name('dashboard.blank');
-Route::get('/dashboard/error-404', [AdminController::class, 'error_404'])->name('dashboard.error-404');
-Route::get('/dashboard/error-500', [AdminController::class, 'error_500'])->name('dashboard.error-500');
-Route::get('/dashboard/login', [AdminController::class, 'loginPage'])->name('dashboard.login');
-Route::get('/dashboard/register', [AdminController::class, 'registerPage'])->name('dashboard.register');
-Route::get('/dashboard/documentation', [AdminController::class, 'documentation'])->name('dashboard.documentation');
 
-// Develoer Portfolio
+
 Route::get('/Portfolio', [PortfolioController::class, 'viewDeveloperPorfolio'])->name('developer.portfolio.view');
 
 
@@ -56,12 +44,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Section 1
-    Route::get('/section/1', [SectionOneController::class, 'index'])->name('section.index');
-    Route::get('/section/1/Store', [SectionOneController::class, 'create'])->name('section.1.view');
-    Route::get('/section/1/edit/{id}', [SectionOneController::class, 'edit'])->name('section.one.edit.view');
-    Route::post('/section/1/update/{id}', [SectionOneController::class, 'update'])->name('section.one.update');
-    Route::get('/section/1/delete/{id}', [SectionOneController::class, 'destroy'])->name('section.one.delete');
-    Route::post('/section/1/store', [SectionOneController::class, 'store'])->name('section.store');
+    Route::prefix('{section}')->controller(DynamicSectionController::class)->group(function () {
+            Route::get('/', 'index')->name('section.index');
+            Route::get('/create', 'create')->name('section.create.view');
+            Route::post('/store', 'store')->name('section.store');
+            Route::get('/edit/{id}', 'edit')->name('section.edit.view');
+            Route::post('/update', 'update')->name('section.update');
+            Route::get('/delete/{id}', 'destroy')->name('section.delete');
+        });
 
     // Section 2
     Route::get('/section/2', [SectionTwoController::class, 'index'])->name('section.two');
