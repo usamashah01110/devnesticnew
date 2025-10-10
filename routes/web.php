@@ -6,15 +6,6 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectionControllers\DynamicSectionController;
-use App\Http\Controllers\SectionControllers\HeroSectionController;
-use App\Http\Controllers\SectionEightController;
-use App\Http\Controllers\SectionFiveController;
-use App\Http\Controllers\SectionFourController;
-use App\Http\Controllers\SectionsController;
-use App\Http\Controllers\SectionSevenController;
-use App\Http\Controllers\SectionSixController;
-use App\Http\Controllers\SectionThreeController;
-use App\Http\Controllers\SectionTwoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,7 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Section 1
-    Route::prefix('{section}')->controller(DynamicSectionController::class)->group(function () {
+    Route::prefix('admin/{section}')->controller(DynamicSectionController::class)->group(function () {
             Route::get('/', 'index')->name('section.index');
             Route::get('/create', 'create')->name('section.create.view');
             Route::post('/store', 'store')->name('section.store');
@@ -53,61 +44,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/delete/{id}', 'destroy')->name('section.delete');
         });
 
-    // Section 2
-    Route::get('/section/2', [SectionTwoController::class, 'index'])->name('section.two');
-    Route::get('/section/2/store', [SectionTwoController::class, 'create'])->name('section.two.view');
-    Route::get('/section/2/edit/{id}', [SectionTwoController::class, 'edit'])->name('section.two.edit.view');
-    Route::get('/section/2/delete/{id}', [SectionTwoController::class, 'destroy'])->name('section.two.delete');
-    Route::post('/section/2/store', [SectionTwoController::class, 'store'])->name('section.two.store');
-    Route::post('/section/2/update/{id}', [SectionTwoController::class, 'update'])->name('section.two.update');
-
-    // Section 3
-    Route::get('/section/3', [SectionThreeController::class, 'index'])->name('section.three');
-    Route::get('/section/3/store', [SectionThreeController::class, 'create'])->name('section.three.view');
-    Route::get('/section/3/edit/{id}', [SectionThreeController::class, 'edit'])->name('section.three.edit.view');
-    Route::get('/section/3/delete/{id}', [SectionThreeController::class, 'destroy'])->name('section.three.delete');
-    Route::post('/section/3/store', [SectionThreeController::class, 'store'])->name('section.three.store');
-    Route::post('/section/3/update/{id}', [SectionThreeController::class, 'update'])->name('section.three.update');
-
-    // Section 4
-    Route::get('/section/4', [SectionFourController::class, 'index'])->name('section.four');
-    Route::get('/section/4/store', [SectionFourController::class, 'create'])->name('section.four.view');
-    Route::post('/section/4/store', [SectionFourController::class, 'store'])->name('section.four.store');
-    Route::get('/section/4/delete/{id}', [SectionFourController::class, 'destroy'])->name('section.four.delete');
-    Route::get('/section/4/edit/{id}', [SectionFourController::class, 'edit'])->name('section.four.edit.view');
-    Route::post('/section/4/update/{id}', [SectionFourController::class, 'update'])->name('section.four.update');
-
-    // Section 5
-    Route::get('/section/5', [SectionFiveController::class, 'index'])->name('section.five');
-    Route::get('/section/5/store', [SectionFiveController::class, 'create'])->name('section.five.view');
-    Route::post('/section/5/store', [SectionFiveController::class, 'store'])->name('section.five.store');
-    Route::get('/section/5/delete/{id}', [SectionFiveController::class, 'destroy'])->name('section.five.delete');
-    Route::get('/section/5/edit/{id}', [SectionFiveController::class, 'edit'])->name('section.five.edit.view');
-    Route::post('/section/5/update/{id}', [SectionFiveController::class, 'update'])->name('section.five.update');
-
-    // Section 6
-    Route::get('/section/6', [SectionSixController::class, 'index'])->name('section.six');
-    Route::get('/section/6/store', [SectionSixController::class, 'create'])->name('section.six.view');
-    Route::post('/section/6/store', [SectionSixController::class, 'store'])->name('section.six.store');
-    Route::get('/section/6/delete/{id}', [SectionSixController::class, 'destroy'])->name('delete.six');
-    Route::get('/section/6/edit/{id}', [SectionSixController::class, 'edit'])->name('section.six.edit.view');
-    Route::post('/section/6/update/{id}', [SectionSixController::class, 'update'])->name('section.six.update');
-
-    // Section 7
-    Route::get('/section/7', [SectionSevenController::class, 'index'])->name('section.seven');
-    Route::get('/section/7/store', [SectionSevenController::class, 'create'])->name('section.seven.view');
-    Route::post('/section/7/store', [SectionSevenController::class, 'store'])->name('section.seven.store');
-    Route::get('/section/7/edit/{id}', [SectionSevenController::class, 'edit'])->name('section.seven.edit.view');
-    Route::get('/section/7/delete/{id}', [SectionSevenController::class, 'destroy'])->name('section.seven.delete');
-    Route::post('/section/7/update/{id}', [SectionSevenController::class, 'update'])->name('section.seven.update');
-
-    // Section 8
-    Route::get('/section/8', [SectionEightController::class, 'index'])->name('section.eight');
-    Route::get('/section/8/store', [SectionEightController::class, 'create'])->name('section.eight.view');
-    Route::post('/section/8/store', [SectionEightController::class, 'store'])->name('section.eight.store');
-    Route::get('/section/8/delete/{id}', [SectionEightController::class, 'destroy'])->name('section.eight.delete');
-    Route::get('/section/8/edit/{id}', [SectionEightController::class, 'edit'])->name('section.eight.edit.view');
-    Route::post('/section/8/update/{id}', [SectionEightController::class, 'update'])->name('section.eight.update');
 
     // Section 9
     Route::get('/section/9/{id}', [SectionsController::class, 'sectionNine'])->name('section.nine');
