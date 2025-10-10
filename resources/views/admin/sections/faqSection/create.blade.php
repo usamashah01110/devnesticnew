@@ -4,7 +4,7 @@
     <div class="container">
         <div class="container">
             <h1 class="text-center">{{ $title }}</h1>
-            <form action="{{route('section.store', ['section', 'faq'])}}" method="post">
+            <form action="{{route('section.store', ['section'=>'faq'])}}" method="post">
                 @csrf
                 <div class="mb-2">
                     <label for="question" class="form-label">Question</label>

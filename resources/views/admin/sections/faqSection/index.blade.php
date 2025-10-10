@@ -5,10 +5,10 @@
         <div class="container">
             <!-- Page header Start -->
             <div class="d-flex align-items-center justify-content-between">
-                <h2 class="mb-0">Create Section Six</h2>
+                <h2 class="mb-0">Create FAQ</h2>
                 <a href="{{ route('section.create.view', ['section'=>'faq']) }}">
                     <button type="button" class="btn btn-primary">
-                        Create Section Six
+                        Create FAQ
                     </button>
                 </a>
             </div>
@@ -18,7 +18,7 @@
             <div class="card mt-4 shadow-sm">
                 <!-- Table Header -->
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Section Six List</h5>
+                    <h5 class="mb-0">FAQ List</h5>
                 </div>
                 <!-- Table Body -->
                 <div class="card-body p-0">

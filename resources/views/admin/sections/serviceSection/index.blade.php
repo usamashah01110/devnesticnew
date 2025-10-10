@@ -3,69 +3,67 @@
 
 
 @section('content')
-    <div class="container">
-        <div class="container">
-            <!-- page title contain heading nad button  -->
-            <div class="d-flex align-items-center justify-content-between">
-                <h2 class="mb-0">Create Section Three</h2>
-                <a href="{{ route('section.create.view', ['section' => 'service']) }}">
-                    <button type="button" class="btn btn-primary">
-                        Create Section Three
-                    </button>
+<div class="container">
+    <div class="container-fluid">
+        <!-- page title contain heading nad button  -->
+        <div class="d-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Service Section</h1>
+                <a href="{{ route('section.create.view', ['section' => 'service']) }}" class="btn btn-primary">
+                    Create
                 </a>
             </div>
-            <!-- page title contain heading nad button  end -->
-            <hr>
+        <!-- page title contain heading nad button  end -->
+        <hr>
 
-            <!-- Table Start -->
-            <div class="card mt-4 shadow-sm">
-                <!-- Table Header -->
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Section Three Card List</h5>
-                </div>
-                <!-- Table Body -->
-                <div class=" container card-body p-0">
-                    <table class="table table-hover align-middle mb-0">
-                        <thead>
+        <!-- Table Start -->
+        <div class="card shadow mb-4">
+            <!-- Table Header -->
+            
+            
+            <!-- Table Body -->
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
                         <tr>
-                            <th>Logo</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>link</th>
-                            <th>Action</th>
+                            <th class="text-center">Logo</th>
+                            <th class="text-center">Title</th>
+                            <th class="text-center">Description</th>
+                            <th class="text-center">link</th>
+                            <th class="text-center">Action</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         @foreach ( $records as $sec)
 
-                            <tr>
-                                <td class="text-truncate" style="max-width:50px;">
-                                    <img src=" {{ asset('storage/' . $sec->logo ) }}" class="rounded shadow-sm border"
-                                         alt="logo">
-                                </td>
-                                <td class="text-truncate" style="max-width:50px;">{{ $sec->title }}</td>
-                                <td class="text-truncate" style="max-width:90px;">{{ $sec->description }}</td>
-                                <td class="text-truncate" style="max-width:90px;">
-                                    <a href="{{ $sec->Link }}">{{ $sec->Link }}</a>
-                                </td>
-                                <td class="text-truncate" style="max-width:90px;">
-                                    <a href="{{ route('section.delete', ['section' => 'service', 'id' => $sec->id]) }}">
-                                        <button class="badge badge-danger">Delete</button>
-                                    </a>
-                                    <br>
-                                    <br>
+                        <tr>
+                            <td class="text-truncate text-center" style="max-width:50px;">
+                                <img src=" {{ asset('storage/' . $sec->logo ) }}" class="rounded shadow-sm border"
+                                    alt="logo">
+                            </td>
+                            <td class="text-truncate text-center" style="max-width:50px;">{{ $sec->title }}</td>
+                            <td class="text-truncate text-center" style="max-width:90px;">{{ $sec->description }}</td>
+                            <td class="text-truncate text-center" style="max-width:90px;">
+                                <a href="{{ $sec->Link }}">{{ $sec->Link }}</a>
+                            </td>
+                            <td class="text-truncate text-center" style="max-width:90px;">
+                                <a href="{{ route('section.delete', ['section' => 'service', 'id' => $sec->id]) }}">
+                                    <button class="badge badge-danger">Delete</button>
+                                </a>
+                                <br>
+                                <br>
 
-                                    <a href="{{ route('section.edit.view',  ['section' => 'service', 'id' => $sec->id]) }}">
-                                        <button class="badge badge-success">Edit</button>
-                                    </a>
-                                </td>
-                            </tr>
+                                <a href="{{ route('section.edit.view',  ['section' => 'service', 'id' => $sec->id]) }}">
+                                    <button class="badge badge-success">Edit</button>
+                                </a>
+                            </td>
+                        </tr>
                         @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
+                    </tbody>
+</table>
+            </div>
             </div>
         </div>
-        <br>
-@endsection
+    </div>
+    <br>
+    @endsection
