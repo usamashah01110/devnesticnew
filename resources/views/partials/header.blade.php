@@ -2,7 +2,7 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
         <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto">
-                 <img src="assets/img/logo.webp" alt="">
+            <img src="{{asset('logo_1.png')}}" alt="">
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -18,7 +18,7 @@
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
         @auth
-        <a class="btn-getstarted" href="{{ route('dashboard.index') }}">Dashboard</a>
+            <a class="btn-getstarted" href="{{ route('dashboard.index') }}">Dashboard</a>
         @endauth
 
     </div>

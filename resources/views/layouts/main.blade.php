@@ -50,6 +50,7 @@
     @include('pages.services')
 
     @include('pages.developers')
+    @include('pages.letsTalk')
     @include('pages.faq')
 
 
