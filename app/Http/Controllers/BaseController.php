@@ -46,14 +46,15 @@ abstract class BaseController extends Controller
     /**
      * Store a newly created section item
      */
-    public function store(Request $request): view
+    public function store(Request $request, $section): RedirectResponse
     {
         $data = $this->validateRequest($request);
+
         $data = $this->handleFileUploads($request, $data);
 
         $item = $this->repository->create($data);
 
-        return $this->redirectWithSuccess($item);
+        return redirect()->route('section.index', ['section' => $section]);
     }
 
     /**
@@ -76,6 +77,7 @@ abstract class BaseController extends Controller
         $item = $this->findOrFail($request->id);
 
         $data = $this->validateRequest($request);
+
         $data = $this->handleFileUploads($request, $data);
 
         $updatedItem = $this->repository->update($request->id, $data);

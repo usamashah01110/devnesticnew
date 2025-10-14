@@ -9,7 +9,7 @@
         <div class="d-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Service Section</h1>
                 <a href="{{ route('section.create.view', ['section' => 'service']) }}" class="btn btn-primary">
-                    Create
+                    Create Service
                 </a>
             </div>
         <!-- page title contain heading nad button  end -->
@@ -18,8 +18,8 @@
         <!-- Table Start -->
         <div class="card shadow mb-4">
             <!-- Table Header -->
-            
-            
+
+
             <!-- Table Body -->
             <div class="card-body">
             <div class="table-responsive">
@@ -39,7 +39,7 @@
                         <tr>
                             <td class="text-truncate text-center" style="max-width:50px;">
                                 <img src=" {{ asset('storage/' . $sec->logo ) }}" class="rounded shadow-sm border"
-                                    alt="logo">
+                                    alt="logo" width="50px" height="50px">
                             </td>
                             <td class="text-truncate text-center" style="max-width:50px;">{{ $sec->title }}</td>
                             <td class="text-truncate text-center" style="max-width:90px;">{{ $sec->description }}</td>

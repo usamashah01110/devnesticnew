@@ -1,47 +1,29 @@
-<!-- Clients Section -->
-<section id="hero" class="hero section">
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+<!-- Hero Section -->
+<section id="hero" class="hero section position-relative overflow-hidden">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="position-absolute w-100 h-100 object-fit-cover" style="top: 0; left: 0; z-index: 0;">
+        <source src="{{ asset('assets/intro.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-                    @if($sectionOne)
-                        <h2>{{ $sectionOne->heading_one }}</h2>
+    <!-- Overlay (Optional dark tint for readability) -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
 
-                        <p>{{ $sectionOne->paragraph }}</p>
-                        <div class="hero-btns">
-                            <a href="#contact" class="btn btn-primary">{{ $sectionOne->btn_one_text }}</a>
-                            <a href="#services" class="btn btn-outline">Our Services</a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <h3><span data-purecounter-start="0" data-purecounter-end="{{ $sectionOne->years }}"
-                                          data-purecounter-duration="1"
-                                          class="purecounter"></span>+</h3>
-                                <p>Years Experience</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3><span data-purecounter-start="0" data-purecounter-end="{{ $sectionOne->clients }}"
-                                          data-purecounter-duration="1"
-                                          class="purecounter"></span>+</h3>
-                                <p>Clients Worldwide</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3><span data-purecounter-start="0" data-purecounter-end="{{ $sectionOne->success_rate }}"
-                                          data-purecounter-duration="1"
-                                          class="purecounter"></span>%</h3>
-                                <p>Success Rate</p>
-                            </div>
-                        </div>
-                </div>
+    <!-- Hero Content -->
+    <div class="container hero-content position-relative text-center text-white py-5" style="z-index: 2;" data-aos="fade-up" data-aos-delay="100">
+        @if($sectionOne)
+            <h2 class="display-4 fw-bold mb-3">{{ $sectionOne->heading_one }}</h2>
+            <p class="lead mb-4">{{ $sectionOne->paragraph }}</p>
+
+            <div class="hero-btns d-flex justify-content-center gap-4 mb-4">
+                <a href="#contact" class="btn btn-primary btn-lg px-5 py-3">
+                    Why Devnestic <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="#services" class="btn btn-outline-light btn-lg px-5 py-3">
+                    Let's Talk <i class="bi bi-chat-dots ms-2"></i>
+                </a>
             </div>
-            <div class="col-lg-6">
-                <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-                    <img src="{{ asset('storage/' . $sectionOne->image_path) }}" alt="Consulting Services"
-                         class="img-fluid">
-                    @endif
-                </div>
-            </div>
-        </div>
+        @endif
     </div>
-</section><!-- /Hero Section -->
+</section>
+<!-- /Hero Section -->

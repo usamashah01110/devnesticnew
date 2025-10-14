@@ -39,33 +39,31 @@
                         @foreach ($records as $sec)
 
                             <tr>
-                                <td class="text-truncate" style="max-width:50px;">{{ $sec->short_about_us }}</td>
-                                <td class="text-truncate" style="max-width:50px;">{{ $sec->heading_one }}</td>
-                                <td class="text-truncate" style="max-width:90px;">{{ $sec->paragraph }}</td>
-                                <td class="text-truncate" style="max-width:70px;">{{ $sec->experiance }}</td>
-                                <td class="text-truncate" style="max-width:90px;">{{ $sec->ceo_founder_name }}</td>
-                                <td class="text-truncate" style="max-width:90px;">
+                                <td class="text-truncate text-center" style="max-width:50px;">{{ $sec->short_about_us }}</td>
+                                <td class="text-truncate text-center" style="max-width:50px;">{{ $sec->heading_one }}</td>
+                                <td class="text-truncate text-center" style="max-width:90px;">{{ $sec->paragraph }}</td>
+                                <td class="text-truncate text-center" style="max-width:70px;">{{ $sec->experiance }}</td>
+                                <td class="text-truncate text-center" style="max-width:90px;">{{ $sec->ceo_founder_name }}</td>
+                                <td class="text-truncate text-center" style="max-width:90px;">
                                     <img src="{{ asset('storage/'.  $sec->ceo_founder_img  ) }}" alt="CEO image"
-                                         class="rounded shadow-sm border">
+                                         class="rounded shadow-sm border" width="50px" height="50px">
                                 </td>
-                                <td class="text-truncate" style="max-width:90px;">
+                                <td class="text-truncate text-center" style="max-width:90px;">
                                     <img src="{{ asset('storage/'.  $sec->large_img  ) }}" alt="Large Image"
-                                         class="rounded shadow-sm border">
+                                         class="rounded shadow-sm border" width="50px" height="50px">
                                 </td>
-                                <td class="text-truncate" style="max-width:90px;">
+                                <td class="text-truncate text-center" style="max-width:90px;">
                                     <img src="{{ asset('storage/'.  $sec->small_img  ) }}" alt="Large Image"
-                                         class="rounded shadow-sm border">
+                                         class="rounded shadow-sm border" width="50px" height="50px">
 
                                 </td>
-                                <td class="text-truncate" style="max-width:90px;">
-                                    <a href="{{ route('section.delete',['section' => 'about','id'=> $sec->id]) }}">
-                                        <button class="badge badge-danger">Delete</button>
+                                <td class="text-truncate text-center">
+                                    <a href="{{ route('section.delete',['section' => 'about','id'=> $sec->id]) }}" class="btn btn-danger">
+                                        Delete
                                     </a>
-                                    <br>
-                                    <br>
 
-                                    <a href="{{ route('section.edit.view', ['section' => 'about','id'=> $sec->id]) }}">
-                                        <button class="badge badge-success">Edit</button>
+                                    <a href="{{ route('section.edit.view', ['section' => 'about','id'=> $sec->id]) }}" class="btn btn-success">
+                                      Edit
                                     </a>
                                 </td>
                             </tr>

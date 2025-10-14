@@ -1,125 +1,117 @@
-@if($sectionTwo)
-<section id="about" class="about section light-background">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>
-            {{ $sectionTwo->short_about_us }}
-        </p>
-    </div>
-    <!-- End Section Title -->
+<style>
+    /* Container for horizontal scrolling */
+    .logo-scroll-container {
+        overflow-x: auto;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        padding-bottom: 20px;
+    }
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 align-items-center justify-content-between">
-            <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
-                <span class="about-meta">MORE ABOUT US</span>
-                <h2 class="about-title">
-                    {{ $sectionTwo->heading_one }}
-                </h2>
-                <p class="about-description">
-                    {{ $sectionTwo->paragraph }}
-                </p>
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    .logo-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
 
-                <div class="row feature-list-wrapper">
-                    <div class="col-md-6">
-                        <ul class="feature-list">
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                E-business solutions for digital growth
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                Custom development services
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i> Sed
-                                Scalable web & app development
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="feature-list">
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                Secure, high-performance systems
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                API & Integration Services
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i> Ut
-                                E-Commerce & Digital Platforms
-                            </li>
-                        </ul>
-                    </div>
+    /* Prevent wrapping and add spacing */
+    .logo-list {
+        min-width: fit-content;
+        padding: 0 5%;
+    }
+
+    /* Each logo box */
+    .logo-box {
+        width: 140px;
+        height: 100px;
+        margin-right: 20px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover effect for a subtle lift */
+    .logo-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Style for logo images */
+    .logo-box img {
+        max-height: 50px;
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+
+    /* Restore color on hover */
+    .logo-box:hover img {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    /* Optional: make logos scroll automatically (infinite effect) */
+    @keyframes scroll-logos {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .auto-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll-logos 25s linear infinite;
+    }
+</style>
+
+<section id="partners" class="py-5" style="background-color: #f7f9fb;">
+    <div class="container-fluid">
+        <div class="text-center mb-5 mt-5">
+            <h2 class="h1 fw-normal" style="color: #333; font-size: 2.25rem;">
+                The world's leading brands are powered by <strong>Your Company Name</strong>
+            </h2>
+        </div>
+
+        <div class="logo-scroll-container">
+            <div class="d-flex flex-nowrap align-items-center justify-content-start logo-list auto-scroll">
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Yamaha Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Mercedes Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Close Brothers Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Nissan Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Mini Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="BMW Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="BYD Logo">
                 </div>
 
-                <div class="info-wrapper">
-                    <div class="row gy-4">
-                        <div class="col-lg-5">
-                            <div
-                                class="profile d-flex align-items-center gap-3"
-                            >
-                                <img
-                                    src="{{ asset('storage/'. $sectionTwo->ceo_founder_img) }}"
-                                    alt="CEO Profile"
-                                    class="profile-image"
-                                />
-                                <div>
-                                    <h4 class="profile-name">
-                                        {{ $sectionTwo->ceo_founder_name }}
-                                    </h4>
-                                    <p class="profile-position">
-                                        CEO &amp; Founder
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div
-                                class="contact-info d-flex align-items-center gap-2"
-                            >
-                                <i class="bi bi-telephone-fill"></i>
-                                <div>
-                                    <p class="contact-label">
-                                        Call us anytime
-                                    </p>
-                                    <p class="contact-number">
-                                        {{ $sectionTwo->contact }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Duplicate logos for seamless looping -->
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Yamaha Logo">
                 </div>
-            </div>
-
-            <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="image-wrapper">
-                    <div
-                        class="images position-relative"
-                        data-aos="zoom-out"
-                        data-aos-delay="400"
-                    >
-                        <img
-                            src="{{ asset('storage/'. $sectionTwo->large_img) }}"
-                            alt="Business Meeting"
-                            class="img-fluid main-image rounded-4"
-                        />
-                        <img
-                            src="{{ asset('storage/'. $sectionTwo->small_img) }}"
-                            alt="Team Discussion"
-                            class="img-fluid small-image rounded-4"
-                        />
-                    </div>
-                    <div class="experience-badge floating">
-                        <h3>{{ $sectionTwo->experiance }}+ <span>Years</span></h3>
-                        <p>Of experience in business service</p>
-                    </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Mercedes Logo">
+                </div>
+                <div class="logo-box">
+                    <img src="{{ asset('logo_1.png') }}" alt="Close Brothers Logo">
                 </div>
             </div>
         </div>
     </div>
 </section>
-@endif

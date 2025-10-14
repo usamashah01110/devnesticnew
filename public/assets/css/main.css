@@ -143,14 +143,16 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #0f0000;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 15px 0;
-  transition: all 0.5s;
-  z-index: 997;
+    background: rgba(0, 0, 0, 0.4); /* black with opacity */
+    color: #ffffff;
+    padding: 15px 0;
+    position: fixed; /* make it overlay hero video */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.3s ease;
+    backdrop-filter: blur(6px); /* optional – gives a glassy blur effect */
 }
 
 .header .logo {
@@ -819,18 +821,19 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  padding-top: 121px;
+  padding-top: 300px;
   position: relative;
   overflow: hidden;
+  height: 900px !important;
   padding-bottom: 119px;
 }
 
 .hero .hero-content h2 {
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  color: var(--heading-color);
+  color: #ffffff !important;
 }
 
 @media (max-width: 992px) {
@@ -846,9 +849,9 @@ section,
 }
 
 .hero .hero-content p {
-  font-size: 1.1rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
-  color: var(--default-color);
+  color: #ffffff !important;
 }
 
 .hero .hero-content .hero-btns {
@@ -862,7 +865,6 @@ section,
     flex-direction: column;
   }
 }
-
 .hero .hero-content .hero-btns .btn {
   padding: 12px 30px;
   font-weight: 600;

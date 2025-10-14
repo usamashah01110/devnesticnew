@@ -1,14 +1,14 @@
 @extends('admin.main')
 @section('title', 'Section four')
 @section('content')
-    <div class="container">
-        <div class="container">
+    <div class="container-fluid">
+
             <!-- Page header Start -->
             <div class="d-flex align-items-center justify-content-between">
-                <h2 class="mb-0">Create Section Four</h2>
+                <h2 class="mb-0">Create Project</h2>
                 <a href="{{ route('section.create.view', ['section'=> 'project']) }}">
                     <button type="button" class="btn btn-primary">
-                        Create Section Four
+                        Create Project
                     </button>
                 </a>
             </div>
@@ -43,17 +43,16 @@
 
                                 <td>
                                     <img src="{{ asset('storage/'. $sec->image) }}" alt="Image"
-                                         class="rounded shadow-sm border" width="32" height="32">
+                                         class="rounded shadow-sm border" width="50px" height="50px">
                                 </td>
-                                <td class="text-truncate" style="max-width:90px;">
-                                    <a href="{{ route('section.delete',['section'=>'project', 'id'=>$sec->id]) }}">
-                                        <button class="badge badge-danger">Delete</button>
+                                <td class="text-truncate text-center">
+                                    <a href="{{ route('section.delete',['section'=>'project', 'id'=>$sec->id]) }}"  class="btn btn-danger">
+                                        Delete
                                     </a>
-                                    <br>
-                                    <br>
-                                        <a href="{{ route('section.edit.view', ['section'=>'project', 'id'=>$sec->id]) }}">
-                                            <button class="badge badge-success">Edit</button>
-                                        </a>
+
+                                    <a href="{{ route('section.edit.view', ['section'=>'project', 'id'=>$sec->id]) }}" class="btn btn-success">
+                                        Edit
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -63,5 +62,5 @@
                 <br>
             </div>
         </div>
-    </div>
+
 @endsection

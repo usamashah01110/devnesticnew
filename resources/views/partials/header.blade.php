@@ -2,9 +2,7 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
         <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.webp" alt=""> -->
-            <h1 class="sitename"><span>D</span>evnestic</h1>
+                 <img src="assets/img/logo.webp" alt="">
         </a>
 
         <nav id="navmenu" class="navmenu">

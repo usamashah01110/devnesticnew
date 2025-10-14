@@ -32,7 +32,7 @@ return [
             'small_img' => 'nullable|image|max:2048',
             'contact' => 'nullable|string'
         ],
-        'file_fields' => ['large_img', 'small_img'],
+        'file_fields' => ['ceo_founder_img','large_img', 'small_img'],
     ],
 
     'service' => [
