@@ -16,28 +16,6 @@ class MainController extends Controller
 {
     public function index()
     {
-
-        $sectionOne = SectionOne::latest()->first();
-        $sectionTwo = Sectiontwo::latest()->first();
-        $sectionThree = SectionThree::all();
-        $sectionFour = SectionFour::all();
-        $sectionFive = SectionFive::all();
-        $sectionSix = SectionSix::all();
-        $sectionSeven = SectionSeven::latest()->first();
-        $sectionEight = SectionEight::all();
-
-        return view(
-            'layouts.main',
-            compact(
-                'sectionOne',
-                'sectionTwo',
-                'sectionThree',
-                'sectionFour',
-                'sectionFive',
-                'sectionSix',
-                'sectionSeven',
-                'sectionEight'
-            )
-        );
+        return view('index');
     }
 }
