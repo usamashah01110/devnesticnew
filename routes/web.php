@@ -27,7 +27,9 @@ Route::get('/dashboard', [AdminController::class, 'indexPage'])->name('dashboard
 
 
 Route::get('/Portfolio', [PortfolioController::class, 'viewDeveloperPorfolio'])->name('developer.portfolio.view');
-
+Route::get('/blog', function () {
+    return view('pages.blog');
+})->name("blog");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,13 +38,13 @@ Route::middleware('auth')->group(function () {
 
     // Section 1
     Route::prefix('admin/{section}')->controller(DynamicSectionController::class)->group(function () {
-            Route::get('/', 'index')->name('section.index');
-            Route::get('/create', 'create')->name('section.create.view');
-            Route::post('/store', 'store')->name('section.store');
-            Route::get('/edit/{id}', 'edit')->name('section.edit.view');
-            Route::post('/update', 'update')->name('section.update');
-            Route::get('/delete/{id}', 'destroy')->name('section.delete');
-        });
+        Route::get('/', 'index')->name('section.index');
+        Route::get('/create', 'create')->name('section.create.view');
+        Route::post('/store', 'store')->name('section.store');
+        Route::get('/edit/{id}', 'edit')->name('section.edit.view');
+        Route::post('/update', 'update')->name('section.update');
+        Route::get('/delete/{id}', 'destroy')->name('section.delete');
+    });
 
 
     // Section 9

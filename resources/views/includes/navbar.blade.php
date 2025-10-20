@@ -3,7 +3,8 @@
 
         <!-- ===== Logo Section ===== -->
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-            <img src="{{ asset('landingpage/assets/img/logo.png') }}" alt="Company Logo" class="img-fluid" style="height: 80px;">
+            <img src="{{ asset('landingpage/assets/img/logo.png') }}" alt="Company Logo" class="img-fluid"
+                 style="height: 80px;">
             <!-- Optional: Text beside logo -->
             <!-- <h1 class="sitename ms-2">Devnestic</h1> -->
         </a>
@@ -12,10 +13,10 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="" class="active">Home</a></li>
-                <li><a href="">Blogs</a></li>
+                <li><a href="{{route('blog')}}">Blogs</a></li>
 
                 <li class="dropdown">
-                    <a href="#"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <a href="#services"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                         <li><a href="#">Website Development</a></li>
                         <li><a href="#">UI/UX Design</a></li>
