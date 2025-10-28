@@ -1,0 +1,945 @@
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --logoColor:#A3721E;
+    --light : #fff;
+    --dark:#101A20;
+}
+body {
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Hero Section Styles */
+.hero-section {
+    background-color:var(--dark); /* Light background similar to the image */
+    padding: 80px 0;
+    text-align: center;
+    color: var(--light);
+}
+
+.hero-section h1 {
+    font-size: 3.2em; /* Adjust as needed */
+    color: var(--light);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.15em;
+    color: var(--light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Call to Action Banner Styles */
+.cta-banner {
+    background-color: var(--logoColor); /* Primary blue from button, adjust if needed */
+    color: var(--light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-banner h2 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.cta-banner p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Responsive adjustments for Hero and CTA sections */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+    .hero-description {
+        font-size: 1.1em;
+    }
+
+    .cta-banner {
+        padding: 50px 0;
+    }
+    .cta-banner h2 {
+        font-size: 2em;
+    }
+    .cta-banner p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 0;
+    }
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .cta-banner {
+        padding: 40px 0;
+    }
+    .cta-banner h2 {
+        font-size: 1.8em;
+    }
+    .cta-banner p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+    .hero-description {
+        font-size: 0.9em;
+    }
+    .cta-banner h2 {
+        font-size: 1.5em;
+    }
+    .cta-banner p {
+        font-size: 0.9em;
+    }
+}
+
+/* Brands Empowered Section */
+.brands-section {
+    background-color: var(--dark); 
+    padding: 60px 0;
+    text-align: center;
+}
+
+.brands-section h3 {
+    font-size: 1.8em;
+    color: var(--light);
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 50px; /* Space between logos */
+    max-width: 900px; /* Limit width of logo container */
+    margin: 0 auto;
+}
+
+.brand-item {
+    flex-basis: 180px; /* Initial width for each logo item */
+    display: flex; /* To center the image within its flex basis */
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-item img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* Make logos grayscale initially */
+    opacity: 0.6; /* Slightly faded */
+    transition: all 0.3s ease;
+}
+
+.brand-item img:hover {
+    filter: grayscale(0%); /* Color on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Responsive adjustments for Brands Section */
+@media (max-width: 992px) {
+    .brands-section h3 {
+        font-size: 1.6em;
+        margin-bottom: 30px;
+    }
+    .brand-logos {
+        gap: 40px;
+    }
+    .brand-item {
+        flex-basis: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brands-section {
+        padding: 40px 0;
+    }
+    .brands-section h3 {
+        font-size: 1.4em;
+        margin-bottom: 25px;
+    }
+    .brand-logos {
+        gap: 30px;
+    }
+    .brand-item {
+        flex-basis: 120px; /* Even smaller for more items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .brands-section h3 {
+        font-size: 1.2em;
+    }
+    .brand-logos {
+        gap: 20px;
+    }
+    .brand-item {
+        flex-basis: 100px; /* Allow logos to stack more easily */
+    }
+}
+
+/* Comparison Section */
+.comparison-section {
+    padding: 80px 0;
+    background-color: var(--dark);
+}
+
+.comparison-section .section-title {
+    font-size: 2.5em;
+    color: var(--light);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.comparison-section .section-subtitle {
+    font-size: 1.1em;
+    color: var(--light);
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    line-height: 1.7;
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto; /* Enables horizontal scrolling for the table on small screens */
+    -webkit-overflow-scrolling: touch; /* Improves scrolling performance on touch devices */
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Subtle shadow for the table */
+    min-width: 700px; /* Ensure table doesn't get too narrow before activating scroll */
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 18px 25px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.comparison-table thead th {
+    background-color: var(--dark); /* Header background color */
+    color: var(--light);
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: var(--dark); /* Alternate row background */
+    color: var(--light);
+}
+
+.comparison-table tbody tr:hover {
+    background-color:rgba(255, 255, 255, 0.24); /* Highlight row on hover */
+    color:var(--dark);
+}
+
+.comparison-table tbody td {
+    color: var(--light);
+    font-size: 1em;
+}
+
+/* Specific styling for the 'Criteria' column */
+.comparison-table tbody td:first-child {
+    font-weight: 600;
+    color:var(--light);
+}
+
+/* Responsive adjustments for the comparison table */
+@media (max-width: 992px) {
+    .comparison-section .section-title {
+        font-size: 2.2em;
+    }
+    .comparison-section .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-section {
+        padding: 60px 0;
+    }
+    .comparison-section .section-title {
+        font-size: 2em;
+    }
+    .comparison-section .section-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+    /* Mobile-first approach for tables, enabling horizontal scroll */
+    .comparison-table {
+        min-width: auto; /* Remove min-width on small screens */
+    }
+}
+
+/* When the table needs to be displayed in a more compact way (if desired, not strictly like the image) */
+/* The overflow-x: auto is usually sufficient for tables, but for extreme cases, you can restyle as follows:*/
+@media (max-width: 600px) {
+    .comparison-table thead {
+        display: none; 
+    }
+    .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td {
+        display: block; /* Make table elements behave like blocks*/
+        width: 100%;
+    }
+    .comparison-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .comparison-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    .comparison-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .comparison-table tbody td:first-child::before {
+        content: "Criteria";
+    }
+    .comparison-table tbody td:nth-child(2)::before {
+        content: "IT Staff Augmentation";
+    }
+    .comparison-table tbody td:nth-child(3)::before {
+        content: "Hiring a Freelancer";
+    }
+}
+
+/* The Teams You Can Augment Section */
+.augment-teams-section {
+    background-color: var(--dark); /* Light background */
+    padding: 80px 0;
+}
+
+.augment-teams-section .section-title {
+    font-size: 2.5em;
+    color: var(--light);
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.augment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.augment-item {
+    background-color: var(--logoColor);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid rgba(255, 255, 255, 0.486); /* Left border color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.augment-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.322);
+}
+
+.augment-item h4 {
+    font-size: 1.4em;
+    color: var(--light);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.augment-item p {
+    font-size: 1em;
+    color: var(--light);
+    line-height: 1.7;
+}
+
+/* Responsive adjustments for Augment Teams Section */
+@media (max-width: 992px) {
+    .augment-teams-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .augment-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .augment-item {
+        padding: 25px;
+    }
+    .augment-item h4 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .augment-teams-section {
+        padding: 60px 0;
+    }
+    .augment-teams-section .section-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .augment-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 20px;
+    }
+    .augment-item {
+        padding: 20px;
+    }
+    .augment-item h4 {
+        font-size: 1.2em;
+    }
+}
+
+/* Operational Efficiency Steps Section */
+.efficiency-steps-section {
+    background-color: var(--dark);
+    padding: 80px 0;
+}
+
+.efficiency-steps-section .section-title {
+    font-size: 2.5em;
+    color: var(--light);
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Two columns on larger screens */
+    gap: 40px;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start; /* Align icon and text to the top */
+    gap: 25px;
+    background-color: var(--logoColor);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(221, 218, 218, 0.226);
+    border: 1px solid #eee;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.step-item:hover {
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.233);
+    border-color: #e0e0e0;
+}
+
+.step-icon {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    width: 60px; /* Fixed width for icon container */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light); /* Light blue background for icon */
+    border-radius: 50%; /* Circular background */
+}
+
+.step-icon img {
+    width: 35px; /* Size of the icon SVG */
+    height: 35px;
+}
+
+.step-content h4 {
+    font-size: 1.3em;
+    color: var(--light);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.step-content p {
+    font-size: 1em;
+    color: var(--light);
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for Steps Section */
+@media (max-width: 992px) {
+    .efficiency-steps-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 50px;
+    }
+    .steps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjust minmax for smaller screens */
+        gap: 30px;
+    }
+    .step-item {
+        padding: 20px;
+        gap: 20px;
+    }
+    .step-icon {
+        width: 55px;
+        height: 55px;
+    }
+    .step-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    .step-content h4 {
+        font-size: 1.2em;
+    }
+    .step-content p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 768px) {
+    .efficiency-steps-section {
+        padding: 60px 0;
+    }
+    .efficiency-steps-section .section-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    .steps-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 25px;
+    }
+    .step-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .step-icon img {
+        width: 28px;
+        height: 28px;
+    }
+    .step-content h4 {
+        font-size: 1.1em;
+    }
+    .step-content p {
+        font-size: 0.9em;
+    }
+}
+
+/* Centralized Teams Section */
+.centralized-teams-section {
+    background-color: var(--dark); /* Very light background */
+    padding: 80px 0;
+}
+
+.centralized-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px; /* Space between text and image */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 40px 60px; /* Padding inside the card */
+}
+
+.centralized-text {
+    flex: 1; /* Allow text to take available space */
+    max-width: 50%; /* Control text width relative to image */
+}
+
+.centralized-text h3 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.centralized-text p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.7;
+}
+
+.centralized-image {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    max-width: 45%; /* Control image width */
+}
+
+.centralized-image img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+    border-radius: 8px; /* Slightly rounded corners for the image */
+}
+
+/* Responsive adjustments for Centralized Teams Section */
+@media (max-width: 992px) {
+    .centralized-content {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center;
+        padding: 30px 40px;
+        gap: 30px;
+    }
+    .centralized-text {
+        max-width: 100%; /* Text takes full width */
+    }
+    .centralized-text h3 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    .centralized-text p {
+        font-size: 1em;
+    }
+    .centralized-image {
+        max-width: 70%; /* Adjust image size when stacked */
+    }
+}
+
+@media (max-width: 768px) {
+    .centralized-teams-section {
+        padding: 60px 0;
+    }
+    .centralized-content {
+        padding: 25px 30px;
+        gap: 25px;
+    }
+    .centralized-text h3 {
+        font-size: 1.8em;
+    }
+    .centralized-text p {
+        font-size: 0.95em;
+    }
+    .centralized-image {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .centralized-content {
+        padding: 20px 20px;
+    }
+    .centralized-text h3 {
+        font-size: 1.6em;
+    }
+    .centralized-text p {
+        font-size: 0.9em;
+    }
+    .centralized-image {
+        max-width: 90%;
+    }
+}
+
+/* Partnerships & Recognition Section */
+.partnerships-section {
+    background-color: #f8fafd; /* Light background */
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.partnerships-section h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.partnerships-section p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.partnership-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 30px; /* Space between logos */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.partnership-item {
+    flex-basis: auto; /* Allow items to size naturally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partnership-item img {
+    max-width: 150px; /* Max width for individual logos */
+    height: auto;
+    filter: grayscale(80%); /* Slightly desaturate */
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.partnership-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Responsive adjustments for Partnerships Section */
+@media (max-width: 992px) {
+    .partnerships-section h3 {
+        font-size: 1.6em;
+    }
+    .partnerships-section p {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+    .partnership-logos {
+        gap: 25px;
+    }
+    .partnership-item img {
+        max-width: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    .partnerships-section {
+        padding: 40px 0;
+    }
+    .partnerships-section h3 {
+        font-size: 1.4em;
+    }
+    .partnerships-section p {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+    .partnership-logos {
+        gap: 20px;
+    }
+    .partnership-item img {
+        max-width: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partnership-logos {
+        gap: 15px;
+    }
+    .partnership-item img {
+        max-width: 90px;
+    }
+}
+
+/* Footer Section */
+.main-footer {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0;
+    padding: 60px 0 20px 0;
+    font-size: 0.95em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible columns */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-size: 1.2em;
+    color: #007bff; /* Accent color for headings */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-col p,
+.footer-col ul {
+    margin-bottom: 10px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+.footer-about .footer-logo img {
+    height: 35px; /* Adjust logo size */
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1); /* Make logo white for dark background */
+}
+
+.footer-about p {
+    color: #cccccc;
+    line-height: 1.7;
+}
+
+.footer-contact p {
+    color: #cccccc;
+    line-height: 1.7;
+}
+
+.footer-contact a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1) opacity(0.8); /* White and slightly faded */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    filter: brightness(0) invert(1) opacity(1); /* Full white on hover */
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 40px;
+    font-size: 0.85em;
+    color: #999;
+}
+
+/* Responsive adjustments for Footer */
+@media (max-width: 1200px) {
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .main-footer {
+        padding: 50px 0 20px 0;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 25px;
+    }
+    .footer-col h4 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+    .footer-col ul li a {
+        font-size: 0.9em;
+    }
+    .footer-about p,
+    .footer-contact p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 0 15px 0;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+    }
+    .footer-col h4 {
+        font-size: 1em;
+        margin-bottom: 12px;
+    }
+    .footer-col ul li a {
+        font-size: 0.85em;
+    }
+    .footer-about p,
+    .footer-contact p {
+        font-size: 0.85em;
+    }
+    .social-icons img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack all columns vertically */
+        text-align: center;
+    }
+    .footer-col {
+        margin-bottom: 20px; /* Add space between stacked columns */
+    }
+    .footer-col h4 {
+        text-align: center;
+    }
+    .footer-col ul {
+        display: flex; /* Make list items inline for better flow */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px; /* Adjust gap for inline list items */
+    }
+    .footer-col ul li {
+        margin-bottom: 0;
+    }
+    .footer-about .footer-logo,
+    .footer-contact,
+    .footer-social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-about p {
+        max-width: 80%; /* Constrain width of about text */
+        margin: 0 auto;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}

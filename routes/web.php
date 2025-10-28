@@ -24,7 +24,13 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::get('/dashboard', [AdminController::class, 'login'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', [AdminController::class, 'indexPage'])->name('dashboard.index');
+Route::get("/Staf-augmentation", function() {
+    return view('pages.staffAugmentationServices');
+})->name("staff.augmentation.service");
 
+Route::get('/about', function () {
+    return view('pages.aboutUs');
+})->name('about.us');
 
 Route::get('/Portfolio', [PortfolioController::class, 'viewDeveloperPorfolio'])->name('developer.portfolio.view');
 Route::get('/blog', function () {

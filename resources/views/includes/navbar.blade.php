@@ -1,4 +1,4 @@
-<header id="header" class="header d-flex align-items-center light-background sticky-top">
+<header id="header" class="header d-flex align-items-center light-background sticky-top" style="backdrop-filter: blur(10px);">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
         <!-- ===== Logo Section ===== -->
@@ -22,13 +22,14 @@
                         <li><a href="#">UI/UX Design</a></li>
                         <li><a href="#">Mobile App Development</a></li>
                         <li><a href="#">Social Media Marketing</a></li>
+                        <li><a href="{{ route('staff.augmentation.service') }}">Staff Augmentation Services</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#"><span>Company</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="{{ route('about.us') }}">About Us</a></li>
                         <li><a href="#">Portfolio</a></li>
                         <li><a href="#">Culture</a></li>
                     </ul>
