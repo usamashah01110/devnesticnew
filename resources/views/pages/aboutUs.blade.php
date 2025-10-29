@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Britto Charette - About Us</title>
+    <title>About US</title>
+    <link href="{{ asset('logo_1.png') }}" rel="icon">
+    <link href="{{ asset('logo_1.png') }}" rel="apple-touch-icon">
     <!-- <link rel="stylesheet" href="style.css"> -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@400&display=swap"
         rel="stylesheet" />
@@ -294,6 +297,7 @@
             background-color: #ebebeb;
             /* Lighter grey background for this section */
             margin-top: 50px;
+            margin-bottom: 50px;
             border-radius: 10px;
             margin-left: 5%;
             margin-right: 5%;
@@ -385,6 +389,110 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        .help-section {
+            width: 100%;
+            height: 50vh; /* 50% of the viewport height */
+            background-color: #f8f8f8; /* A light off-white background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif; /* Or a similar clean sans-serif font */
+            position: relative;
+            overflow: hidden; /* Ensures the background shapes don't go out */
+        }
+
+        /* Redefining ::before for the top-right dotted grid */
+        .help-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 250px;
+            background-image: radial-gradient(
+                circle,
+                var(--color) 1.5px,
+                transparent 1.5px
+            ),
+                /* Even darker dots */
+            radial-gradient(circle, #333333 1.5px, transparent 1.5px);
+            background-size: 15px 15px;
+            background-position: 0 0, 7.5px 7.5px;
+            /* Circular gradient mask from top-right corner, opaque at corner, transparent away */
+            mask-image: radial-gradient(circle at 100% 0%, black, transparent 60%);
+            -webkit-mask-image: radial-gradient(
+                circle at 100% 0%,
+                black,
+                transparent 60%
+            );
+            opacity: 0.9; /* Higher opacity for darker appearance */
+            z-index: 0;
+        }
+
+        /* Redefining ::after for the bottom-left dotted grid */
+        .help-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background-image: radial-gradient(
+                circle,
+                var(--color) 1.5px,
+                transparent 1.5px
+            ),
+                /* Even darker dots */
+            radial-gradient(circle, #333333 1.5px, transparent 1.5px);
+            background-size: 15px 15px;
+            background-position: 0 0, 7.5px 7.5px;
+            /* Circular gradient mask from bottom-left corner, opaque at corner, transparent away */
+            mask-image: radial-gradient(circle at 0% 100%, black, transparent 60%);
+            -webkit-mask-image: radial-gradient(
+                circle at 0% 100%,
+                black,
+                transparent 60%
+            );
+            opacity: 0.9; /* Higher opacity for darker appearance */
+            z-index: 0;
+        }
+
+        .content {
+            z-index: 1; /* Ensure content is above the background shapes */
+        }
+
+        .help-section h1 {
+            font-size: 2.5em; /* Adjust as needed */
+            color: #333;
+            margin-bottom: 0.5em;
+            font-weight: normal; /* To match the thin font weight */
+        }
+
+        .help-section p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 1.5em;
+        }
+
+        .call-to-action {
+            background-color: var(--color); /* Darker grey for the button */
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .call-to-action:hover {
+            background-color: #F1A934FF; /* Slightly lighter on hover */
+        }
+
     </style>
 </head>
 
@@ -457,7 +565,18 @@
                 </div>
             </div>
         </section>
+        <div class="help-section">
+            <div class="content">
+                <h1>How can we help you?</h1>
+                <p>
+                    Are you ready to push boundaries and explore new frontiers of
+                    innovation?
+                </p>
+                <button class="call-to-action">LET'S WORK TOGETHER</button>
+            </div>
+        </div>
     </main>
+@include('includes.footer')
 </body>
 
 </html>
