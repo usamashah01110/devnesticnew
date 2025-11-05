@@ -22,6 +22,7 @@
                         <li><a href="#">UI/UX Design</a></li>
                         <li><a href="#">Mobile App Development</a></li>
                         <li><a href="#">Social Media Marketing</a></li>
+                        <li><a href="{{route('Service-details')}}">Services Details</a></li>
                         <li><a href="{{ route('staff.augmentation') }}">Staff Augmentation</a></li>
                     </ul>
                 </li>

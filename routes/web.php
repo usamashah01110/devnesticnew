@@ -58,4 +58,9 @@ Route::middleware('auth')->group(function () {
 Route::get("/auth/google", [GoogleController::class, "redirectToGoogle"])->name('google.login');
 Route::get("/auth/callback", [GoogleController::class, "handleGoogleCallback"])->name('google.callback');
 
+Route::get('/service-details', function () {
+    return view('pages.servicedetails');
+})->name('Service-details');
+
+
 require __DIR__ . '/auth.php';
