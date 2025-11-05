@@ -9,11 +9,11 @@
                 <p class="footer-desc">
                     We provide the expertise and support to propel your business forward.
                 </p>
-                <div class="footer-social">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Upwork-logo.svg" alt="Upwork">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Clutch_logo.png" alt="Clutch">
+                <div  class="social-links d-flex">
+                    <a href="https://x.com/devnestic21"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://www.facebook.com/share/1A4EtZ9FmX/"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/devnestic.official?igsh=MXhhN2RlMmJraDh3bg=="><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/devnestic"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@
                 <p>
                     Our team of IT experts looks forward to meeting with you and providing valuable insights tailored to your business.
                 </p>
-                <a href="#" class="footer-btn">Get an appointment now</a>
+                <a href="{{ route('contact') }}" class="footer-btn">Get an appointment now</a>
 
             </div>
         </div>
@@ -31,37 +31,35 @@
         <!-- Bottom Section -->
         <div class="footer-bottom">
             <div class="footer-column">
-                <h4>Services</h4>
+                <h4 style="color: #ffbd59" >Services</h4>
                 <ul>
-                    <li>Web Development</li>
-                    <li>CRM Integration</li>
-                    <li>Digital Marketing</li>
-                    <li>E-Commerce</li>
-                    <li>Mobile App Development</li>
+                    <li ><a href="#" style="color: white">Website Development</a></li>
+                    <li ><a href="#" style="color: white" >UI/UX Design</a></li>
+                    <li ><a href="#" style="color: white" >Mobile App Development</a></li>
+                    <li ><a href="#" style="color: white" >Social Media Marketing</a></li>
+                    <li ><a href="{{ route('staff.augmentation') }}" style="color: white" >Staff Augmentation</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
-                <h4>Company</h4>
+                <h4 style="color: #ffbd59">Company</h4>
                 <ul>
-                    <li>About Us</li>
-                    <li>Portfolio</li>
-                    <li>Culture</li>
-                    <li>Careers</li>
-                    <li>Privacy Policy</li>
+                    <li ><a href="{{ route('about.us') }}" style="color: white"> About Us</a></li>
+                    <li ><a href="#" style="color: white">Portfolio</a></li>
+                    <li ><a href="#" style="color: white">Culture</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
-                <h4>Contact</h4>
-                <p><strong>Phone:</strong> +971-58-139-8933</p>
-                <p><strong>Mail:</strong> sales@devsspace.com</p>
+                <h4 style="color: #ffbd59">Contact</h4>
+                <p><strong>Phone:</strong> +92-339-4003237</p>
+                <p><strong>Mail:</strong> sales@devnestic.com</p>
             </div>
         </div>
     </div>
 
     <div class="footer-copy">
-        © 2025 Devsspace. All rights reserved.
+        © {{ date('Y') }} Devnestic. All rights reserved.
     </div>
 </footer>
 

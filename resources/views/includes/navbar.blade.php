@@ -22,7 +22,7 @@
                         <li><a href="#">UI/UX Design</a></li>
                         <li><a href="#">Mobile App Development</a></li>
                         <li><a href="#">Social Media Marketing</a></li>
-                        <li><a href="{{ route('staff.augmentation.service') }}">Staff Augmentation Services</a></li>
+                        <li><a href="{{ route('staff.augmentation') }}">Staff Augmentation</a></li>
                     </ul>
                 </li>
 
@@ -42,10 +42,10 @@
 
         <!-- ===== Social Icons ===== -->
         <div class="header-social-links d-flex align-items-center">
-            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com/devnestic21"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/share/1A4EtZ9FmX/"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/devnestic.official?igsh=MXhhN2RlMmJraDh3bg=="><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/devnestic"><i class="bi bi-linkedin"></i></a>
         </div>
 
     </div>

@@ -1,98 +1,97 @@
-@if($sectionSeven)
+@extends('includes.main')
+@section('mainContent')
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
 
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Contact</h2>
+            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
+        </div><!-- End Section Title -->
 
-<section id="contact" class="contact section light-background">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div><!-- End Section Title -->
+            <div class="row g-4 g-lg-5">
+                <div class="col-lg-5">
+                    <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Contact Info</h3>
+                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="content">
+                                <h4>Our Location</h4>
+                                <p>Opposite Madina Dera Restaurent</p>
+                                <p>Street Hafiz Sweets Lahore Sargodha Road</p>
+                            </div>
+                        </div>
 
-    <div class="row g-4 g-lg-5">
-      <div class="col-lg-5">
-        <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-          <h3>Contact Info</h3>
-          <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+                        <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="icon-box">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <div class="content">
+                                <h4>Phone Number</h4>
+                                <p>+92-339-4003237</p>
+                                <p>+92-301-4800679/p>
+                            </div>
+                        </div>
 
-          <div class="info-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <i class="bi bi-geo-alt"></i>
+                        <div class="info-item" data-aos="fade-up" data-aos-delay="500">
+                            <div class="icon-box">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div class="content">
+                                <h4>Email Address</h4>
+                                <p>info@devnestic.com</p>
+                                <p>contact@devnestic.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Get In Touch</h3>
+
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                                    <button type="submit" class="btn">Send Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="content">
-              <h4>Our Location</h4>
-              <p>{{ $sectionSeven->building_number }} {{ $sectionSeven->street }}</p>
-              <p>{{ $sectionSeven->city }}, {{ $sectionSeven->zip_code }}</p>
-            </div>
-          </div>
 
-          <div class="info-item" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon-box">
-              <i class="bi bi-telephone"></i>
-            </div>
-            <div class="content">
-              <h4>Phone Number</h4>
-              <p>{{ $sectionSeven->contact_one }}</p>
-              <p>{{ $sectionSeven->contact_two }}</p>
-            </div>
-          </div>
-
-          <div class="info-item" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon-box">
-              <i class="bi bi-envelope"></i>
-            </div>
-            <div class="content">
-              <h4>Email Address</h4>
-              <p>{{ $sectionSeven->email }}</p>
-
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="col-lg-7">
-        <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-          <h3>Get In Touch</h3>
-          <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
-
-          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-              </div>
-
-              <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-              </div>
-
-              <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-              </div>
-
-              <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-              </div>
-
-              <div class="col-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit" class="btn">Send Message</button>
-              </div>
-
-            </div>
-          </form>
-
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-@endif
+    </section><!-- /Contact Section -->
+@endsection
