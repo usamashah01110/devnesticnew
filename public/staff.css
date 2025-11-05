@@ -10,7 +10,7 @@
     --dark:#101A20;
 }
 body {
-    font-family: 'Inter', sans-serif; 
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
 }
 
@@ -31,7 +31,7 @@ body {
 
 .hero-section h1 {
     font-size: 3.2em; /* Adjust as needed */
-    color: var(--light);
+    color: var(--logoColor);
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -127,7 +127,7 @@ body {
 
 /* Brands Empowered Section */
 .brands-section {
-    background-color: var(--dark); 
+    background-color: var(--dark);
     padding: 60px 0;
     text-align: center;
 }
@@ -314,7 +314,7 @@ body {
 /* The overflow-x: auto is usually sufficient for tables, but for extreme cases, you can restyle as follows:*/
 @media (max-width: 600px) {
     .comparison-table thead {
-        display: none; 
+        display: none;
     }
     .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td {
         display: block; /* Make table elements behave like blocks*/
@@ -569,7 +569,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 40px; /* Space between text and image */
-    background-color: #fff;
+    background-color: #101a20;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     padding: 40px 60px; /* Padding inside the card */
@@ -582,7 +582,7 @@ body {
 
 .centralized-text h3 {
     font-size: 2.5em;
-    color: #333;
+    color: var(--logoColor);
     margin-bottom: 20px;
     font-weight: 700;
     line-height: 1.2;
@@ -590,7 +590,7 @@ body {
 
 .centralized-text p {
     font-size: 1.1em;
-    color: #666;
+    color: var(--light);
     line-height: 1.7;
 }
 
@@ -665,7 +665,7 @@ body {
 
 /* Partnerships & Recognition Section */
 .partnerships-section {
-    background-color: #f8fafd; /* Light background */
+    background-color: #101a20; /* Light background */
     padding: 60px 0;
     text-align: center;
     border-top: 1px solid #eee;
@@ -673,14 +673,14 @@ body {
 
 .partnerships-section h3 {
     font-size: 1.8em;
-    color: #333;
+    color: var(--logoColor);
     margin-bottom: 5px;
     font-weight: 600;
 }
 
 .partnerships-section p {
     font-size: 1em;
-    color: #666;
+    color: var(--light);
     margin-bottom: 40px;
 }
 

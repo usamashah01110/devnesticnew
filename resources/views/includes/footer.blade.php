@@ -25,20 +25,6 @@
                 </p>
                 <a href="#" class="footer-btn">Get an appointment now</a>
 
-                <div class="footer-stats">
-                    <div>
-                        <h4>2 Mins</h4>
-                        <p>Response Time</p>
-                    </div>
-                    <div>
-                        <h4>99%</h4>
-                        <p>Client Satisfaction</p>
-                    </div>
-                    <div>
-                        <h4>13+</h4>
-                        <p>Years Experience</p>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -82,7 +68,7 @@
 <!-- ===== CSS ===== -->
 <style>
     .footer {
-        background: #0b0b0b;
+        background: #101a20;
         color: #ccc;
         font-family: "Poppins", sans-serif;
         padding: 60px 0 20px;
@@ -151,7 +137,7 @@
     }
 
     .footer-btn {
-        background: #0057ff;
+        background: #A3721E;
         color: #fff;
         padding: 10px 20px;
         border-radius: 4px;
@@ -163,7 +149,8 @@
     }
 
     .footer-btn:hover {
-        background: #003fd6;
+        background: #83570b;
+        color:white;
     }
 
     .footer-stats {
