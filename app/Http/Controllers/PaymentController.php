@@ -14,20 +14,19 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PaymentController extends Controller
 {
-
     private $mbmeConfig = [
-//        'api_url' => 'https://pgapi.mbmepay.ae/api/v2/payments/create-order',
-//        'api_url_payment' => 'https://pgapi.mbmepay.ae/api/v2/order',
-//        'bearer_token' => 'IjTcRdZ3bHY5FUA75wAc7r4+snfu8O+HWRKqLliYj48=',
-//        'key' => '68a4390d0a36ce343333ee8c',
-//        'uid' => '129',
-//        'algorithm' => 'SHA-256'
-         'api_url' => 'https://pgapi.mbme.org/api/v2/payments/create-order',
-         'api_url_payment' => 'https://pgapi.mbme.org/api/v2/order',
-         'bearer_token' => '4XvqQpDsSa5nF0kjE7ypKSwGagefxFL2Iws1mwP7YZs=',
-         'key' => '68a7289aedab8f2be559955b',
-         'uid' => '158',
-         'algorithm' => 'SHA-256',
+        'api_url' => 'https://pgapi.mbmepay.ae/api/v2/payments/create-order',
+        'api_url_payment' => 'https://pgapi.mbmepay.ae/api/v2/order',
+        'bearer_token' => 'T6MoTgMNl5t+zjPrKTomdBxRD2SXdwhN4M5lBTnGvEY=',
+        'key' => '687fc7dd8b3b53a7a0ca1a09',
+        'uid' => '121',
+        'algorithm' => 'SHA-256'
+//         'api_url' => 'https://pgapi.mbme.org/api/v2/payments/create-order',
+//         'api_url_payment' => 'https://pgapi.mbme.org/api/v2/order',
+//         'bearer_token' => '4XvqQpDsSa5nF0kjE7ypKSwGagefxFL2Iws1mwP7YZs=',
+//         'key' => '68a7289aedab8f2be559955b',
+//         'uid' => '158',
+//         'algorithm' => 'SHA-256',
     ];
 
     public function index($price, $currency){
