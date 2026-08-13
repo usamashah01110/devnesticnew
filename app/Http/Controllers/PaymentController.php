@@ -15,18 +15,18 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class PaymentController extends Controller
 {
     private $mbmeConfig = [
-        'api_url' => 'https://pgapi.mbmepay.ae/api/v2/payments/create-order',
-        'api_url_payment' => 'https://pgapi.mbmepay.ae/api/v2/order',
-        'bearer_token' => 'T6MoTgMNl5t+zjPrKTomdBxRD2SXdwhN4M5lBTnGvEY=',
-        'key' => '687fc7dd8b3b53a7a0ca1a09',
-        'uid' => '121',
-        'algorithm' => 'SHA-256'
-//         'api_url' => 'https://pgapi.mbme.org/api/v2/payments/create-order',
-//         'api_url_payment' => 'https://pgapi.mbme.org/api/v2/order',
-//         'bearer_token' => '4XvqQpDsSa5nF0kjE7ypKSwGagefxFL2Iws1mwP7YZs=',
-//         'key' => '68a7289aedab8f2be559955b',
-//         'uid' => '158',
-//         'algorithm' => 'SHA-256',
+        // 'api_url' => 'https://pgapi.mbmepay.ae/api/v2/payments/create-order',
+        // 'api_url_payment' => 'https://pgapi.mbmepay.ae/api/v2/order',
+        // 'bearer_token' => 'T6MoTgMNl5t+zjPrKTomdBxRD2SXdwhN4M5lBTnGvEY=',
+        // 'key' => '687fc7dd8b3b53a7a0ca1a09',
+        // 'uid' => '121',
+        // 'algorithm' => 'SHA-256'
+        'api_url' => 'https://pgapi.mbme.org/api/v2/payments/create-order',
+        'api_url_payment' => 'https://pgapi.mbme.org/api/v2/order',
+        'bearer_token' => '4XvqQpDsSa5nF0kjE7ypKSwGagefxFL2Iws1mwP7YZs=',
+        'key' => '6a74ba30e7a035b0afdee233',
+        'uid' => '306',
+        'algorithm' => 'SHA-256',
     ];
 
     public function index($price, $currency){
@@ -86,6 +86,8 @@ class PaymentController extends Controller
                 ],
             ];
 
+
+          
             $secureSign = $this->generateSignature($signingPayload, $this->mbmeConfig['key']);
 
             $payload = $signingPayload;
@@ -95,9 +97,13 @@ class PaymentController extends Controller
             $response = Http::withHeaders([
                 'Content-Type'  => 'application/json',
                 'Authorization' => 'Bearer ' . $this->mbmeConfig['bearer_token'],
-            ])->timeout(30)->post($this->mbmeConfig['api_url'], $payload);
+                ])
+                ->withoutVerifying()          // disables SSL peer verification
+                ->timeout(30)
+                ->post($this->mbmeConfig['api_url'], $payload);
 
-            if (!$response->successful()) {
+
+             if (!$response->successful()) {
                 Log::error('MBME API Error', [
                     'status'   => $response->status(),
                     'response' => $response->body()
@@ -109,6 +115,7 @@ class PaymentController extends Controller
                     'error'   => 'API request failed'
                 ], 500);
             }
+
 
             $responseData = $response->json();
 
@@ -268,9 +275,6 @@ class PaymentController extends Controller
             ], 500);
         }
     }
-
-
-
 
     /**
      * Generate a secure signature for MBME API
